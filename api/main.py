@@ -61,8 +61,14 @@ def events(run_id: str):
         raise HTTPException(404, "run không tồn tại hoặc đã kết thúc")
 
     def gen():
-        while (item := q.get()) is not None:
-            yield f"data: {json.dumps(item, ensure_ascii=False)}\n\n"
+        while True:
+            try:
+                item = q.get(timeout=15)
+                if item is None:
+                    break
+                yield f"data: {json.dumps(item, ensure_ascii=False)}\n\n"
+            except queue.Empty:
+                yield ": keepalive\n\n"
         _streams.pop(run_id, None)
 
     return StreamingResponse(gen(), media_type="text/event-stream",
