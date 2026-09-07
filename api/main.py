@@ -101,6 +101,6 @@ def stats():
 
 @app.get("/api/health")
 def health():
-    return {"ok": True, "engine": "sdk" if analyze.llm.have_sdk() else "cli",
+    return {"ok": True, "engine": analyze.llm.provider_name(),
             "corpus": len(analyze.cached_corpus()), "live_enabled": limits.ALLOW_LIVE,
             "limits": {"per_ip": limits.PER_IP, "per_day": limits.PER_DAY}}
