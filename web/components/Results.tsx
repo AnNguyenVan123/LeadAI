@@ -74,7 +74,7 @@ export default function Results({ run, onUpdate }: { run: RunResult; onUpdate: (
         </div>
       ) : (
         <div className="flex flex-col gap-3">
-          {run.leads.map((l) => <LeadCard key={l.url} lead={l} />)}
+          {run.leads.map((l) => <LeadCard key={l.url} lead={l} runId={run.run_id} />)}
         </div>
       )}
 

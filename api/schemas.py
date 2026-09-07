@@ -57,3 +57,30 @@ class RunResult(BaseModel):
 class UnlockRequest(BaseModel):
     run_id: str
     email: EmailStr
+
+
+class SaveLeadRequest(BaseModel):
+    run_id: str = ""
+    title: str = ""
+    author: str = ""
+    url: str = ""
+    problem: str = ""
+    stage: str = ""
+
+
+class UpdateLeadRequest(BaseModel):
+    notes: str | None = None
+    status: str | None = None
+
+
+class SavedLead(BaseModel):
+    id: str
+    run_id: str
+    title: str
+    author: str
+    url: str
+    problem: str
+    stage: str
+    saved_at: float
+    notes: str
+    status: str

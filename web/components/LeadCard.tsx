@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import type { Lead } from "@/lib/api";
+import { saveLead } from "@/lib/api";
 
 const TIER = {
   hot: { label: "Liên hệ ngay", stripe: "border-l-hot", text: "text-hot", chip: "bg-hot-soft text-hot" },
@@ -13,10 +14,33 @@ const FACTORS: [string, string][] = [
   ["intent", "Ý định mua"], ["recency", "Độ mới"], ["engagement", "Tương tác"],
 ];
 
-export default function LeadCard({ lead, blurred }: { lead: Lead; blurred?: boolean }) {
+export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?: string; blurred?: boolean }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
   const t = TIER[lead.tier];
+
+  const handleSave = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (saved) return;
+    setSaving(true);
+    try {
+      await saveLead({
+        run_id: runId || "",
+        title: lead.title,
+        author: lead.author,
+        url: lead.url,
+        problem: lead.problem,
+        stage: lead.one_line,
+      });
+      setSaved(true);
+    } catch (err) {
+      alert("Lỗi khi lưu lead");
+    } finally {
+      setSaving(false);
+    }
+  };
 
   return (
     <article className={`rounded border border-line border-l-[3px] ${t.stripe} bg-surface ${blurred ? "pointer-events-none select-none blur-[5px]" : ""}`}>
@@ -37,8 +61,22 @@ export default function LeadCard({ lead, blurred }: { lead: Lead; blurred?: bool
             <span>{lead.one_line}</span>
           </div>
         </div>
-        <div className="flex flex-col items-end gap-1.5">
-          <span className={`font-cond text-[11px] font-semibold uppercase tracking-[.09em] px-2 py-1 rounded-sm ${t.chip}`}>{t.label}</span>
+        <div className="flex flex-col items-end gap-2">
+          <div className="flex items-center gap-2">
+            {!blurred && (
+              <button
+                onClick={handleSave}
+                disabled={saved || saving}
+                className={`font-cond text-[11px] font-semibold uppercase tracking-[.09em] px-3 py-1 rounded border transition-colors ${
+                  saved ? "bg-green-500/10 border-green-500/20 text-green-600" :
+                  "border-line hover:border-accent hover:text-accent text-muted"
+                }`}
+              >
+                {saved ? "✓ Đã lưu" : saving ? "Đang lưu..." : "Lưu CRM"}
+              </button>
+            )}
+            <span className={`font-cond text-[11px] font-semibold uppercase tracking-[.09em] px-2 py-1 rounded-sm ${t.chip}`}>{t.label}</span>
+          </div>
           <span className={`font-mono text-[22px] tabnum ${t.text}`}>{lead.score}</span>
         </div>
       </button>

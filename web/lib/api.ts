@@ -69,3 +69,42 @@ export async function getHealth() {
   if (!r.ok) throw new Error("Máy chủ không phản hồi");
   return (await r.json()) as Health;
 }
+
+export type SavedLead = {
+  id: string; run_id: string; title: string; author: string; url: string;
+  problem: string; stage: string; saved_at: number; notes: string; status: string;
+};
+
+export async function saveLead(lead: Partial<SavedLead>) {
+  const r = await fetch(`${API}/api/leads`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(lead),
+  });
+  if (!r.ok) throw new Error("Không lưu được lead");
+  return await r.json();
+}
+
+export async function getSavedLeads() {
+  const r = await fetch(`${API}/api/leads`);
+  if (!r.ok) throw new Error("Không tải được danh sách lead");
+  return (await r.json()) as SavedLead[];
+}
+
+export async function updateLead(id: string, updates: Partial<SavedLead>) {
+  const r = await fetch(`${API}/api/leads/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(updates),
+  });
+  if (!r.ok) throw new Error("Không cập nhật được lead");
+  return await r.json();
+}
+
+export async function deleteLead(id: string) {
+  const r = await fetch(`${API}/api/leads/${id}`, {
+    method: "DELETE",
+  });
+  if (!r.ok) throw new Error("Không xóa được lead");
+  return await r.json();
+}

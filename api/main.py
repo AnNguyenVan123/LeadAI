@@ -15,7 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
 from . import analyze, limits, store
-from .schemas import AnalyzeRequest, UnlockRequest
+from .schemas import AnalyzeRequest, UnlockRequest, SaveLeadRequest, UpdateLeadRequest, SavedLead
 
 FREE_LEADS = 3
 
@@ -110,3 +110,27 @@ def health():
     return {"ok": True, "engine": analyze.llm.provider_name(),
             "corpus": len(analyze.cached_corpus()), "live_enabled": limits.ALLOW_LIVE,
             "limits": {"per_ip": limits.PER_IP, "per_day": limits.PER_DAY}}
+
+
+@app.post("/api/leads")
+def save_lead(req: SaveLeadRequest):
+    lead_id = store.save_lead(req.model_dump())
+    return {"id": lead_id}
+
+
+@app.get("/api/leads", response_model=list[SavedLead])
+def list_leads():
+    return store.list_leads()
+
+
+@app.patch("/api/leads/{lead_id}")
+def update_lead(lead_id: str, req: UpdateLeadRequest):
+    updates = {k: v for k, v in req.model_dump().items() if v is not None}
+    store.update_lead(lead_id, updates)
+    return {"ok": True}
+
+
+@app.delete("/api/leads/{lead_id}")
+def delete_lead(lead_id: str):
+    store.delete_lead(lead_id)
+    return {"ok": True}

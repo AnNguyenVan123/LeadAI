@@ -18,6 +18,10 @@ CREATE TABLE IF NOT EXISTS runs (
 CREATE TABLE IF NOT EXISTS signups (
   email TEXT PRIMARY KEY, created_at REAL, run_id TEXT, product TEXT, buyer TEXT, leads_seen INTEGER
 );
+CREATE TABLE IF NOT EXISTS saved_leads (
+  id TEXT PRIMARY KEY, run_id TEXT, title TEXT, author TEXT, url TEXT, problem TEXT, stage TEXT,
+  saved_at REAL, notes TEXT, status TEXT DEFAULT 'New'
+);
 """
 
 
@@ -74,3 +78,41 @@ def stats() -> dict:
         return {"runs": c.execute("SELECT COUNT(*) n FROM runs").fetchone()["n"],
                 "completed": c.execute("SELECT COUNT(*) n FROM runs WHERE leads IS NOT NULL").fetchone()["n"],
                 "signups": c.execute("SELECT COUNT(*) n FROM signups").fetchone()["n"]}
+
+
+def save_lead(lead: dict) -> str:
+    lead_id = uuid.uuid4().hex[:12]
+    with _conn() as c:
+        c.execute("INSERT INTO saved_leads (id, run_id, title, author, url, problem, stage, saved_at, notes, status)"
+                  " VALUES (?,?,?,?,?,?,?,?,?,?)",
+                  (lead_id, lead.get("run_id", ""), lead.get("title", ""), lead.get("author", ""),
+                   lead.get("url", ""), lead.get("problem", ""), lead.get("stage", ""),
+                   time.time(), "", "New"))
+    return lead_id
+
+
+def list_leads() -> list[dict]:
+    with _conn() as c:
+        rows = c.execute("SELECT * FROM saved_leads ORDER BY saved_at DESC").fetchall()
+    return [dict(r) for r in rows]
+
+
+def update_lead(lead_id: str, updates: dict) -> bool:
+    fields = []
+    values = []
+    for k in ["notes", "status"]:
+        if k in updates:
+            fields.append(f"{k}=?")
+            values.append(updates[k])
+    if not fields:
+        return True
+    
+    values.append(lead_id)
+    with _conn() as c:
+        c.execute(f"UPDATE saved_leads SET {','.join(fields)} WHERE id=?", values)
+    return True
+
+def delete_lead(lead_id: str) -> bool:
+    with _conn() as c:
+        c.execute("DELETE FROM saved_leads WHERE id=?", (lead_id,))
+    return True

@@ -11,10 +11,17 @@ export const metadata: Metadata = {
   description: "Dán landing page hoặc mô tả sản phẩm — nhận về những người đang cần nó, kèm lý do và câu trả lời gợi ý.",
 };
 
+import Sidebar from "@/components/Sidebar";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi" className={`${plex.variable} ${cond.variable} ${mono.variable}`}>
-      <body className="min-h-dvh bg-ground">{children}</body>
+      <body className="min-h-dvh bg-ground flex">
+        <Sidebar />
+        <div className="flex-1 overflow-auto bg-ground">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
