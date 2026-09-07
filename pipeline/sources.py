@@ -160,7 +160,7 @@ def collect(plan: dict, *, per_query: int = 100, pause: float = 2.0) -> list[dic
             
             run_input = {
                 "queries": queries,
-                "maxPosts": per_query * len(plan["subreddits"]),
+                "maxPosts": 50,  # Giới hạn 50 post để tiết kiệm chi phí/credits
                 "scrapeComments": False
             }
             
