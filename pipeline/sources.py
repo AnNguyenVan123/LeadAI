@@ -146,6 +146,54 @@ def _iso_to_epoch(s: str) -> float:
 
 def collect(plan: dict, *, per_query: int = 100, pause: float = 2.0) -> list[dict]:
     """Run the whole expanded query plan, deduped by post id."""
+    apify_token = os.environ.get("APIFY_API_TOKEN")
+    if apify_token:
+        print("  Using Apify trudax/reddit-scraper...")
+        try:
+            from apify_client import ApifyClient
+            client = ApifyClient(apify_token)
+            
+            start_urls = []
+            for sub in plan["subreddits"]:
+                for q in plan["queries"]:
+                    u = f"https://www.reddit.com/r/{sub}/search/?q={urllib.parse.quote(q)}&restrict_sr=1&sort=new&t=year"
+                    start_urls.append({"url": u})
+            
+            run_input = {
+                "startUrls": start_urls,
+                "maxItems": per_query * len(start_urls),
+                "maxPostCount": per_query,
+                "maxComments": 0,
+                "scrollTimeout": 40,
+                "proxy": {"useApifyProxy": True}
+            }
+            
+            run = client.actor("trudax/reddit-scraper").call(run_input=run_input)
+            out = []
+            for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+                if "id" not in item:
+                    continue
+                out.append({
+                    "id": item.get("id"),
+                    "title": _clean(item.get("title", "")),
+                    "body": _clean(item.get("text", item.get("body", "")))[:6000],
+                    "author": item.get("author", "").replace("/u/", ""),
+                    "subreddit": item.get("subreddit", ""),
+                    "created_utc": _iso_to_epoch(item.get("createdAt", item.get("parsedCreatedAt", ""))),
+                    "score": item.get("upvotes", 0),
+                    "num_comments": item.get("numComments", 0),
+                    "url": item.get("url"),
+                    "found_via": "Apify search"
+                })
+            
+            if out:
+                print(f"  Apify returned {len(out)} posts.")
+                return list({p["id"]: p for p in out}.values())
+            else:
+                print("  Apify returned 0 posts, falling back to native RSS.")
+        except Exception as e:
+            print(f"  ! Apify failed ({e}), falling back to native RSS.")
+
     seen: dict[str, dict] = {}
     for sub in plan["subreddits"]:
         for q in plan["queries"]:
