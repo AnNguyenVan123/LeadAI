@@ -153,35 +153,34 @@ def collect(plan: dict, *, per_query: int = 100, pause: float = 2.0) -> list[dic
             from apify_client import ApifyClient
             client = ApifyClient(apify_token)
             
-            start_urls = []
+            queries = []
             for sub in plan["subreddits"]:
                 for q in plan["queries"]:
-                    u = f"https://www.reddit.com/r/{sub}/search/?q={urllib.parse.quote(q)}&restrict_sr=1&sort=new&t=year"
-                    start_urls.append({"url": u})
+                    queries.append(f"subreddit:{sub} {q}")
             
             run_input = {
-                "startUrls": start_urls,
-                "maxItems": per_query * len(start_urls),
-                "maxPostCount": per_query,
-                "maxComments": 0,
-                "scrollTimeout": 40,
-                "proxy": {"useApifyProxy": True}
+                "queries": queries,
+                "maxPosts": per_query * len(plan["subreddits"]),
+                "scrapeComments": False
             }
             
-            run = client.actor("trudax/reddit-scraper").call(run_input=run_input)
+            run = client.actor("TwqHBuZZPHJxiQrTU").call(run_input=run_input)
             out = []
-            for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+            dataset_id = getattr(run, "default_dataset_id", None)
+            if not dataset_id:
+                dataset_id = run.get("defaultDatasetId") if hasattr(run, "get") else None
+            for item in client.dataset(dataset_id).iterate_items():
                 if "id" not in item:
                     continue
                 out.append({
                     "id": item.get("id"),
                     "title": _clean(item.get("title", "")),
-                    "body": _clean(item.get("text", item.get("body", "")))[:6000],
+                    "body": _clean(item.get("body", item.get("text", "")))[:6000],
                     "author": item.get("author", "").replace("/u/", ""),
                     "subreddit": item.get("subreddit", ""),
-                    "created_utc": _iso_to_epoch(item.get("createdAt", item.get("parsedCreatedAt", ""))),
-                    "score": item.get("upvotes", 0),
-                    "num_comments": item.get("numComments", 0),
+                    "created_utc": _iso_to_epoch(item.get("created_utc", item.get("createdAt", ""))),
+                    "score": item.get("score", item.get("upvotes", 0)),
+                    "num_comments": item.get("num_comments", item.get("numComments", 0)),
                     "url": item.get("url"),
                     "found_via": "Apify search"
                 })
