@@ -17,7 +17,7 @@ HAIKU = "haiku"  # bulk triage
 
 # ── Model mapping ──────────────────────────────────────────────────────────
 
-_GEMINI_MODELS = {"opus": "gemini-3.1-pro-preview", "haiku": "gemini-3.1-flash-preview"}
+_GEMINI_MODELS = {"opus": "gemini-3.5-flash", "haiku": "gemini-3.5-flash-lite"}
 _ANTHROPIC_MODELS = {"opus": "claude-opus-5", "haiku": "claude-haiku-4-5"}
 
 # ── Provider detection ─────────────────────────────────────────────────────
