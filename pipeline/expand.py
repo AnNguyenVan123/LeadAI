@@ -11,25 +11,19 @@ from .icp import ICP
 
 SCHEMA = {
     "type": "object", "additionalProperties": False,
-    "required": ["queries", "subreddits", "negative_terms"],
+    "required": ["subreddits", "negative_terms"],
     "properties": {
-        "queries": {"type": "array", "minItems": 12, "maxItems": 24,
-                    "items": {"type": "string", "maxLength": 80}},
         "subreddits": {"type": "array", "minItems": 4, "maxItems": 14,
                        "items": {"type": "string", "maxLength": 30}},
         "negative_terms": {"type": "array", "maxItems": 20,
                            "items": {"type": "string", "maxLength": 40}},
     }}
 
-SYS = """You write Reddit search queries that find people in the middle of a problem.
+SYS = """You identify the exact Reddit communities (subreddits) where a specific buyer persona hangs out or complains about their problems.
 
-- Write what a frustrated person types, not what a marketer types. "no one signed up"
-  beats "user acquisition challenges".
-- Prefer exact phrases in quotes; Reddit search is literal.
-- Cover the different ways the same pain gets phrased: as a question, as a complaint,
-  as a request for a tool, as a description of a failed attempt.
-- Include a few queries that catch people naming competing tools.
-- negative_terms are phrases that mark a post as broadcast content or a vendor pitch."""
+- Focus on niche, highly relevant subreddits where the pain point is actively discussed.
+- Avoid overly broad subreddits unless absolutely necessary (e.g., prefer r/SaaS over r/Entrepreneur if the product is SaaS-specific).
+- `negative_terms` are phrases that mark a post as broadcast content, a vendor pitch, or a spammer (these will be used to filter out noise)."""
 
 
 def plan(icp: ICP) -> dict:

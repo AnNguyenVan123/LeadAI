@@ -55,11 +55,11 @@ def _get(url: str, headers: dict, tries: int = 5) -> str | None:
     return None
 
 
-def search(subreddit: str, query: str, *, limit: int = 100, window: str = "year") -> list[dict]:
+def search(subreddit: str, limit: int = 100) -> list[dict]:
     tok = _token()
     if tok:
-        url = (f"https://oauth.reddit.com/r/{subreddit}/search?"
-               f"q={urllib.parse.quote(query)}&restrict_sr=1&sort=new&limit={limit}&t={window}")
+        url = (f"https://oauth.reddit.com/r/{subreddit}/new?"
+               f"limit={limit}")
         body = _get(url, {"Authorization": f"bearer {tok}", "User-Agent": UA})
         if not body:
             return []
@@ -73,11 +73,11 @@ def search(subreddit: str, query: str, *, limit: int = 100, window: str = "year"
             "score": c["data"].get("score", 0),
             "num_comments": c["data"].get("num_comments", 0),
             "url": "https://www.reddit.com" + c["data"]["permalink"],
-            "found_via": f"r/{subreddit} · {query}",
+            "found_via": f"r/{subreddit} · new",
         } for c in json.loads(body)["data"]["children"]]
 
-    url = (f"https://www.reddit.com/r/{subreddit}/search.rss?"
-           f"q={urllib.parse.quote(query)}&restrict_sr=1&sort=new&limit={limit}&t={window}")
+    url = (f"https://www.reddit.com/r/{subreddit}/new.rss?"
+           f"limit={limit}")
     body = _get(url, {"User-Agent": UA, "Accept": "application/atom+xml"})
     if not body or "<entry" not in body:
         return []
@@ -100,7 +100,7 @@ def search(subreddit: str, query: str, *, limit: int = 100, window: str = "year"
             "score": None,          # not in RSS
             "num_comments": None,   # not in RSS
             "url": href,
-            "found_via": f"r/{subreddit} · {query}",
+            "found_via": f"r/{subreddit} · new",
         })
     return out
 
@@ -155,12 +155,13 @@ def collect(plan: dict, *, per_query: int = 100, pause: float = 2.0) -> list[dic
             
             queries = []
             for sub in plan["subreddits"]:
-                for q in plan["queries"]:
-                    queries.append(f"subreddit:{sub} {q}")
+                queries.append(f"subreddit:{sub}")
             
             run_input = {
                 "queries": queries,
                 "maxPosts": 50,  # Giới hạn 50 post để tiết kiệm chi phí/credits
+                "sort": "new",
+                "timeframe": "day",
                 "scrapeComments": False
             }
             
@@ -195,10 +196,9 @@ def collect(plan: dict, *, per_query: int = 100, pause: float = 2.0) -> list[dic
 
     seen: dict[str, dict] = {}
     for sub in plan["subreddits"]:
-        for q in plan["queries"]:
-            hits = search(sub, q, limit=per_query)
-            for p in hits:
-                seen.setdefault(p["id"], p)
-            print(f"  r/{sub} · {q}: +{len(hits)} (total {len(seen)})")
-            time.sleep(pause)
+        hits = search(sub, limit=per_query)
+        for p in hits:
+            seen.setdefault(p["id"], p)
+        print(f"  r/{sub}: +{len(hits)} (total {len(seen)})")
+        time.sleep(pause)
     return list(seen.values())

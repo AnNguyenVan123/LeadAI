@@ -118,11 +118,11 @@ def run(kind: str, value: str, live: bool, emit: Callable[[str, str, dict], None
     emit("icp_done", f"Đang tìm: {icp_raw['buyer']}", {"icp": icp_raw})
 
     if live:
-        emit("plan", "Đang viết truy vấn theo cách khách hàng của bạn nói", {})
+        emit("plan", "Đang khoanh vùng Subreddit tiềm năng", {})
         plan = expand.plan(icp)
-        emit("plan_done", f"{len(plan['queries'])} truy vấn × {len(plan['subreddits'])} subreddit",
-             {"queries": plan["queries"][:8]})
-        emit("fetch", "Đang quét Reddit (Reddit chặn tốc độ nên bước này lâu)", {})
+        emit("plan_done", f"Tìm thấy {len(plan['subreddits'])} subreddit",
+             {"queries": plan["subreddits"][:8]})
+        emit("fetch", "Đang thu thập các bài đăng mới trong 24h qua", {})
         posts = sources.collect(plan, per_query=100, pause=2.0)
         scanned = len(posts)
         pool, dropped = prefilter.apply(posts)
