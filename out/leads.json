@@ -1,0 +1,1895 @@
+{
+ "run_at": "2026-09-07T17:19:45",
+ "posts_scanned": 348,
+ "prefilter_dropped": {
+  "too_old": 160,
+  "too_short": 5,
+  "broadcast": 13,
+  "vendor": 4,
+  "no_ask": 34
+ },
+ "leads": [
+  {
+   "id": "1vyorai",
+   "title": "Looking For Advice: Two engineers built a SaaS and now we're trying to figure out how the hell to sell it",
+   "body": "My cofounder has ~4 years of software engineering experience. He built a product, and now we're trying to turn it into an actual business. It's an AI chatbot that works across WhatsApp, Instagram, Messenger, SMS, email, and websites. The product is live. We're bootstrapped. We have 0 customers. And neither of us knows much about sales or marketing. I'm a software engineer too (~6 years) I reached out to my network, and one of my previous employers helped me put together a more structured approach to figuring out our ICP. So right now we're testing different ICPs. The process is roughly: Pick an ICP Figure out what problems they might actually have Build a lead list through Sales Navigator Run targeted HeyReach campaigns See who responds Talk to anyone who's interested Compare the different ICPs Hopefully find a group where the pain is strong enough that people will actually pay us I'm wondering what else we should be doing. For people who have taken a SaaS from 0 → first customers , what would you do at this stage? The product is called Thredo (AI chatbot across multiple customer communication channels). Happy to share the link if anyone wants to look at it, but I'm more interested in advice from people who've actually gone through the 0 → 1 customer phase. What would you do if you were in our position? submitted by /u/Technical_Ice_4256 [link] [comments]",
+   "author": "Technical_Ice_4256",
+   "subreddit": "SaaS",
+   "created_utc": 1787724725.0,
+   "score": 91,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vyorai/looking_for_advice_two_engineers_built_a_saas_and/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 12.2,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Two engineers shipped an AI chatbot SaaS, have zero customers, no sales/marketing background, and are cycling through ICPs manually to find where the pain is strong enough that people pay.",
+    "stage": "launched_no_users",
+    "sells_to": "Businesses that handle customer conversations across WhatsApp, Instagram, Messenger, SMS, email and web — ICP still undecided",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "The product is live. We're bootstrapped. We have 0 customers. And neither of us knows much about sales or marketing."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "I'm wondering what else we should be doing. For people who have taken a SaaS from 0 → first customers , what would you do at this stage?"
+     },
+     "tried_tools": {
+      "present": true,
+      "quote": "Build a lead list through Sales Navigator Run targeted HeyReach campaigns"
+     },
+     "budget_signal": {
+      "present": true,
+      "quote": "Build a lead list through Sales Navigator Run targeted HeyReach campaigns"
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Shipped product, zero customers, two engineers with no sales background — exactly the 0→1 position we sell into. They are already paying for Sales Navigator and HeyReach, so budget and willingness to buy GTM tooling are proven, not hypothetical. Their explicit loop is 'pick an ICP, guess what problems they have, build a list, blast, see who responds' — the guessing step is what inbound signal replaces. Their own buyers (ecommerce, agencies, DTC, service SaaS drowning in DMs) do post about missed messages and slow response times in public forums, so we can actually surface them.",
+    "risk": "They asked for advice from operators who've done 0→1, not for tools, and pitching may read as the exact spam they're running themselves. Their ICP is unsettled, so we cannot promise which conversations to watch until they pick one — sell too early and we own their ICP problem. Also possible the cofounder, not this author, controls spend.",
+    "draft_reply": "The part of your loop I'd change is step 2. \"Figure out what problems they might actually have\" is a guess, and every downstream step inherits it — you'll burn a full HeyReach campaign before you learn the guess was wrong. Cheaper order: find the ICP where people are already complaining in public, then build the list.\n\nFor a multi-channel chatbot the complaints are searchable and specific. People post things like missing DMs on Instagram because they're doing support from their phone, WhatsApp inquiries going unanswered overnight, having to check five inboxes. r/ecommerce, r/shopify, r/agency, r/smallbusiness, and the Shopify community forums are where that shows up. Read fifty of those posts before you pick the next ICP — the language they use is also your cold-email copy, and it'll beat anything you write from your own framing.\n\nOne concrete test: reply helpfully to ten of those posts with no pitch, and see which channel complaint gets you a DM back. That tells you which ICP has pain worth paying for, faster than a campaign cycle.\n\nAlso worth tracking the conversations, not just the leads — with several ICPs in flight it's easy to lose who said what. I'm building Thunder for that (watches Reddit for people describing a problem, drafts a reply you approve), happy to point you at it or just answer questions either way."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 95,
+    "pain": 95,
+    "intent": 100,
+    "recency": 67,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1w1xc9b",
+   "title": "How do I get my first customer??",
+   "body": "I have a b2b saas product. For the sake of this question.. let's assume it's a really good product..compared to the existing products. How do I find my first few clients?? I am basically a builder (software) and i suck at sales. I found about 20 contact numbers of my potential clients and sent them whatsapp messages about a demo. 6 responses. 2 flat no 1 agreed for a demo and I already demoed the product 3 said to reach out again after a few days because they are busy at the time Rest 14 ignored. My current plan is to pursue 100 cold reach out. Then decide on the next steps based on the result of this 100 outreach. submitted by /u/LengthinessHour3697 [link] [comments]",
+   "author": "LengthinessHour3697",
+   "subreddit": "SaaS",
+   "created_utc": 1788035839.0,
+   "score": 89,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1w1xc9b/how_do_i_get_my_first_customer/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 8.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Technical founder with a shipped B2B SaaS who cannot find clients; he manually collected 20 phone numbers, cold-messaged them on WhatsApp, and plans to brute-force 100 more without a better targeting method.",
+    "stage": "launched_no_users",
+    "sells_to": "Unspecified B2B companies — he only says \"b2b saas\" and \"potential clients\", never naming an industry or role.",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I am basically a builder (software) and i suck at sales."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "How do I find my first few clients??"
+     },
+     "tried_tools": {
+      "present": true,
+      "quote": "I found about 20 contact numbers of my potential clients and sent them whatsapp messages about a demo."
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "My current plan is to pursue 100 cold reach out. Then decide on the next steps based on the result of this 100 outreach."
+     }
+    },
+    "why": "He has already shipped, has zero or near-zero customers, and is doing discovery entirely by hand — sourcing numbers one at a time and tracking replies informally. He has real early data (6 of 20 replied, 1 demo) so he is past the stage of asking whether to sell and is now asking how to scale the finding part. That is the exact motion our product replaces. He is also already in r/SaaS, so he is reachable where he posted.",
+    "risk": "He never says who his customers are. WhatsApp-number outreach suggests they may be small local or regional businesses that do not post in public forums, in which case we cannot surface them and the sale is a broken promise. He also shows no budget signal — a pre-revenue solo builder may not pay for tooling before he has validated demand. Ask what his buyer is before pitching.",
+    "draft_reply": "Your 20-contact sample already told you something useful, and I'd read it before scaling to 100. 6 of 20 replied and 3 of those said \"reach out later\" — that's a soft no most of the time, not a maybe. So your real signal is 1 demo from 20, and one demo isn't enough to conclude anything about the product. Scaling the same list-building method to 100 mostly just buys you a bigger sample of the same targeting.\n\nThe part worth fixing first isn't the outreach volume, it's how you picked those 20. If you sourced them by \"companies that look like they'd need this,\" you're guessing. The higher-yield version is to find people who have already written publicly about the problem you solve — support forums, subreddits for their industry, complaint threads — and reference the specific thing they said when you reach out. Response rates on that are a different order of magnitude than cold WhatsApp, because you're answering something they actually asked.\n\nAlso: track the 3 \"busy right now\" replies with a real date. Those are your warmest leads and they're the easiest to lose.\n\nOne thing that would help me give you better advice — who is the buyer? Industry and job title. If they're the kind of business that discusses their problems online, this gets much easier. I built a tool that monitors public threads for people describing a specific problem and drafts a reply you approve before sending, which is basically that workflow automated, but it only helps if your buyers actually post."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 95,
+    "pain": 100,
+    "intent": 85,
+    "recency": 75,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1uf74rh",
+   "title": "Building SaaS was easy. Finding customers is the real challenge.",
+   "body": "Four months ago I started building an AI interview platform called MockFox . Like many founders, I thought the hard part would be building the product It wasn't. The real challenge has been getting people to actually use it. During the last few weeks I've learned a few things: Building with AI is faster than ever. SEO takes much longer than I expected. Paid ads can become very expensive very quickly. Cold outreach is mentally exhausting. Talking to potential customers is far more valuable than building another feature. I initially focused on job seekers (B2C), but after talking with recruiters I'm starting to think the bigger opportunity is helping HR teams screen candidates with AI interviews. If I could start again, I'd spend much less time coding and much more time validating the idea. For those of you already running SaaS businesses: What actually got you your first 10 paying customers? submitted by /u/Dense-Bar-2341 [link] [comments]",
+   "author": "Dense-Bar-2341",
+   "subreddit": "SaaS",
+   "created_utc": 1782386209.0,
+   "score": 86,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1uf74rh/building_saas_was_easy_finding_customers_is_the/",
+   "found_via": "search:SaaS:\"find customers\"",
+   "age_days": 74.0,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Shipped an AI interview product (MockFox) four months ago and cannot get users or paying customers. SEO too slow, paid ads too expensive, cold outreach draining. Now pivoting from job seekers to HR/recruiting teams and asking how others got their first 10 paying customers.",
+    "stage": "launched_no_users",
+    "sells_to": "Originally job seekers (B2C interview practice); now leaning toward HR/recruiting teams screening candidates with AI interviews",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "The real challenge has been getting people to actually use it."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "What actually got you your first 10 paying customers?"
+     },
+     "tried_tools": {
+      "present": true,
+      "quote": "SEO takes much longer than I expected. Paid ads can become very expensive very quickly. Cold outreach is mentally exhausting."
+     },
+     "budget_signal": {
+      "present": true,
+      "quote": "Paid ads can become very expensive very quickly."
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Textbook ICP: solo technical founder, product already shipped, zero traction, doing acquisition by hand and explicitly asking how to get the first 10 paying customers. He has already burned money on ads and time on manual cold outreach, so he has felt the exact cost our tool removes. Both of his candidate audiences (job seekers and recruiters/HR) post about their problems publicly on Reddit, so we can actually deliver on the promise. His stated lesson — talking to customers beats building features — means the pitch lands on something he already believes.",
+    "risk": "Post is 74 days old; he may have pivoted, found traction, or quit. Zero revenue and a complaint that ads got expensive means he is cost-sensitive and may want free advice, not a paid tool. He is mid-pivot between B2C and B2B, so his ICP is unstable — the tool's output quality depends on him picking one. Thread likely already full of vendor replies.",
+    "draft_reply": "The recruiters you already talked to are your first 10, not a new audience. You interviewed them for research; go back and ask if they'll run one real requisition through it, free, you do the setup, they keep the scorecards. That ask right after a discovery conversation converts far better than any cold list.\n\nTwo things change with the B2B pivot. Staffing and recruiting agencies usually buy faster than in-house HR, because screening hours come straight out of their margin and they don't need procurement or a legal review of AI-assisted hiring. In-house HR above ~200 headcount will drag you through bias and compliance questions for a quarter. Start with agencies doing 20-50 first-round screens a month.\n\nAlso worth checking: the name and the job-seeker copy will read as a B2C practice tool to a hiring manager. That's a real objection on a first call, not a branding nitpick.\n\nSEO and paid ads are the wrong spend at zero customers when you don't yet know who says yes.\n\nOn cold outreach being exhausting: most of the cost is choosing who to contact. r/recruiting, r/humanresources and r/talentacquisition have people describing screening volume in their own words, which beats a scraped list. I build a tool that watches those threads and surfaces those posts with a drafted reply, happy to show you what it pulls for candidate screening if that's useful."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 95,
+    "pain": 95,
+    "intent": 100,
+    "recency": 9,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1vgoagp",
+   "title": "Getting customers",
+   "body": "How did you get your first customers? I'm currently running ads on Reddit (about 2 weeks) and on I ran some on Facebook (going away from this probably). My platform is a B2C and B2B - platform to solve creative writers having to use multiple apps but do everything in one app. Any feedback is welcomed. Goqreate.com submitted by /u/Limelight_Comics [link] [comments]",
+   "author": "Limelight_Comics",
+   "subreddit": "SaaS",
+   "created_utc": 1785974363.0,
+   "score": 83,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vgoagp/getting_customers/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 32.4,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has a live writing platform (Goqreate.com) and is buying Reddit and Facebook ads to find customers, with Facebook not working and no clear channel identified.",
+    "stage": "launched_no_users",
+    "sells_to": "Creative writers (B2C) and, per the author, businesses too — people currently juggling multiple writing apps.",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I'm currently running ads on Reddit (about 2 weeks) and on I ran some on Facebook (going away from this probably)."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "How did you get your first customers?"
+     },
+     "tried_tools": {
+      "present": true,
+      "quote": "running ads on Reddit (about 2 weeks) and on I ran some on Facebook"
+     },
+     "budget_signal": {
+      "present": true,
+      "quote": "I'm currently running ads on Reddit (about 2 weeks)"
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Shipped product with a live domain, actively spending on paid acquisition, and openly asking how others got their first customers — that is our exact moment. Paid ad spend is a real budget signal, and abandoning Facebook means they are between channels and open to alternatives. Their customers (creative writers) are heavily present in public forums: r/writing, r/writers, r/fantasywriters, r/Screenwriting, NaNoWriMo threads, and they complain about app-juggling in public, so our monitoring can actually surface them.",
+    "risk": "The post is thin and generic — no revenue, team, or scale detail, and 'B2C and B2B' suggests unclear positioning, which is a targeting problem no monitoring tool fixes. 32 days old, so the ads may be off and the project stalled. Small solo ad budget may not extend to another subscription. Many low-effort replies likely already landed.",
+    "draft_reply": "Two weeks of Reddit ads is usually not the problem — creative writers mostly ignore ads in the feed and respond to people talking in the threads they already read. r/writing, r/writers, r/fantasywriters, r/selfpublishing and r/Screenwriting all have recurring threads where people list the stack they're stitching together (Scrivener plus Notion plus Google Docs plus a separate outliner) and complain about syncing between them. Those posts are the ones to answer, by hand, with a specific take on the workflow they described — not a link drop.\n\nOne thing worth resolving first: \"B2C and B2B\" is two different products in practice. A novelist consolidating apps and a content team consolidating apps buy for different reasons and hear different pitches. Picking one for the next 60 days will make both your ad copy and your comments land harder.\n\nIf finding those threads by hand gets tedious, that search-and-track part is what we've built a tool for.",
+    "_note": "quote for tried_tools is a verbatim substring of the post body"
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 100,
+    "recency": 34,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1vm750i",
+   "title": "I spent months building my SaaS. Now I have no idea how to get anyone to use it",
+   "body": "I think I made the classic developer mistake. I spent months building instead of selling. The product is actually live now. Multi-tenant, payments, auth, the whole thing. It works, and I'm at the point where I can confidently say I don't really have much left to build. Except there's one problem. I have basically no users. I don't have an audience. I don't have an email list. I don't have a marketing background. And every time I search for how to get the first customers, I get the same advice: \"Do cold outreach.\" \"Post content.\" \"Build in public.\" \"Run ads.\" \"Go on Product Hunt.\" \"Post on Reddit.\" But I'm having trouble figuring out what actually works when you're starting from basically zero. The weird part is that I feel like I spent all this time solving the technically difficult problem and completely ignored the much harder one: getting someone to care. So I'm curious about people who have actually done this. If you started a SaaS from zero and had to get your first 10 paying users again, what would you do? Not looking for generic \"do marketing\" advice - I'm interested in the actual process that worked for you. submitted by /u/Ok-Organization4300 [link] [comments]",
+   "author": "Ok-Organization4300",
+   "subreddit": "SaaS",
+   "created_utc": 1786519362.0,
+   "score": 81,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vm750i/i_spent_months_building_my_saas_now_i_have_no/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 26.1,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Shipped a live multi-tenant SaaS with payments and auth but has no users, no audience and no email list, and cannot figure out which first-customer acquisition process actually works from zero.",
+    "stage": "launched_no_users",
+    "sells_to": "Unstated. The post never names a market or customer type for the SaaS beyond it being multi-tenant B2B-shaped software.",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I have basically no users. I don't have an audience. I don't have an email list. I don't have a marketing background."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "If you started a SaaS from zero and had to get your first 10 paying users again, what would you do? Not looking for generic \"do marketing\" advice - I'm interested in the actual process that worked for you."
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "The product is actually live now. Multi-tenant, payments, auth, the whole thing. It works, and I'm at the point where I can confidently say I don't really have much left to build."
+     }
+    },
+    "why": "Textbook ICP: technical founder, product shipped and live with payments already wired, zero users, explicitly asking for the concrete first-10-customers process rather than tactics. He is describing our buyer's exact pain in his own words. He has run no acquisition channel yet, so he has no incumbent tool or process to displace.",
+    "risk": "He never says what the SaaS does or who it is for, so his own buyers could be an offline or unreachable segment, which would make us a promise we cannot keep. He also asks for first-hand experience, not products; a pitch in this thread reads as the thing he explicitly said he did not want, and the post is 26 days old so he may already be somewhere else. No budget signal anywhere.",
+    "draft_reply": "The step most people skip between \"post on Reddit\" and \"get a customer\" is picking the search, not the channel. Concretely: write down the five-to-eight literal sentences someone with your problem would type when they are annoyed by it - not your feature names, their complaint words. Then run each as a Reddit search sorted by new, plus site:reddit.com on Google for the older ones, and read the last ninety days. You are not looking for volume, you are looking for whether those sentences exist at all. If ten real posts show up, you have a channel and your positioning is already written for you in their words. If almost nothing shows up, that is the more useful finding, and it means your buyers talk somewhere else and you should stop before burning a month on Reddit.\n\nFor the ten you do find, reply in the thread about their specific situation and do not link anything the first time. Track them in a sheet with the post URL, the date, and what they actually said, because otherwise you lose them by week three.\n\nOne thing that would help me answer better: what does the product do and who is it for? The process changes a lot depending on whether your buyers are developers, agencies or, say, dentists. If you end up doing this search-and-track loop weekly, that monitoring part is what I built a tool for, but the manual version above is what you want to run first."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 95,
+    "pain": 100,
+    "intent": 65,
+    "recency": 42,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1vq5r74",
+   "title": "What customer aquisition strategy got you your first customer?",
+   "body": "Have been testing different types of strategies recently for my SaaS, such as email outreach, posting on Facebook (mainly long-term), posting on Facebook, a small affiliate test in a Facebook group, and a free trial test. No customer so far. Curious what worked best for you. submitted by /u/Ok_Growth_37 [link] [comments]",
+   "author": "Ok_Growth_37",
+   "subreddit": "SaaS",
+   "created_utc": 1786907505.0,
+   "score": 80,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vq5r74/what_customer_aquisition_strategy_got_you_your/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 21.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has a shipped SaaS and has run several acquisition experiments (email outreach, Facebook posting, an affiliate test, a free trial) without landing a single customer, and is asking others what channel worked.",
+    "stage": "launched_no_users",
+    "sells_to": "Not stated. Channel choices (Facebook groups, affiliate test) hint at a self-serve SMB or prosumer audience, but the post never names a buyer.",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "No customer so far."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Curious what worked best for you."
+     },
+     "tried_tools": {
+      "present": true,
+      "quote": "Have been testing different types of strategies recently for my SaaS, such as email outreach, posting on Facebook (mainly long-term), posting on Facebook, a small affiliate test in a Facebook group, and a free trial test."
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Exact stage match: product is built, zero customers, and they are already spending effort on manual channel experiments rather than asking how to get an idea. \"No customer so far\" after four different attempts is the moment our buyer feels the pain. They are actively soliciting input, so a specific reply has a real chance of a response.",
+    "risk": "The post is 22 days old and may be resolved or abandoned. It never says what the SaaS does or who buys it, so we cannot confirm their customers are findable on Reddit; if they sell to local businesses we cannot deliver. No budget signal at all, and a founder with zero revenue after this many failed tests may not pay for another tool. The question is generic enough that it may be low-effort karma farming.",
+    "draft_reply": "The thing all four of those tests have in common is that none of them start from a named person. Facebook posts, an affiliate test and a free trial are all distribution mechanics that amplify a message that already converts — if you have not had one manual conversation that ended in a yes, there is nothing to amplify yet, and the tests will keep returning zero without telling you why.\n\nWhat usually breaks the deadlock at this stage: pick the single narrowest description of who the product is for, find twenty people who match and who have posted publicly about the specific problem you solve in the last month, and reply to what they actually wrote rather than pitching. Twenty real conversations will tell you whether the problem is worth money, what words your buyers use for it, and which objection kills the sale. That is information none of your current tests can produce.\n\nAlso worth saying out loud in a follow-up post: what the SaaS does and who it is for. Right now nobody can give you a useful channel answer because the right channel depends entirely on that.\n\nIf the manual part is where you stall — searching, opening posts, losing track of who you spoke to — that is the part I automate at leadai; it surfaces people describing the problem and drafts the reply for you to approve."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 85,
+    "recency": 49,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1w37yxt",
+   "title": "Help needed with marketing my new saas",
+   "body": "Hey everyone, I built a SaaS tool to solve a problem I kept running into as a business owner: no clear overview of my expenses, recurring costs, and incoming invoices. I've been using it myself for two months now, and honestly, it's been a game changer for how I run my business. I think this could genuinely help a lot of other entrepreneurs too, so I want to start selling it as a subscription, starting in the Netherlands, since that's my home market and where I know the pain points best. But here's my problem: I have zero idea how to actually get this in front of customers. Has anyone here launched a SaaS product to small business owners before? Where would you even start? first customers, marketing channels? Any advice is welcome. submitted by /u/Middle-Living9420 [link] [comments]",
+   "author": "Middle-Living9420",
+   "subreddit": "SaaS",
+   "created_utc": 1788166089.0,
+   "score": 78,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1w37yxt/help_needed_with_marketing_my_new_saas/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 7.1,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Built a SaaS for expense, recurring cost and invoice overview, has used it himself for two months, and now wants to sell subscriptions but has no idea which channels or first customers to go after, starting in the Netherlands.",
+    "stage": "launched_no_users",
+    "sells_to": "Dutch small business owners and entrepreneurs who need an overview of expenses, recurring costs and incoming invoices",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "But here's my problem: I have zero idea how to actually get this in front of customers."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Has anyone here launched a SaaS product to small business owners before? Where would you even start? first customers, marketing channels?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Textbook stage match: product is finished and self-tested for two months, zero customers, and the stated blocker is finding the first ones with no channel in mind. He is an existing business owner monetizing a tool he built for himself, so he is not broke and is not an agency, a content account, or someone still hunting for an idea. He is asking the exact question our product answers, before he has settled on any approach, which is the moment a tool like ours is easiest to slot in.",
+    "risk": "His buyers are Dutch SMB owners, and Reddit and English-language forums are thin for that audience, so we would be over-promising if we pitch it as his main acquisition channel. Post is 7 days old and r/SaaS threads like this attract heavy agency spam, so an unsolicited pitch will likely be pattern-matched to that and ignored. No budget signal at all.",
+    "draft_reply": "For NL small business owners there is a fairly specific answer to the channel question: most of them do not choose their finance tooling, their bookkeeper or accountant does. Ten conversations with small administratiekantoren, asking what they hand clients today and what they hate about it, will tell you more than any ad test.\n\nTwo things worth settling before you spend on marketing. First, what happens when a prospect already uses Moneybird, e-Boekhouden or Exact. If you cannot import from those you will lose most demos in the first five minutes. Second, write down what your own two months of use actually produced in numbers, e.g. recurring subscriptions you cancelled, invoices you caught before they went late. That is your landing page, not a feature list.\n\nFor reaching people directly: r/ondernemen and the ZZP Facebook groups are where the volume is, and Dutch business owners answer LinkedIn DMs far more than Reddit ones.\n\nOne caveat on my end: I build a tool that watches public threads for people describing a problem and drafts a reply for you. It would be genuinely useful if you widen to English-speaking markets, but for Dutch bookkeeping buyers there is not enough public conversation for it to earn its keep yet, so I would not push it at you today."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 79,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1v5jh9r",
+   "title": "Did anyone else underestimate how hard it is to get the first customer when your product needs access to sensitive business data?",
+   "body": "I’ve spent months building a product that I’m genuinely proud of. From a technical perspective, it’s in much better shape than I expected it would be. What I completely underestimated wasn’t the engineering. It was trust. The product analyzes marketing data, so before anyone can experience its value they have to connect accounts that contain client data. That’s a huge ask when you’ve never heard of me. I’ve tried sample datasets, demo accounts, detailed documentation, and sharing the reasoning behind recommendations. But it’s still difficult to cross that initial trust barrier. As a solo founder, it also feels like every decision is made in a vacuum. You don’t have a team to sanity-check ideas, and when revenue isn’t coming in yet, it’s easy to start questioning whether you’re solving the right problem or just failing at distribution. Sometimes it feels like building the product was only half the job, and now I need to become a content creator just so people are willing to try it. For those who’ve been through this stage, what actually got you your first paying customer? Was it content, cold outreach, partnerships, referrals, or something completely different? submitted by /u/Think-Ad986 [link] [comments]",
+   "author": "Think-Ad986",
+   "subreddit": "SaaS",
+   "created_utc": 1784917220.0,
+   "score": 78,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1v5jh9r/did_anyone_else_underestimate_how_hard_it_is_to/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 44.7,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Solo founder has shipped a marketing-data product but cannot get anyone past the trust barrier of connecting accounts with client data, has no revenue after months, and is asking what actually produces a first paying customer.",
+    "stage": "launched_no_users",
+    "sells_to": "Marketers or agencies who would connect ad/marketing accounts containing their own clients' data",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Sometimes it feels like building the product was only half the job, and now I need to become a content creator just so people are willing to try it."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "For those who’ve been through this stage, what actually got you your first paying customer? Was it content, cold outreach, partnerships, referrals, or something completely different?"
+     },
+     "tried_tools": {
+      "present": true,
+      "quote": "I’ve tried sample datasets, demo accounts, detailed documentation, and sharing the reasoning behind recommendations."
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "when revenue isn’t coming in yet, it’s easy to start questioning whether you’re solving the right problem or just failing at distribution."
+     }
+    },
+    "why": "Persona matches: solo technical founder, product shipped, months in, zero revenue, explicitly asking how to land customer one. His own buyers are marketers and agency owners, who complain about reporting and attribution pain publicly, so our tool could genuinely surface them. The post ends in an open question, so a substantive reply is welcome rather than intrusive.",
+    "risk": "His stated bottleneck is trust and conversion, not finding people — leading with lead discovery answers a question he did not ask and reads as a vendor drive-by in r/SaaS. No budget signal and no revenue yet, so he may not pay. The post is 45 days old; he may have solved this, changed direction, or stopped.",
+    "draft_reply": "The trust barrier usually isn't fixed with better docs — it's fixed by removing the connection from the first interaction. For the first handful of customers, do the analysis manually: have them export a CSV from their ad platform, run it yourself, send back the actual findings in a day or two. They risk one file instead of OAuth on a client account, and you learn whether the output is worth paying for before building onboarding. Some will connect the account afterwards, once the value is proven instead of promised.\n\nTwo things that also help: read-only scopes with the permission list shown before the click, and a short security page naming your sub-processors, where data lives, and how deletion works. Agencies get asked those exact questions by their own clients, so answering them in advance makes it easier for them to say yes internally.\n\nOn what got the first customer — for data products it's almost always a direct conversation with someone who already has the pain. Content compounds later; it rarely produces customer one.\n\nIf that manual route works and the bottleneck becomes finding people to run it for, that's the part I work on: a tool that surfaces posts where agency owners describe their reporting problems and drafts an opener you approve before it sends."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 100,
+    "intent": 85,
+    "recency": 23,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1uxh9ir",
+   "title": "How to get first customers for an unknown product?",
+   "body": "I read a lot about all these „I made 1 Mio MRR after 1 day being live“ stuff here on Reddit. I recently build my own first SaaS tool. It solves a problem that I had for years now. I asked friends and old colleagues and they are facing the same issue. I currently wonder how to market that product. There is no comparable product out there so there is no search volume. It’s basically a pretty new product category. I know that many of my potential B2B clients barely do solve this issue using a Google Sheets. But even that „fix“ runs short and my tool solves all of their issues. My target audience is marketing, product, analysts of digital companies. Anyway - I am planning a bit of content marketing. Google Ads does not really have a lot of search volume. I created a bunch of LinkedIn Posts and planned all of them on a weekly cadence. I am planning to do some cold mails using data from Apollo.io and sending multiple mails. Eventually also doing Retargeting on them. I am planning to also try to activate some influencers but I don‘t think they are willing as I will not be able to pay much and my referral Programm might be too less money. I may found a way via some multiplicators that do have direct access into my target audience. But that’s not proven yet. Do you see any other channels I am missing here? I am a solo founder with no big investment so I need to find clever and cheap bootstrapping ways. I would appreciate any tips! submitted by /u/GrouchyFoundation773 [link] [comments]",
+   "author": "GrouchyFoundation773",
+   "subreddit": "SaaS",
+   "created_utc": 1784146939.0,
+   "score": 78,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1uxh9ir/how_to_get_first_customers_for_an_unknown_product/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 53.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Solo founder shipped a first SaaS in a category with no search volume and is guessing at distribution channels to reach marketing/product/analyst buyers at digital companies.",
+    "stage": "launched_no_users",
+    "sells_to": "Marketing, product and analyst teams at digital companies currently solving the problem in Google Sheets",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I currently wonder how to market that product. There is no comparable product out there so there is no search volume."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Do you see any other channels I am missing here?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": true,
+      "quote": "I am a solo founder with no big investment so I need to find clever and cheap bootstrapping ways."
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Shipped product, solo, no investors, explicitly stuck on getting the first customers and openly asking for channels — that is our exact trigger. His buyers (marketing, product, analysts at digital companies) do discuss their spreadsheet workarounds publicly, so we can actually deliver on the promise. He validated with friends and old colleagues but names no users or revenue, so first-customer pain is real rather than performative. He also has no incumbent stack to displace: everything he lists is planned, not running.",
+    "risk": "Post is 54 days old; he may have picked channels or stalled. The only budget statement is a constraint (\"no big investment\", \"cheap bootstrapping ways\"), and everything paid is still hypothetical — expect price resistance or a free-tier-only user. He is channel-shopping, not asking for a tool, so a pitch reply reads as spam.",
+    "draft_reply": "The category has no search volume but the workaround does. Nobody searches for your product name; plenty of people search for and post about the spreadsheet they are maintaining. That is the wedge for almost every channel you listed.\n\nConcretely: write down the 5-10 phrases your users would use to describe the Sheet, not the tool — the tab names, the manual step they redo every week, the moment it breaks. Then point each channel at those phrases instead of at a category name.\n\nContent: pages titled after the workaround (\"how to track X in Google Sheets\") that can actually rank, ending where the sheet falls over. Publish the real template — templates get forwarded inside the team, which is how you reach the other four people who touch that file.\n\nApollo: with an unknown category, the first line has to name their sheet, not describe your product. Segment by role and open with the manual step. Otherwise a new category has no before-state to attach to and the mail reads as noise.\n\nYour multiplicator idea is the highest-leverage thing on the list, ahead of influencers and retargeting — retargeting needs traffic you do not have yet.\n\nWe make a tool that watches public threads for people describing a problem you define and drafts the reply; the manual version above works fine too if you would rather not spend on it right now."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 90,
+    "recency": 17,
+    "engagement": 55
+   },
+   "tier": "hot",
+   "gate": null
+  },
+  {
+   "id": "1vwqkfq",
+   "title": "What did yall do to get your first customer?",
+   "body": "I've never expected sales to be this hard. Before finishing my product, I had companies saying that they will switch over when ti was done. But now that it is done, it is impossible to get ahold of them to try the product. Am I the only person that feels like that you get a lot of interested for something before tis done, and when its done those people that showed interest aren't interested in it anymore? I've been trying to post on reddit and X about what I am building. I've gotten a few thousand views and over 500 unique visitors to the website, but 0 conversion. So how did you get your first customer and scaled? and for those who still don't have any customers, what have you tried and what did you learn? submitted by /u/Unobtainiumrock [link] [comments]",
+   "author": "Unobtainiumrock",
+   "subreddit": "SaaS",
+   "created_utc": 1787539305.0,
+   "score": 76,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vwqkfq/what_did_yall_do_to_get_your_first_customer/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 14.3,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Shipped the product after companies promised pre-launch they would switch, but those contacts have gone unreachable. Manual posting on Reddit and X produced a few thousand views and 500+ unique visitors with zero conversions, and no first customer.",
+    "stage": "launched_no_users",
+    "sells_to": "Companies that said pre-launch they would 'switch over' — implies B2B software replacing an incumbent, but the vertical is never named.",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I've gotten a few thousand views and over 500 unique visitors to the website, but 0 conversion."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "So how did you get your first customer and scaled?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Exact stage match: product is finished, zero paying customers, and acquisition is entirely manual — posting on Reddit and X by hand and watching a warm list go silent. He is publicly asking how to get the first customer, so outreach is invited rather than intrusive. Only partial fit because his stated bottleneck is conversion and warm-lead follow-through, not the volume of prospects he can find; more surfaced leads may not be what actually fixes his number.",
+    "risk": "'How did you get your first customer' threads pull dozens of tool pitches, and this one is 14 days old, so a reply may be both buried and pattern-matched as spam. He has no budget signal and no revenue. His vertical is never stated — if those companies are offline businesses, we cannot surface them. And 500 visitors / 0 conversions points at offer or ICP, not lead supply.",
+    "draft_reply": "The pre-launch \"we'll switch when it's ready\" thing is close to universal, and it's usually a polite deferral rather than a commitment — it costs nothing to say. The useful test is whether any of them did something costly before you shipped: paid a deposit, put a date on a calendar, gave you access to their data. If none did, treat that list as cold rather than warm, which changes how you approach it.\n\nTwo things that tend to shake replies loose from a list like that. First, go back one company at a time with a specific small ask instead of a launch announcement — a 20 minute call, or \"I'll set it up inside your account myself this week, you don't have to touch anything.\" Second, explicitly ask for the no: \"did you end up solving this another way?\" People who ignore good news will answer that one, and the answers tell you whether the problem is the product or the pitch.\n\nOn the 500 visitors: that isn't enough traffic to conclude the site is broken, and cold Reddit/X traffic converts near zero even for products that work. I wouldn't rewrite the landing page yet. Ten real conversations with companies that already know your name will teach you more than the next 5,000 views.\n\nIf you clear that list and the bottleneck becomes finding new people who describe the problem out loud, that's the part we built a tool for — it watches public threads for that and drafts the outreach. Warm list first, though."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 62,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vtl1tm",
+   "title": "Free 6 month trial for a good review?",
+   "body": "No customers, no logos, no reviews atm. Would you say it is a good decision to give first customers the product for free for the first 6 months in return for a review that could be published on a landing page? submitted by /u/hstromberg [link] [comments]",
+   "author": "hstromberg",
+   "subreddit": "SaaS",
+   "created_utc": 1787236050.0,
+   "score": 76,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vtl1tm/free_6_month_trial_for_a_good_review/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 17.8,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has shipped a product but has zero customers, no logos and no reviews, and is asking whether to give the product away free for six months to get a publishable testimonial.",
+    "stage": "launched_no_users",
+    "sells_to": "Unstated — the post never says what the product is or who it is for; posted in r/SaaS, so likely other software buyers.",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "No customers, no logos, no reviews atm."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Would you say it is a good decision to give first customers the product for free for the first 6 months in return for a review that could be published on a landing page?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Right stage and right person shape: something is built, the customer count is zero, and they are publicly working the first-customers problem instead of theorizing about an idea. The offer question they are asking sits one step after ours — you cannot hand out a six-month free trial until you have found someone to hand it to, so the conversation opens naturally onto acquisition. Low-noise post: no growth-content framing, no service pitch, no self-promotion.",
+    "risk": "They asked about pricing and social proof, not about finding people, so an acquisition pitch is a topic switch they did not invite. Nothing here shows manual prospecting, tool use, or willingness to pay — and someone planning to give six months away free may be optimizing around having no cash. The product and its buyer are unnamed, so we cannot confirm their customers post publicly at all.",
+    "draft_reply": "Six months is longer than you need and it costs you the thing you're trading for. A review written at month six comes from someone who no longer remembers what their life looked like before your product; a review written two or three weeks in, right after the first moment of value, is specific and actually persuasive. Cap the free window at 30-60 days.\n\nTwo changes that raise the hit rate. Ask for a 20-minute call instead of written text, then draft the quote yourself from what they said and let them edit and approve it — far more people agree to that than ever sit down and write a testimonial. And consider charging something small rather than zero, even $10/month. Free accounts don't onboard properly, don't complain, and don't churn in a way that teaches you anything, so you end up with a warm quote and no signal. If logos matter more to you than revenue right now, a steep founding-member price locked for a year gets you the logo and still tells you whether anyone will pay.\n\nThe part that usually bites harder than the offer is finding the ten people to make the offer to. If that's where you're actually stuck, that's the problem we built for — it watches Reddit for people describing the problem your product solves and drafts a reply you approve before it goes out."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 56,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vsm8qd",
+   "title": "The most useful metric from my launch was 0 (i will not promote)",
+   "body": "I launched a consumer desktop app around four months ago. Since then, I’ve kept working on it almost every day. I improved the product, fixed bugs, added features, cleaned up the onboarding and probably spent far too much time thinking about pricing. The result so far: zero sales. For a while I kept telling myself that I just needed a better landing page, clearer pricing or a more polished product. But I’m starting to think I made a more fundamental mistake. I launched with a free plan and a paid subscription as if people already knew the product, trusted me and understood why it was worth paying for. None of that was true. I’m now considering taking a fairly big step backwards: making the entire product free for a fixed period of time. The plan would be: - temporarily unlock everything that is currently paid; - make it very clear that the free period has an end date; - use that time to understand whether people actually use the product and come back; - keep an optional discounted lifetime purchase for early users who genuinely want to support it; - restore the normal paid plans at the end of the experiment. Part of me thinks this makes sense. Right now I can’t tell whether the problem is the product, the price, the lack of trust or simply the fact that not enough people have tried it. The other part of me worries that making it free is just a comfortable way to avoid the only question that really matters: is anyone actually willing to pay for this? I also know that free users can be misleading. They may use something they would never consider buying, and converting them later could be much harder than I expect. So I’m curious how other founders see this: Does a temporary completely-free period sound like a useful early-stage experiment, or am I just postponing the pricing problem? And if you did something similar, what would you measure to decide whether the experiment was actually working? submitted by /u/CreativeGPT [link] [comments]",
+   "author": "CreativeGPT",
+   "subreddit": "startups",
+   "created_utc": 1787145609.0,
+   "score": 76,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/startups/comments/1vsm8qd/the_most_useful_metric_from_my_launch_was_0_i/",
+   "found_via": "search:startups:\"early users\"",
+   "age_days": 18.9,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Shipped a consumer desktop app four months ago, has made zero sales, and cannot tell whether the cause is the product, the price, trust, or too few people ever trying it. Considering a temporary all-free period to get any signal.",
+    "stage": "launched_no_users",
+    "sells_to": "Consumers, via a paid desktop app (category unspecified in the post)",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Right now I can’t tell whether the problem is the product, the price, the lack of trust or simply the fact that not enough people have tried it."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "So I’m curious how other founders see this: Does a temporary completely-free period sound like a useful early-stage experiment, or am I just postponing the pricing problem?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Shipped product, four months of daily work, zero paying customers — the exact position our buyer is in, and one of the four causes they name themselves is that not enough people have tried it. They are reasoning carefully rather than looking for hype, so a substantive reply is likely to be read. But they are asking a pricing-experiment question, not a distribution question: nothing in the post says they are doing manual discovery, opening hundreds of threads, or losing track of conversations. The fit has to be created by reframing their problem, which is a slower and less reliable sale than someone who already asks how to find users.",
+    "risk": "The post carries the r/startups \"i will not promote\" tag; a pitch in-thread can be removed and burn the account. Four months at zero revenue means little ability or appetite to pay for tooling, and the person may reasonably read a product mention as ignoring the question they actually asked. It is also unclear what the desktop app does, so we cannot confirm their own users congregate in findable public threads.",
+    "draft_reply": "Zero sales after four months only means something once you know the denominator. Before choosing free vs paid, write down three numbers: how many people reached the pricing page, how many installed, how many hit the paywall. If only a few dozen ever saw the price, this isn't a pricing result yet — it's a traffic result, and going free will give you a slightly larger sample of the same non-traffic rather than an answer.\n\nIf you do run the free period, pre-register the failure criteria before you start, not after: what share of installs are still active on day 7 and day 30, and how many lifetime purchases from how many active users. Otherwise you end the experiment holding usage numbers and can always tell yourself the paid version would have converted better.\n\nThe discounted lifetime option is the most informative part of your plan, because it's the only line where money moves. I'd show it to people who have actually used the app for a week rather than to everyone on day one, and treat that conversion as your real willingness-to-pay reading.\n\nSeparately, and probably worth more than the experiment: find ten people publicly complaining about the problem your app solves and talk to them directly. I built a tool that watches those threads and surfaces them, but the manual version answers the same question and costs nothing."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 54,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vofr50",
+   "title": "How do you find your first customers for a B2C SaaS ?",
+   "body": "Hey everyone, I’m working on a B2C SaaS and the main thing I’m struggling with right now is acquisition. I can make progress on the product, but I can’t seem to find a reliable channel that consistently brings in new users. For those of you who have successfully grown a B2C SaaS: Which acquisition channels work best for you? Do you mainly use SEO, TikTok/Instagram, paid ads, influencers, affiliates, Reddit, partnerships, etc.? How did you get your first users? What helped you go from a few users to a more consistent acquisition flow? If you were starting from zero today, what would you focus on first? I’d especially love to hear real experiences, including things you tried that didn’t work. Thanks! submitted by /u/Naekoz-_- [link] [comments]",
+   "author": "Naekoz-_-",
+   "subreddit": "SaaS",
+   "created_utc": 1786733002.0,
+   "score": 75,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vofr50/how_do_you_find_your_first_customers_for_a_b2c/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 23.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has a B2C SaaS he can keep building but no repeatable acquisition channel; asking how others got their first users and what to focus on from zero.",
+    "stage": "launched_no_users",
+    "sells_to": "Consumers. The niche is never named — he only says \"B2C SaaS\", so the actual buyer is unknown.",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "the main thing I’m struggling with right now is acquisition. I can make progress on the product, but I can’t seem to find a reliable channel that consistently brings in new users."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Which acquisition channels work best for you? Do you mainly use SEO, TikTok/Instagram, paid ads, influencers, affiliates, Reddit, partnerships, etc.?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "He has a shipped product and names acquisition as his single blocker, which is the exact moment our tool is for. He also lists Reddit himself as a channel he is considering, so a reply from a Reddit-sourced tool is coherent rather than intrusive. He is openly soliciting replies, so a comment is welcome and does not need a cold-outreach pretext.",
+    "risk": "This is a broad channel-survey question, not a request for tooling — he may want a playbook, not software. The post is 24 days old and he has likely already picked a direction. B2C often means mass-market volume where one-by-one Reddit replies do not move the number, and since he never names the niche we cannot confirm his users post about the problem publicly. No budget or urgency signal at all.",
+    "draft_reply": "The question is hard to answer as posed, because \"B2C SaaS\" spans a habit tracker and tax software, and channels do not transfer between those. The split that does transfer: does your user already search for the problem? If yes — they know they have it and it has a name — SEO and app store / AI answer surfaces compound, and paid ads are mostly a fast way to price-test that same existing intent. If no, you need interruption (short video, creators, communities), and there the creative is the channel; the platform matters much less than whether the first three seconds name a problem they recognize.\n\nOne concrete thing to do before spending money: spend a week reading the specific subreddits and forums where people complain about the problem you solve, and answer individual posts properly. It does not scale, but it gives you the exact words they use, and those words become your ad copy and landing page. Most people skip this step and then cannot explain why their ads get clicks and no signups.\n\nAlso worth checking before blaming the channel: going from a few users to consistent flow usually breaks on retention. If people leave in week one, every channel will look unreliable.\n\nThat manual forum step is what I have been building a tool around — it watches Reddit for people describing a specific problem and drafts a reply you approve before it sends."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 46,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vh22t9",
+   "title": "Best way to get first paying customers?",
+   "body": "Hi everyone, We've built something in the space of e-commerce and customer acquisition that genuinely works (did a pilot with a brand). Now, we want to onboard 10 new brands (Shopify specifically) on the platform. What would be the best channels to reach out to the founders and marketing executives of these brands? Most of the mid-sized Shopify founders aren't on LinkedIn or X. The only way I can think of is emails and reddit. If any of you have built a Shopify SaaS company, how did you get your first customers? Thanks! submitted by /u/paid-media-nerd [link] [comments]",
+   "author": "paid-media-nerd",
+   "subreddit": "SaaS",
+   "created_utc": 1786017218.0,
+   "score": 75,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vh22t9/best_way_to_get_first_paying_customers/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 31.9,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has a working e-commerce customer acquisition product with one pilot behind it, and no repeatable way to reach the next 10 Shopify brands. Believes his buyers aren't on LinkedIn or X and is left guessing between cold email and Reddit.",
+    "stage": "has_users",
+    "sells_to": "Mid-sized Shopify DTC brands - founders and marketing executives - buying e-commerce customer acquisition software",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Most of the mid-sized Shopify founders aren't on LinkedIn or X."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "What would be the best channels to reach out to the founders and marketing executives of these brands?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Shipped, one pilot done, zero paying customers, and explicitly planning to do outreach by hand over email and Reddit - that is the exact manual workflow we replace, and he is about to build it himself. He already named Reddit as a channel, so no education is needed on the premise. His own buyers (Shopify brand operators, growth and retention leads) post about acquisition problems constantly in r/shopify, r/ecommerce and r/PPC, so we can actually deliver what we would be promising.",
+    "risk": "Post is 32 days old; he may already have the 10 brands or moved on. 'We've built' implies a team, and the username suggests a paid-media background - he may prefer running ads or already have outbound chops. He also states his buyers aren't reachable on social, so he may reject the premise that Reddit surfaces them.",
+    "draft_reply": "The \"mid-sized Shopify founders aren't on LinkedIn\" read is half right. The founders often aren't, but the person who would actually evaluate and use your tool usually is: head of growth, ecom manager, retention lead. Those titles are searchable and they reply.\n\nThree things that tend to beat cold email volume:\n\n1. Build the list off app stack, not revenue. Store Leads or BuiltWith will filter for brands running Klaviyo plus an attribution or subscription app - that combination means they already pay for acquisition tooling and someone owns the decision.\n\n2. Shopify Plus agencies and 3PLs. One agency relationship puts you in front of 20 brands with a referral attached. Your pilot is the whole pitch there: here is the result, do you have clients that look like this.\n\n3. Reddit works, but not as outreach. r/shopify, r/ecommerce and r/PPC have people describing the acquisition problem you solve, in their own words, weekly. Answering those with a specific number from your pilot converts far better than any email will.\n\nBefore any of it, get the hard number out of the pilot. \"10 new brands\" gets much easier when the opening line is a delta the brand cared about.\n\nThe third one is what we built - it watches those subs, flags posts describing a problem your product solves, and drafts the reply for you to approve before it goes out."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 95,
+    "pain": 70,
+    "intent": 65,
+    "recency": 35,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vlkkvh",
+   "title": "I hate DSA so I decided to build a SaaS.",
+   "body": "I'm at a decent engineering college in India, but placement season taught me that nobody cares what you've built, only your competitive programming rank. So instead of grinding leetcode, I decided to build something real. With a lot of passion and effort (read: Claude Code and Netflix), I built a GTM tool. You describe your ideal customer profile, give it a list of companies, and it researches each one and tells you which are actually worth pursuing, with a full account research summary and the evidence cited. It even says \"couldn't determine\" instead of making things up when there's not enough public info. Basically it does the 30-60 minutes of account research a sales rep does, in a couple of minutes per company. The product works end to end. I've sent one report to a real founder who replied to my cold email. That's the entire extent of my go-to-market so far. What I have no clue about is marketing. I'm looking for 3-4 early design partners (small B2B teams doing outbound) and I genuinely don't know the playbook here. So, two things: If you run outbound at a B2B company, I'll run 20 of your target accounts through it free. You get the report, I get feedback. First 5 people. If you've been through the 0-to-first-customers stage: what actually worked for you? Happy to give a demo to anyone interested. submitted by /u/Minimum-Job-1656 [link] [comments]",
+   "author": "Minimum-Job-1656",
+   "subreddit": "SaaS",
+   "created_utc": 1786461911.0,
+   "score": 74,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vlkkvh/i_hate_dsa_so_i_decided_to_build_a_saas/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 26.8,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Built an AI account-research/GTM tool end to end, has zero paying customers and one cold-email reply as his entire go-to-market. Wants 3-4 design partners among small B2B outbound teams and does not know how to find them.",
+    "stage": "launched_no_users",
+    "sells_to": "Small B2B teams doing outbound sales (SDR/AE-side account research)",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "What I have no clue about is marketing. I'm looking for 3-4 early design partners (small B2B teams doing outbound) and I genuinely don't know the playbook here."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "If you've been through the 0-to-first-customers stage: what actually worked for you?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "He matches the buyer description almost word for word: shipped a working product, one cold email is the whole GTM, no users, doing discovery by hand, explicitly asking for the 0-to-first-customers playbook. His own customers (outbound/sales people at small B2B companies) do post publicly, so the tool would actually work for him. Value here is a design-partner or feedback relationship, not near-term revenue.",
+    "risk": "He is an undergrad in India, pre-revenue, and giving his own product away free — no budget signal anywhere in the post. He is also building an adjacent GTM/account-research tool, so a pitch reads as a competitor selling to him, and he is likelier to build the Reddit-monitoring piece himself than to pay for it.",
+    "draft_reply": "Your free offer has a hidden cost for whoever takes it: they have to assemble and hand over 20 target accounts before they get anything back. Most outbound people won't do that homework for a stranger's tool, which is probably why the response has been thin.\n\nInvert it. Pick the accounts yourself. Take 10 companies from a public trigger their buyer already reacts to — recent seed/Series A announcements, or companies posting SDR/AE job openings — run your reports unasked, and send the finished report to the person who owns outbound there. The report becomes the cold email. You already proved that works once; the founder who replied replied to output, not to a pitch.\n\nThe other thing: \"couldn't determine\" instead of a confident guess is the only line in your post that an outbound buyer would actually pay for. Everyone claims AI account research; nobody claims their AI shuts up when the data isn't there. Lead with that, and show a side-by-side of one report where a competitor hallucinated a fact and you abstained.\n\nOn tracking: from account one, keep a sheet of who you contacted, where you found them, what you sent, and what came back. At 20 conversations you will not remember, and the pattern in that sheet is what tells you which trigger is worth repeating."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 41,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vg9ckg",
+   "title": "Advise for getting first customers",
+   "body": "Several months ago, my cousin's husband is a cardiologist, and he came up with the idea of creating a SaaS to manage patients and use AI to create medical notes. I am a software engineer, so together we have been developing this application. He started using it every day to carry out his work, while I have been refining it and adjusting details as he finds them or asks me for improvements. It has reached the point where he depends on the application to do his work with patients. Then the day came when we decided to launch it to the public, but the truth is that we have been struggling a lot to get traffic and new users (not even with the 7-day free trial). What advice would you recommend for getting new users? Sorry if I sound like a complete beginner, but this is the first time that both of us have tried to build something like this. Leaving the link of the app if someone wants to take a look: https://www.generativemdnote.com/ submitted by /u/BestAnt4158 [link] [comments]",
+   "author": "BestAnt4158",
+   "subreddit": "SaaS",
+   "created_utc": 1785941046.0,
+   "score": 74,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vg9ckg/advise_for_getting_first_customers/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 32.8,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Shipped an AI medical-notes SaaS that one cardiologist uses daily, but the public launch produced no traffic and no signups, even with a 7-day free trial. He has no acquisition method and is asking for basic advice.",
+    "stage": "launched_no_users",
+    "sells_to": "Physicians (starting with cardiologists) who want AI-generated clinical notes and patient management",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "but the truth is that we have been struggling a lot to get traffic and new users (not even with the 7-day free trial)"
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "What advice would you recommend for getting new users?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Technical cofounder, product is built and in real daily clinical use, launched publicly, zero users, and explicitly asking how to get them. That is the exact moment our tool addresses, and the named domain lets us qualify in a minute. He describes no acquisition process at all, so there is nothing to displace. Weaker than a pure ICP fit on two counts: he is not yet doing manual discovery, so he does not feel the specific pain of losing track of conversations, and his buyers are physicians rather than founders or developers.",
+    "risk": "Post is 33 days old; may have moved on. No budget signal, no revenue, first-time founders. Physician subs are verification-gated and remove vendor comments, so surfacing their threads is less actionable than for B2B SaaS buyers - promising reach into that audience risks selling something we cannot fully deliver. He asked for advice, so a pitch-first reply reads as spam.",
+    "draft_reply": "Two things specific to AI scribes, before any traffic tactic.\n\nYour first ten users are people your cardiologist already knows. He depends on it daily, which is a testimonial most scribe startups cannot get. Have him ask his practice group, the people he trained with, and his department chat. Physician referrals convert; cold landing-page traffic mostly does not, because no doctor puts patient encounters into a tool from a stranger.\n\nThe first thing a physician checks is compliance: do you sign a BAA, where is audio stored, is it used for training. If that is not on the homepage in plain language, the trial never starts. Same for the EHR question - say exactly how a note gets into Epic or Athena, even if the answer is copy and paste.\n\nAlso, 7 days is short for a workflow tool. In one busy clinic week a doctor might get two real sessions in before it expires. 30 days, or a fixed number of free notes, fits how they actually evaluate.\n\nOn where to post: physician subs are verification-gated and delete vendor comments, but they do not delete doctors. Have him answer the recurring \"which AI scribe are you using\" threads himself, disclosing he built it. That is the only version of this that survives moderation.\n\nI build a tool that surfaces those threads as they get posted, if finding them turns out to be the bottleneck."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 34,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1uqrsow",
+   "title": "building a reporting tool for agencies, stuck on ad platform APIs + finding customers",
+   "body": "So I'm building a white label reporting tool for marketing agencies, pulls GA4 and Search Console data and generates the client reports automatically instead of them doing it by hand. Got 2 agencies testing it right now with real client data. Two things I'm stuck on. First, I want to add Meta Ads, Google Ads and TikTok Ads data too eventually but the API approval for those (especially meta and tiktok) looks like it needs a live app with actual traffic and business verification and can take weeks to review. Has anyone here dealt with this for something similar? Worth applying now with basically no users or should I just wait until I have more traction first? any gotchas I should know about before I waste time on it Second thing, finding actual paying customers is way harder than I expected. I know agencies waste hours every month building these reports by hand, I've confirmed that much, but going from 2 agencies willing to test it to people actually paying is a different beast. If you've sold to agencies before, what worked for you? cold outreach, communities, partnerships, something else Right now I'm thinking of just launching with GA4 + Search Console only and adding the ads platforms later if people actually ask for it. does that sound reasonable or is skipping ads data going to kill it for agency reporting tools submitted by /u/Sufficient_Ad_2042 [link] [comments]",
+   "author": "Sufficient_Ad_2042",
+   "subreddit": "SaaS",
+   "created_utc": 1783515151.0,
+   "score": 73,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1uqrsow/building_a_reporting_tool_for_agencies_stuck_on/",
+   "found_via": "search:SaaS:\"find customers\"",
+   "age_days": 60.9,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has a white-label agency reporting tool with 2 unpaid agencies testing, and cannot convert testers or find paying agencies. Asking Reddit which channel works for selling to agencies.",
+    "stage": "has_users",
+    "sells_to": "Marketing agencies buying white-label client reporting; today SEO/content agencies (GA4 + Search Console), ads platforms not yet built",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Second thing, finding actual paying customers is way harder than I expected."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "If you've sold to agencies before, what worked for you? cold outreach, communities, partnerships, something else"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Technical solo founder who has shipped and has 2 agencies using it with real client data, so the build is real and the pain is validated. He states the exact problem we sell against and is openly asking which channel to use, meaning no incumbent tool to displace. His buyers are marketing agencies, who post constantly in r/agency, r/PPC, r/marketing and r/SEO about reporting hours and client deliverables, so our surface actually contains his customers. He is also doing manual discovery right now rather than running a stack.",
+    "risk": "Post is 61 days old; he may have picked a channel or lost the 2 testers. Pre-revenue with zero budget signal, so he may want free advice rather than a subscription. Half the post is about API approvals, so a reply that only sells outreach reads as off-target. Pitching a find-customers tool to someone asking how to find customers can land as opportunistic if not led with real help.",
+    "draft_reply": "The three APIs aren't one problem, so don't batch them. Google Ads hands you a developer token against a test account immediately and Basic Access review is the least painful of the three — apply now, it's an afternoon. Meta is where the weeks go, and the long pole is Business Verification, which keys off your legal entity and documents, not your traffic, so start it now since it blocks everything later regardless of user count. For the ads_read App Review they want a screencast of the real flow, and two test agencies is enough; reviewers aren't checking your MAU. TikTok I'd defer until someone actually asks.\n\nOn launching with GA4 + Search Console only: that's an SEO reporting tool, not an agency reporting tool. Fine to do, but then position it that way and sell to SEO/content agencies, where the incumbent is a free Looker Studio template rather than AgencyAnalytics. PPC-led agencies will bounce during the demo.\n\nWhat I'd fix before picking an outreach channel: your 2 testers are free. Ask them to pay this month, even at half price. A no tells you the reporting pain isn't worth money yet and no channel fixes that. A yes earns you the ask for two agency owners each — agency owners refer sideways constantly, and that's the channel that usually works here.\n\nI'm building something for the second half of your post — it watches subreddits for people describing a problem and drafts the reply to send."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 95,
+    "pain": 70,
+    "intent": 65,
+    "recency": 13,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vsn65f",
+   "title": "Left 18 years in banking to launch a fintech MVP. Sitting at 60 users and struggling with distribution (I will not promote)",
+   "body": "Spent 18 years at TD Bank and recently left to build a consumer stock tracking/watchlist app. We have ~60 early users, but I am struggling to transition from developer mindset to distribution. For those who built consumer fintech tools, what non paid channels actually moved the needle for your first 500 active users? Thanks in advance submitted by /u/Scorpio_2020 [link] [comments]",
+   "author": "Scorpio_2020",
+   "subreddit": "startups",
+   "created_utc": 1787147793.0,
+   "score": 72,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/startups/comments/1vsn65f/left_18_years_in_banking_to_launch_a_fintech_mvp/",
+   "found_via": "search:startups:\"early users\"",
+   "age_days": 18.8,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Ex-banker who shipped a consumer stock watchlist app has ~60 early users and cannot move from building to distribution; wants unpaid channels that reach the next 500 active users.",
+    "stage": "has_users",
+    "sells_to": "Retail investors and consumers who track stocks and maintain watchlists",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "but I am struggling to transition from developer mindset to distribution"
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "For those who built consumer fintech tools, what non paid channels actually moved the needle for your first 500 active users?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Technical founder who has already shipped, has real usage (~60 users), and names distribution as the exact bottleneck we sell against. He left a full-time job for this, so it is his primary occupation rather than a side experiment. His end users are retail investors, who discuss watchlist and portfolio-tracking frustrations constantly in public subreddits and Discords, so the audience genuinely is surfaceable from public conversation. He is asking a channel question, not a tooling question, which means the conversation has to start with channel advice and only then reach the tool.",
+    "risk": "He asked for non paid channels, which signals little or no budget and possibly a preference for free tactics over software. Consumer B2C at 500 users needs volume, and one-at-a-time reply workflows may not feel like enough leverage to him. Post is 19 days old, so he may already have picked a channel or gotten answers.",
+    "draft_reply": "The jump to 500 active users for a consumer finance tool usually comes from one narrow segment rather than a channel. With 60 users, the highest-value move is asking your 10 most active ones what they used before you (spreadsheet, TradingView alerts, brokerage app) and what specifically broke. Their exact phrasing becomes the thing you go search for.\n\nOn unpaid channels that tend to work for watchlist tools: the weekly and daily discussion threads in r/investing, r/dividends and r/stocks, where self-promo rules are relaxed inside the thread; niche communities over broad ones, since dividend growth, options wheel and Canadian investing crowds each have distinct tracking pain and far less noise than the big subs; and StockTwits or Discord servers where people already post their watchlists publicly. Answer the tracking question first and only link if someone asks.\n\nOne caution: r/stocks and r/investing remove product links on sight and a ban is hard to reverse, so run this from an account with real comment history and keep the link out of the first reply.\n\nThe manual part of that, finding people describing the tracking problem across those communities and keeping track of who you already spoke to, is what my tool does, if that becomes the bottleneck once you know which segment you are chasing."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 70,
+    "intent": 65,
+    "recency": 54,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1v1pt6m",
+   "title": "What was the specific thing that got your SaaS its first customer? Not the generic advice, the actual thing",
+   "body": "We're a small web agency in the UK. A while back we built an internal tool to keep an eye on client sites after they go live (pages getting edited when they shouldn't, domains quietly expiring, that sort of thing). We use it every day across 300 odd client domains, it does the job, so we cleaned it up, called it TLDTrack and launched it as a proper product. Customers so far, not counting ourselves: zero. I know the generic advice already (do content, talk to users, build in public). I'm after specifics. If you sell a B2B tool, what was the actual thing that landed your first stranger? A comment you left somewhere? A directory listing? Cold outreach? A post that took off by accident? Probably doesn't help that every niche is drowning in vibe coded lookalikes at the minute, so cold traffic has no reason to trust anyone. But that's a moan for another day. If your first customer came through your network that's fine, I'm just more interested in the first proper outsider who paid. Cheers. submitted by /u/IllustriousMight1881 [link] [comments]",
+   "author": "IllustriousMight1881",
+   "subreddit": "SaaS",
+   "created_utc": 1784563690.0,
+   "score": 72,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1v1pt6m/what_was_the_specific_thing_that_got_your_saas/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 48.8,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "A UK web agency productised an internal client-site monitoring tool (TLDTrack), launched it, and has zero paying customers. They know the generic playbook and are asking for the concrete tactic that landed other B2B founders their first outside buyer.",
+    "stage": "launched_no_users",
+    "sells_to": "Web agencies, freelancers and site owners who need post-launch monitoring of client domains, pages and expiries",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Customers so far, not counting ourselves: zero."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "I'm after specifics. If you sell a B2B tool, what was the actual thing that landed your first stranger?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Exactly the moment we sell into: a shipped, working B2B product with zero outside customers and no repeatable way to find the first ones. They are technical, they already run the product across 300 domains so the tool is real, and they sell to agencies and site owners who do talk about broken deploys and expired domains in public forums, so our data source can actually reach their buyers. Agency cashflow means a small tool spend is plausible. Fit is partial rather than strong: it's a team, not a solo founder, and their stated ask is tactics from peers, not software.",
+    "risk": "The post is 49 days old, so their first customer question may already be answered or abandoned. They asked for war stories, not vendors — a reply that pivots to a product can read as the exact untrustworthy cold traffic they complain about. They build internal tools themselves and may just build their own tracker instead of buying.",
+    "draft_reply": "For a monitoring tool specifically, the thing that tends to land the first stranger is delivering the output instead of pitching the tool. Pick 20 UK agencies, take the client sites off their own portfolio pages, run TLDTrack across them, and only contact the three or four where you actually find something — a domain renewing in six weeks, a cert about to lapse, a page that changed and broke a form. Send the finding and a screenshot, not the product. You named the real obstacle yourself: cold traffic has no reason to trust anyone. A specific defect on a domain they are responsible for is the one thing a lookalike can't fake, because it requires having actually run the check. The agencies where you find nothing, don't email — that discipline is what keeps it from reading as spam.\n\nSecond one: the 300 domains are your only real asset here. A breakdown of everything that silently broke across 300 client sites in a year, ranked by frequency, is something agency owners read and forward, and it can only have been written by someone operating the thing. That beats directories and product-hunt-style launches at this stage by a wide margin.\n\nThe other half — finding who to contact in the first place — is what we build: it watches subreddits for people describing the problem your product solves and drafts the reply for you to approve."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 20,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1ucv7zx",
+   "title": "every b2b founder on reddit",
+   "body": "genuine question because i feel like i'm losing my mind a little how are you actually supposed to market a b2b saas and get sales coming in directly, not in six months, now every place i go to find customers is full of other founders trying to do the exact same thing to me everywhere i show up to talking about the problem my small b2b tool solves, that helps teams collect feedback and closes the loop, one of two things happens: either the room is full of other founders who don't want to buy anything because they're busy trying to sell me their own thing or i'm somewhere i'm technically not allowed to mention what i built at all, so i just sit there being helpful and hoping someone asks it starts to feel like the only people paying attention are people who want my attention back and before anyone says it, i'm not asking about SEO, i don't want to publish content for six months and wait for google to maybe notice me one day i need to know where real b2b buyers actually are right now and how you get in front of them directly so honestly, where have you personally gotten attention or sales that wasn't just other founders pointing back at you? submitted by /u/d_uk3 [link] [comments]",
+   "author": "d_uk3",
+   "subreddit": "SaaS",
+   "created_utc": 1782158427.0,
+   "score": 72,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1ucv7zx/every_b2b_founder_on_reddit/",
+   "found_via": "search:SaaS:\"find customers\"",
+   "age_days": 76.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has a shipped B2B feedback-loop tool but no working channel to reach buyers: every community he posts in is other founders selling to each other, or bans self-promotion, and he wants sales now rather than after six months of content.",
+    "stage": "launched_no_users",
+    "sells_to": "teams that collect customer feedback and close the loop on it — likely product, support or CS functions inside other companies",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "every place i go to find customers is full of other founders trying to do the exact same thing to me"
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "i need to know where real b2b buyers actually are right now and how you get in front of them directly"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "get sales coming in directly, not in six months, now"
+     }
+    },
+    "why": "He has already built and shipped a B2B tool and is stuck at the exact step we sell into: finding the first real buyers by hand. He describes the manual version of our workflow — showing up in rooms, being helpful, hoping someone asks — and names the failure mode himself (the rooms are full of founders, not buyers). He also rules out slow channels, which is the objection our product is positioned against. The post is a direct statement of the problem in our buyer's own words, not a general growth question.",
+    "risk": "Post is 77 days old; he may have found a channel or given up. No budget or revenue signal at all, so he may be pre-revenue and unwilling to pay. He is openly sick of founders pitching him in these threads, so a reply that reads as a pitch will land as the thing he complained about. And if his buyers genuinely are not on Reddit, we cannot deliver what he is asking for.",
+    "draft_reply": "The split worth making: the subreddits where founders talk about selling are not the subreddits where your buyers talk about their job. A tool that closes the feedback loop gets bought by support leads, CS managers and product ops people — r/CustomerSuccess, r/ProductManagement, r/msp, plus the Support Driven and product-ops Slack groups. Nobody in those rooms is trying to sell you anything back.\n\nSecond thing that matters more than the room: stop showing up to talk about your product and start searching for the symptom. People never post \"I need a feedback tool.\" They post \"we run NPS and nothing happens with the responses,\" \"our feature request board is a graveyard,\" \"sales keeps promising things product never hears about.\" Reddit's own search is bad at this — use site:reddit.com queries in Google filtered to the past month, and save the query strings so you can rerun them weekly instead of rediscovering them.\n\nThird: keep a sheet of everyone you replied to, with the date and the thread link. Most of the \"nobody is paying attention\" feeling is that there was never a follow-up seven days later.\n\nIf the searching half is what eats the week, that part is what I build — it watches those subreddits for the symptom language and drafts the reply for you to approve."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 100,
+    "intent": 65,
+    "recency": 8,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1w6za0o",
+   "title": "Three directions in front of me and I can't tell which one is actually a business",
+   "body": "I'm a developer and I've got three things I could go all in on. Been flip flopping for weeks so I figured I'd just ask. I built a tool for myself that lets me watch and control several coding agent sessions running on other machines, including from my phone. I use it every day and it solved a real annoyance. Making it a proper SaaS is the obvious move. Claude Code has made me fast enough at small web apps and internal tools that taking client work actually looks worth it. Open a site, take jobs, get paid. A friend of mine runs a company with solid machine vision tech and almost no sales. He knows he's not a salesperson. I'd build him a quoting site plus a DIY version a factory can install themselves, and supply through that. The product is the one I want to do. It's also the one where I've put in the most hours and still can't find customers. Outsourcing would pay soonest and I'm pretty sure it would eat every hour I've got. The machine vision one probably has the least competition, but I have no idea if anyone would actually turn up for it. I want to do all three, which I know is the actual problem here. If you've been at this fork, what did you pick and would you pick it again? submitted by /u/bertshim [link] [comments]",
+   "author": "bertshim",
+   "subreddit": "SaaS",
+   "created_utc": 1788513361.0,
+   "score": 68,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1w6za0o/three_directions_in_front_of_me_and_i_cant_tell/",
+   "found_via": "search:SaaS:\"find customers\"",
+   "age_days": 3.0,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has a working tool he uses daily for watching/controlling coding agent sessions across machines, has put the most hours into it, and cannot find customers for it — so he is considering abandoning it for client work or a friend's machine vision channel.",
+    "stage": "building",
+    "sells_to": "Developers running coding agent sessions on remote machines; alternate paths would sell to web-dev clients and to factories buying machine vision",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "It's also the one where I've put in the most hours and still can't find customers."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "If you've been at this fork, what did you pick and would you pick it again?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "Been flip flopping for weeks so I figured I'd just ask."
+     }
+    },
+    "why": "He states our buyer's pain in almost our exact words: most hours invested, product he uses every day, still no customers. Solo technical founder, discovery clearly done by hand, and the audience for his product (devs running coding agents on remote boxes) lives on Reddit, HN and Discord, so we could actually deliver. He is at a live decision point and asking strangers for input, which means he is open to contact right now rather than in three months.",
+    "risk": "His question is which direction to pick, not how to find customers — a pitch that ignores the fork will read as spam. He may well choose client work or the machine vision channel, and factory buyers are not surfaceable from public forums, so that path is out of scope for us. No budget signal at all; he is pre-revenue and weighing client work specifically because it pays soonest, so he may not pay for tooling.",
+    "draft_reply": "The three options aren't equivalent in the way that matters. The machine vision route comes with a named first customer who already has the tech and knows he can't sell it. Your agent-session tool has the most hours in it and no customers. That's one validated demand and one unvalidated one, not a coin flip.\n\nSince the agent tool is the one you want, run a cheap test on it instead of deciding on feel. Three weeks, one hard number: five people paying anything, even $10. Go where devs already run agents on remote boxes - r/ClaudeAI, r/LocalLLaMA, the Claude Code and Cursor Discords, Show HN. If you can't get five in three weeks of daily effort, the question is answered and you stop flip flopping. If you can, it stops being a fork.\n\nOn the machine vision one, ask your friend what his last five inbound leads actually looked like before you build him anything. If the answer is referrals from one trade show, you'd be inheriting his sales problem, not solving it with a quoting site.\n\nClient work is the only one of the three that can't compound, and you already said it would eat every hour you've got.\n\nThe grinding part of that three-week test - finding the threads, remembering who you already talked to - is what I built a tool for: it watches Reddit for people describing a problem you solve and drafts the reply. Ignore that last line if it's not useful."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 55,
+    "intent": 65,
+    "recency": 91,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vnv65x",
+   "title": "Truly one of the best feelings ever",
+   "body": "Landed my first customer a bit ago after 2 months of building, and I'm starting to feel like there may be hope after all. SaaS for ecommerce, doing manual outreach + SEO + some organic marketing at the moment. Any tips to land the next 9 clients? I feel like the time spend to return is a bit too slow. submitted by /u/InternetNo3077 [link] [comments]",
+   "author": "InternetNo3077",
+   "subreddit": "SaaS",
+   "created_utc": 1786675579.0,
+   "score": 68,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vnv65x/truly_one_of_the_best_feelings_ever/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 24.3,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has one paying customer after 2 months of building an ecommerce SaaS and wants the next 9. Currently doing manual outreach plus SEO and organic, and finds the effort-to-result ratio too slow.",
+    "stage": "has_revenue",
+    "sells_to": "Ecommerce businesses / store operators. The specific niche, platform, and price point are not stated in the post.",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I feel like the time spend to return is a bit too slow."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Any tips to land the next 9 clients?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Almost a line-for-line match with our buyer: shipped product, one paying customer, explicitly stuck on getting to ten, doing outreach by hand, and complaining that the hours-to-results ratio is bad. Their customers are ecommerce operators, who post their problems constantly in r/ecommerce, r/shopify and similar, so monitoring public conversations is something we can actually deliver for them rather than a promise. He asked an open question in public, so a substantive reply is welcome rather than intrusive.",
+    "risk": "Post is 24 days old; he may have changed channels or lost that customer. One customer means essentially no budget, so leading with price will kill it. He asked for tips, not tools, so a pitch-shaped reply reads as spam. 'SaaS for ecommerce' is vague; if it is a Shopify app, app-store placement and agency partnerships may outperform forum monitoring.",
+    "draft_reply": "With exactly one customer, the highest-value thing available to you is treating that customer as a search query. Ask them three things: what they were doing instead of your product before they found you, where they were reading or searching right before they found you, and what almost stopped them from paying. Those answers usually name the specific subreddit, forum thread, or phrase where the next nine are sitting, which is cheaper than guessing at a new channel.\n\nOn time-to-return: cold manual outreach to stores has a bad ratio mainly because you are guessing at intent. Ecommerce operators describe their problems out loud in r/ecommerce, r/shopify, r/dropship and the Shopify community forums, usually as a specific complaint rather than as 'looking for software'. Answering ten of those with a real fix, and only naming your product if someone asks, tends to beat a hundred cold emails per hour spent, and the threads keep getting found later, which compounds with the SEO you are already doing.\n\nAlso keep one sheet: person, where you found them, what they said, what you said, when to follow up. At ten customers the usual leak is not bad targeting, it is losing track of people you already spoke to.\n\nThat last part is roughly what I build: it watches those subreddits, flags posts describing the problem you solve, and drafts a reply you approve before sending."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 95,
+    "pain": 45,
+    "intent": 65,
+    "recency": 45,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1w51x3t",
+   "title": "If you've already built a SaaS, how did you validate it and get your first customers?",
+   "body": "I'm building my first SaaS and I'm at the point where I want to start putting it in front of real users instead of just building. My target customers are real estate agents, so I'm wondering how people actually approached their first customers. And if you're building for a specific profession like real estate, what's the best way to actually get the product in front of people who do that job? I'd really appreciate hearing what worked for all the experienced founders or people trying to become a founder😂(like me). submitted by /u/ClothesFew9360 [link] [comments]",
+   "author": "ClothesFew9360",
+   "subreddit": "SaaS",
+   "created_utc": 1788329167.0,
+   "score": 66,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1w51x3t/if_youve_already_built_a_saas_how_did_you/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 5.2,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "First-time SaaS builder with a product nearly ready but no method for reaching or validating with his target users; asking how founders actually got in front of a specific profession (real estate agents).",
+    "stage": "building",
+    "sells_to": "Real estate agents",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I'm building my first SaaS and I'm at the point where I want to start putting it in front of real users instead of just building."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "And if you're building for a specific profession like real estate, what's the best way to actually get the product in front of people who do that job?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "He is mid-build with a defined vertical and is explicitly asking how to reach his first users, which is the exact moment our buyer feels the pain. Real estate agents are one of the most vocal professions online (r/realtors, r/RealEstateTechnology, state/brokerage Facebook groups, agent Discords), so his buyers are genuinely surfaceable from public conversation — this is not a barbershop case. He has not shipped or charged yet, so he is early in the ICP rather than dead center.",
+    "risk": "Pre-launch, pre-revenue, first-time founder with no budget signal — likely unwilling to pay for tooling before he has talked to a single agent. The post is a broad 'tell me what worked' question that will draw dozens of replies, so a pitch-shaped comment will read as spam and may get removed. He may also be idea-stage in practice, with less built than the post implies.",
+    "draft_reply": "Two things that matter more for real estate agents than the generic advice you'll get here.\n\nFirst, don't post about your product in r/realtors — it's flair-verified and pitches get removed fast. What works there is answering the workflow complaints: lead follow-up falling through, CRM data entry, listing copy, transaction coordination chaos. Ten useful comments on those threads gets you DMs from agents who then ask what you're building. Same pattern in the big state and brokerage Facebook groups, which are where a lot of agents actually live.\n\nSecond, skip solo agents for validation. Go to team leads and small brokerage owners (5-40 agents). They control tooling decisions, they already pay for software monthly, and one yes gets you a room full of users. Solo agents are commission-cycle broke half the year and will love your demo and never convert.\n\nConcrete first step: find 15 agents who posted about the specific problem you solve in the last 90 days, offer to do the job manually for free for three of them, and watch what they actually do with the output. That tells you whether the product is right faster than any survey. If you do that and the manual searching starts eating your week, that's the part I automate — happy to point you at it, but do the 15 by hand first."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 45,
+    "intent": 65,
+    "recency": 84,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1uvygxe",
+   "title": "People who built a solo consulting business (data/software) while keeping a day job: how long to first client, and what actually worked?",
+   "body": "Senior data engineer here. I have stable income from contract work, and I'm building a data/AI-infrastructure consulting practice on the side under my own LLC. Strategy is content + being useful in communities rather than cold outreach (I'm technical, not a natural salesperson). No plan to quit until the side thing proves itself. For anyone who's walked this path: Realistic timeline to your first paying client? What channel actually produced it: content/SEO, referrals from past work, a platform, a partner ecosystem, cold outreach? What was the hardest part you didn't see coming? For the content-as-distribution folks: how many months of publishing before a real lead showed up? Genuinely want honest data: the failures and \"I went back to a job\" stories are just as useful as the wins. submitted by /u/marcelorojas56 [link] [comments]",
+   "author": "marcelorojas56",
+   "subreddit": "Entrepreneur",
+   "created_utc": 1784003522.0,
+   "score": 66,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/Entrepreneur/comments/1uvygxe/people_who_built_a_solo_consulting_business/",
+   "found_via": "search:Entrepreneur:\"first clients\"",
+   "age_days": 55.2,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Senior data engineer with no clients yet for a side data/AI-infrastructure consulting practice, asking which channel actually produces a first paying client and how long it takes; plans to rely on content and community participation because he dislikes cold outreach.",
+    "stage": "building",
+    "sells_to": "Companies needing data/AI infrastructure consulting — likely startup and mid-size engineering/data teams",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Strategy is content + being useful in communities rather than cold outreach (I'm technical, not a natural salesperson)."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "What channel actually produced it: content/SEO, referrals from past work, a platform, a partner ecosystem, cold outreach?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": true,
+      "quote": "I have stable income from contract work"
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "He is pre-first-client and explicitly hunting for a channel, which is the exact moment our tool addresses. His stated strategy — being useful in communities — is the manual workflow we automate, so the pitch needs no reframing. He has contract income, so cost is not the blocker, and as a senior data engineer he will evaluate the tool on mechanics rather than marketing. His own buyers (data/platform engineers and eng leads) do post their pipeline problems publicly, so the tool can plausibly deliver.",
+    "risk": "He sells consulting, not a product: he needs two or three clients, not ten, so manual search may genuinely suffice and retention would be short. Zero urgency — he says he will not quit until it proves itself. He opened a research thread and signalled distaste for selling, so a pitch reply may read as exactly the behaviour he is avoiding. Post is 55 days old; he may already have a client.",
+    "draft_reply": "Referrals from past contract work produce the first client far more often than content does. The people who tracked it honestly tend to report 6-12 months of consistent publishing before inbound produced a lead that actually closed, and it only worked when the writing was narrow enough to be searched for: 'migrating Airflow to Dagster on a 30-person data team', not 'AI infrastructure'.\n\nThe hardest part people don't see coming usually isn't lead flow. It's that the first real client wants you during business hours while you're still on contract. A lot of the 'went back to a job' stories start with declining that first deal, not with an absence of demand. Worth deciding now what you'll say to it.\n\nOn being useful in communities: it does work, but the failure mode is coverage, not effort. Threads where someone describes the exact problem you fix appear a few times a week across r/dataengineering, r/analytics and the dbt/Airflow Slacks, and browsing by hand you find them a week late, after the thread is dead. Pick three specific phrasings of the problem you solve and set alerts on those instead of reading feeds.\n\nThat last step is what I build — it watches subreddits for those phrasings and drafts a reply for you to approve. Saved searches and keyword alerts cover a decent share of it for free if you'd rather not pay for anything."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 45,
+    "intent": 90,
+    "recency": 16,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vsql8q",
+   "title": "How would you get the first customers for a B2B SaaS like this?",
+   "body": "I am creating a small B2B SaaS product called Subcheck. The concept is simple in that companies which use subcontractors can keep all their important documents in one place, such as insurance certificates, business registrations, compliance documents, and expiry dates, etc. Subcontractors have the option of uploading their own documents, after which the company at once knows which ones are complete, which ones are missing, and which ones are about to expire. At the moment my greater concern is securing the first paying customers than actually developing the product. If you had to begin from nothing, then what would your course of action be? What about making cold calls, sending cold emails, carrying out LinkedIn outreach, visiting companies in person, or offering the first few customers access for free? The industries that I should first aim at are probably logistics, cleaning companies, construction, and a number of other businesses which make heavy use of subcontractors. I would really like to know how you would go about verifying and promoting such a thing before investing months in building it. submitted by /u/GlumEntrepreneur1799 [link] [comments]",
+   "author": "GlumEntrepreneur1799",
+   "subreddit": "SaaS",
+   "created_utc": 1787155288.0,
+   "score": 65,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vsql8q/how_would_you_get_the_first_customers_for_a_b2b/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 18.8,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Building a subcontractor document/compliance tracker (Subcheck) and is stuck on how to find and validate the first paying customers; is guessing between cold calls, cold email, LinkedIn, in-person visits and free access.",
+    "stage": "building",
+    "sells_to": "Companies that manage subcontractors — construction, logistics, cleaning — needing to track COIs, registrations and document expiry dates.",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "At the moment my greater concern is securing the first paying customers than actually developing the product."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "What about making cold calls, sending cold emails, carrying out LinkedIn outreach, visiting companies in person, or offering the first few customers access for free?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "I would really like to know how you would go about verifying and promoting such a thing before investing months in building it."
+     }
+    },
+    "why": "Named product, concrete ICP, and an explicit statement that first paying customers matter more to him right now than more building. He is channel-shopping by hand with no tooling and no process for tracking who he talked to, which is the exact state our buyer is in. His end customers (contracts admins, PMs, ops managers at GCs and facilities firms) do post about expired COIs and subcontractor paperwork in construction and small-business subs, so there is real supply of surfaceable conversations.",
+    "risk": "He is mid-build and pre-revenue, so he may not pay for a discovery tool while still deciding whether to finish the product. Lead volume for COI/subcontractor-compliance complaints on Reddit is thin compared to dev-tool niches — overpromise here and he churns. Post is 19 days old and likely already buried in generic GTM advice.",
+    "draft_reply": "Before picking a channel, pick the side of the transaction that actually bleeds. In subcontractor compliance that is usually the GC or facilities/ops company exposed when a sub's COI lapses mid-job, not the sub uploading documents. So your first ten conversations should be with contracts admins and PMs at prime contractors, asking one question: what happened the last time a certificate expired and nobody caught it. If the answer is \"nothing\", that firm will never pay you.\n\nWorth checking before you build further: TrustLayer, myCOI and Jones already do this, mostly at enterprise pricing with onboarding. Not a reason to stop, but it defines your wedge — the firm managing 20-80 subs in a spreadsheet that cannot justify a five-figure contract. Insurance brokers who work construction accounts see exactly who is drowning in certificates and will name companies if you ask.\n\nOn your list: cold email to a named role outperforms LinkedIn in these industries, and in-person is viable if you are near a construction corridor. I would skip free access — a paid 60-day pilot at a low number tells you about willingness to pay, which is the thing you said you want to verify.\n\nFinding the people already complaining about expired COIs in public is the problem I work on; my tool watches subs like r/Construction for it and drafts the outreach. Can send the link, or just point you at threads."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 55,
+    "intent": 65,
+    "recency": 54,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vp56yd",
+   "title": "How did you get your first customer?",
+   "body": "I just built my 1st SaaS, now Im trying to get my 1st customer Just curious, how did you guys get your 1st customer? As well how did you feel when you made your 1st income from your own product? submitted by /u/winsonloh [link] [comments]",
+   "author": "winsonloh",
+   "subreddit": "SaaS",
+   "created_utc": 1786806393.0,
+   "score": 65,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vp56yd/how_did_you_get_your_first_customer/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 22.8,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Shipped his first SaaS and has zero customers; asking a general-audience subreddit how other founders landed their first one. No description of what the product does, who it serves, or what he has already tried.",
+    "stage": "launched_no_users",
+    "sells_to": "Unknown — the post never says what the SaaS is or who its buyer is.",
+    "audience_reachable_online": false,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "I just built my 1st SaaS, now Im trying to get my 1st customer"
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Just curious, how did you guys get your 1st customer?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Stage and persona line up exactly: solo founder, product already built, zero customers, no distribution plan. That is the moment before the manual-search grind starts, so the pain we sell against is about to become real for him. He is asking publicly rather than executing, which means he has no playbook yet and is open to input.",
+    "risk": "He never says what he sells or to whom, so his customers may be offline or nonexistent as a public-forum audience — we cannot promise coverage. The framing (\"how did you feel when you made your 1st income\") is partly a feelings/nostalgia thread, not a buying signal. No budget or tooling signal at all; a first-time founder pre-revenue may not pay. Post is 23 days old and likely buried under generic advice, so a late reply mentioning a product reads as a pitch.",
+    "draft_reply": "Worth fixing before you read the answers: the post doesn't say what the SaaS does or who it's for, so most replies will be generic — cold DMs, build in public, post on Product Hunt. The advice that would actually move you comes from people selling to the same buyer as you, and they can't identify themselves without knowing that.\n\nThe pattern behind most real first customers is narrow and unglamorous. Pick two or three places where your buyer already complains about the problem you solve. Read the last month of posts there. Reply only to the ones describing your exact problem, and reply with the answer rather than the product. Ten of those beats a hundred DMs. Keep a sheet with the person, the link, what they said, and when you followed up — the part that quietly kills this is losing track of who you already talked to, not failing to find people.\n\nOne more: charge the first customer money. A free user saying \"looks cool\" tells you nothing about whether you built something people need.\n\nIf the searching part turns into the bottleneck, that's the thing I build — it watches Reddit for people describing a problem your product solves and drafts a reply you approve before it sends."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 95,
+    "intent": 65,
+    "recency": 47,
+    "engagement": 55
+   },
+   "tier": "cool",
+   "gate": "we cannot reach their customers from public forums"
+  },
+  {
+   "id": "1utsue3",
+   "title": "How do you actually acquire customers for a B2B SaaS?",
+   "body": "I’ve been building AskMySite AI for the past few months, but my biggest challenge isn’t building the product. It’s distribution. This isn’t my first product either. I already have nine failed startups sitting in my SaaS graveyard. I can build, but I clearly haven’t figured out how to consistently acquire customers. So I genuinely want to know: if you were building a B2B SaaS like AskMySite, how would you get your first customers? Would you focus on cold outreach, content, communities, partnerships, SEO, paid ads, or something else? I’m not trying to promote AskMySite here. I’m genuinely looking for practical advice from people who have successfully distributed a B2B SaaS. submitted by /u/Mr_Gyan491 [link] [comments]",
+   "author": "Mr_Gyan491",
+   "subreddit": "SaaS",
+   "created_utc": 1783797061.0,
+   "score": 65,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1utsue3/how_do_you_actually_acquire_customers_for_a_b2b/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 57.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Has built AskMySite AI (his tenth product) but cannot consistently acquire customers; asking which distribution channel to use to get his first B2B customers.",
+    "stage": "building",
+    "sells_to": "Website and B2B SaaS owners who want an AI assistant answering questions on their own site",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "my biggest challenge isn’t building the product. It’s distribution."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "if you were building a B2B SaaS like AskMySite, how would you get your first customers?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Technical founder who has shipped and is explicitly blocked on the exact step we sell into: finding the first customers by hand. He names distribution as the bottleneck and asks directly how to find them. His own buyers (site owners, SaaS operators, support and docs teams) do complain publicly, so our product can actually surface them — no promise we cannot keep. He is asking an open channel question, which means no incumbent tool is entrenched.",
+    "risk": "Nine prior failures suggests a serial builder who restarts rather than pays; he may already have abandoned AskMySite. The post is 58 days old, so the moment has cooled. He asked for advice, not tools — a pitch-shaped reply will read as the thing he pre-empted with 'I'm not trying to promote AskMySite here.'",
+    "draft_reply": "The pattern worth looking at is that channel choice is probably not what killed the other nine. Cold outreach, SEO and communities all work for someone; none of them work until you can name the specific person whose day is bad without you. For AskMySite that is likely not \"websites\" — it is something like a 40-page docs site whose support inbox keeps getting the same five questions, or an agency maintaining client sites where nobody wants to write a FAQ.\n\nA concrete thing you can do this week without picking a channel: go find twenty of those people where they already complain in public — people posting that their docs search is useless, that they answer the same presales question every day, that Intercom is too expensive for their volume. Install it on their site for free yourself, then send them the log of what their visitors actually asked. That log is the pitch; you are not asking them to imagine value.\n\nIf twenty of those conversations go nowhere, that is a much more useful signal than another channel experiment, and it is the same test that would have told you early on the other nine.\n\nThe manual part of that — finding the twenty and not losing track of them — is what I built LeadAI for, if the hand-searching becomes the bottleneck."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 95,
+    "pain": 45,
+    "intent": 65,
+    "recency": 15,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1ucbbwu",
+   "title": "How did you get your first 10 B2B customers without a marketing budget?",
+   "body": "Building a B2B developer tool, pre-revenue, bootstrapped trying to figure out the most effective zero cost channels before I consider spending anything. ​ curious what actually worked for people here specifically:- ​ Did cold outreach work, or was it mostly inbound from content/communities? How long after launch did your first paying customer actually show up? What channel gave you the best signal-to-effort ratio Reddit, LinkedIn, cold email, something else entirely? Did you find customers in places you didn't expect? ​ Less interested in generic advice like \"build in public\" and more interested in specific tactics that actually moved the needle for B2B specifically, since B2C and B2B growth seem to work pretty differently. submitted by /u/devopsengin [link] [comments]",
+   "author": "devopsengin",
+   "subreddit": "SaaS",
+   "created_utc": 1782104569.0,
+   "score": 65,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1ucbbwu/how_did_you_get_your_first_10_b2b_customers/",
+   "found_via": "search:SaaS:\"find customers\"",
+   "age_days": 77.2,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Pre-revenue technical founder of a B2B developer tool who does not know which zero-cost channel actually produces first paying B2B customers, and is asking others for specific tactics rather than committing spend.",
+    "stage": "building",
+    "sells_to": "Developers and engineering teams (B2B developer tool)",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Building a B2B developer tool, pre-revenue, bootstrapped trying to figure out the most effective zero cost channels before I consider spending anything."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Did cold outreach work, or was it mostly inbound from content/communities?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": true,
+      "quote": "bootstrapped trying to figure out the most effective zero cost channels before I consider spending anything"
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Right shape of person: technical founder, pre-revenue, bootstrapped, building a B2B dev tool, and his own buyers (developers) are exactly the population that posts problems publicly, so the product could actually work for him. He is at the moment where channel choice is unresolved and he is willing to do manual work. But he never describes our specific pain (losing track of conversations, opening hundreds of posts); he is asking a general 'what worked for you' question. Treat as a relationship to open, not a sale to close.",
+    "risk": "Post is 77 days old — he may have picked a channel, launched, or quit. He explicitly frames the question around zero-cost channels before spending anything, so a paid tool pitch now reads as tone-deaf and as exactly the 'generic advice' he pre-emptively rejected. Threads like this attract vendors; a pitch gets downvoted and burns the account.",
+    "draft_reply": "For a pre-revenue dev tool the best signal-to-effort thing isn't a channel, it's a phrase list. Write down 5-8 sentences a frustrated user of the current status quo would actually type — error strings, \"is there a way to\", the name of the tool you're replacing — and run them as recurring searches on Reddit, HN Algolia, and the issue trackers of adjacent repos. Reply with the actual fix even when your tool isn't the fix. That converts far better than posting content, because you arrive at the moment the pain is live.\n\nOn cold outreach for dev tools: it works only when the first line proves you looked at their stack or their repo. Generic sequences to a scraped list get roughly nothing, and they cost you the domain.\n\nOn your timing question — for most bootstrapped B2B dev tools the first paid customer lands a couple of months after there's something installable, and it's almost always someone the founder talked to one-on-one, not someone who found the site.\n\nOne cheap thing worth starting today: one spreadsheet, every person you talk to, where you found them, what they said, and the date you'll follow up. Most founders lose their first fifty conversations and that list is the only thing that compounds while you have no budget."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 45,
+    "intent": 90,
+    "recency": 8,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1u507hf",
+   "title": "About to launch my SaaS.. Never done outreach before. How do I get from 0 to 10 real customers?",
+   "body": "I'm about a week away from launching and honestly finding customers scares me more than building the product ever did. What's funny is that the product I'm launching isn't really the one I set out to build. Originally, I wanted to build a tool that automatically assigned work in tax firms based on workload, availability, skills, and a bunch of other factors. Before I got too far, I started cold messaging tax professionals and asking a simple question: is this even a problem worth solving? The responses were surprisingly consistent. Almost everyone told me some version of: That changed everything. I didn't completely kill the assignment idea, but I scaled it way back. Instead of making decisions, the system just suggests people who have capacity available. The manager still decides. As I kept having conversations, something else became obvious. The real problem wasn't assignment. It was visibility. https://reddit.com/link/1u507hf/video/2fnxm8l4r37h1/player At one point, I realized I was spending more time talking about visibility during outreach than I was talking about my original idea. That's when it hit me that I was probably solving the wrong problem. So I built around that instead. Now comes the hard part.- Getting customers.(And that's partly why I'm here.) I don't really have a network in the tax industry. Most of my validation came from cold outreach which I've done here on reddit Right now, my plan is pretty simple: Go back to everyone who gave feedback Reach out to tax professionals on LinkedIn/X/Facebook Spend time in tax and CPA communities Email smaller firms directly (If possible) Am I missing anything obvious? I'm also curious about something else. Has anyone here started in a very niche market and expanded later? Part of me feels like the visibility problem exists in a lot of places. Tax firms, audit teams, legal practices, insurance claims, consulting, maybe even software teams. Would love any advice from people who've been through this or more lol. submitted by /u/Icy_Bison7194 [link] [comments]",
+   "author": "Icy_Bison7194",
+   "subreddit": "SaaS",
+   "created_utc": 1781379852.0,
+   "score": 65,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1u507hf/about_to_launch_my_saas_never_done_outreach/",
+   "found_via": "search:SaaS:\"find customers\"",
+   "age_days": 85.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Solo founder one week from launching a workload-visibility tool for tax firms, with zero customers and no network in the industry. His whole plan is manual cold outreach across LinkedIn, X, Facebook, CPA communities and direct email, and he is asking what he is missing.",
+    "stage": "building",
+    "sells_to": "Tax and CPA firms — practice owners and managers who need visibility into team workload and capacity",
+    "audience_reachable_online": true,
+    "icp_fit": "strong",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "finding customers scares me more than building the product ever did"
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "Am I missing anything obvious?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "I'm about a week away from launching"
+     }
+    },
+    "why": "This is the buyer problem almost word for word: product built, launch imminent, zero customers, discovery done entirely by hand — and he says his validation so far came from cold messaging on Reddit, which is the exact manual workflow we replace. He is explicitly asking what channel he is missing, so there is a real opening. His own market is reachable in public: tax and CPA practice owners post about capacity and workflow in r/taxpros, r/Accounting and the practice-management Facebook groups, so we can actually deliver leads rather than promise them.",
+    "risk": "The post is 86 days old — he has likely either found a channel or stalled, so the reply may land dead. No budget signal anywhere; a pre-launch solo founder with no revenue may not pay. He asked for advice, not tools, so a reply that pitches early reads as spam. Also, r/taxpros is verified-preparer gated, which limits what we can surface for him.",
+    "draft_reply": "The gap in your list is timing. Tax firms buy workflow software in the shoulder season, roughly September through December. January to April nobody takes your call, and in May they're recovering. You have one buying window before it closes, so front-load the outreach.\n\nTwo changes to the plan itself. When you go back to the people who gave feedback, don't ask for a demo call — ask them to run it with a real team for a week and pay something for it. They already told you honestly that assignment wasn't the problem, so they'll be honest about paying too. And LinkedIn/X/Facebook is three versions of the same guess. Tax practice owners cluster in specific places: state CPA society forums, the TaxDome/Karbon/Canopy user groups on Facebook, and r/taxpros (verified preparers only, read the rules before posting). That's where the visibility complaint actually gets typed out in public.\n\nOn expanding: the visibility problem generalizes, the buying process doesn't. Audit, legal and claims have different seasons, different titles signing the check, different vocabulary. Get to 10 paying tax firms first.\n\nYour validation came from cold outreach on Reddit, which is the manual version of what I build — it watches subreddits for people describing a problem you solve and drafts the reply for you to approve."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 95,
+    "pain": 55,
+    "intent": 65,
+    "recency": 6,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1w3kqrk",
+   "title": "I refunded my only paying customer and then built the thing he wanted for free",
+   "body": "I make a TV tracker called OpenTV. It exists because TV Time shut down and took people's watch history with it. You import your data export, it rebuilds your library on your phone, no account needed. There's a $2.99/month tier for extras like profile themes and deeper stats. I got my first subscriber. A few days later he posted this in my subreddit: \"I upgraded to Plus, partly because of the ability to choose themes. Will non-black themes be available soon? Black is kind of difficult for me, so I've been hoping for a light theme.\" The app was dark only. What I called \"themes\" was a set of accent colours and an OLED mode, all of them dark. So he'd paid partly for something that any normal person reading the word \"themes\" would assume existed, and it didn't. The other thing that got me is that he wasn't asking for decoration. He was telling me he found the app hard to read. I refunded him the full amount and gave him a free month on top, since an apology that costs nothing isn't really one. Then I spent a few days building a real light theme. It's free, in Settings, not in the paid tier. Where that leaves me: one subscriber, refunded, currently on a free month. $3 MRR that isn't even real money. But my paywall was describing itself in my words instead of his, and I only found that out because somebody paid and then told me. If you're pre-revenue and think your first customer is validation, they might be closer to your first honest bug report. submitted by /u/itsmahmood_dev [link] [comments]",
+   "author": "itsmahmood_dev",
+   "subreddit": "SaaS",
+   "created_utc": 1788197619.0,
+   "score": 62,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1w3kqrk/i_refunded_my_only_paying_customer_and_then_built/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 6.7,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Shipped a consumer TV tracker with a $2.99/mo tier but has effectively no paying customers: the only subscriber was refunded after the paywall's wording oversold what the tier contained. Customer feedback arrives by accident, not by process.",
+    "stage": "has_users",
+    "sells_to": "Consumers who tracked shows on TV Time and lost their watch history when it shut down; people wanting a no-account mobile TV tracker",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Where that leaves me: one subscriber, refunded, currently on a free month. $3 MRR that isn't even real money."
+     },
+     "seeking_solution": {
+      "present": false,
+      "quote": ""
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "Solo founder with a shipped, live product and a working paywall, stuck at effectively zero paying customers, and his users are exactly the kind that surface in public threads — TV Time's shutdown produced ongoing Reddit posts about lost watch history and export files. He learns about his own product by talking to individual users, which is the manual motion we replace. He is also demonstrably willing to act on a single user's feedback, which suggests he would actually send drafted replies rather than let them sit.",
+    "risk": "He is not asking for help finding customers — this is a retrospective with a lesson at the end, so a pitch reads as opportunistic on a post about refunding someone. Ticket size is the bigger problem: a $2.99/mo consumer app with $0 real MRR likely has no budget for a paid acquisition tool, and per-post outreach scales badly against a product that needs volume, not ten hand-won accounts.",
+    "draft_reply": "The reusable lesson here is narrower than the story: \"themes\" is a category word, and he read it the way most people would. The cheap fix is to make the paywall list literal artifacts instead of a category — \"accent colours, OLED mode, deeper stats\" — with a screenshot beside each. Do the same in the App Store subscription description, since that copy is what people see before they can look inside the app.\n\nOn the readability part specifically: if black was hard for him, a light theme may not be the whole fix. Dynamic Type support and a contrast pass on secondary text usually matter more to the same person, and both are cheaper than the theme was. He has already shown he will answer honestly, so it is worth asking him which of the two actually helped rather than inferring it.\n\nThe other thing your post implies: the people who need this are still posting about the TV Time shutdown and their orphaned export files, in public, right now. That is a repeatable channel rather than a one-off. Finding those posts by hand is the tedious part — that is what we built our tool to do (watches Reddit for that kind of post, drafts a reply you approve before it sends), if it ever becomes worth automating at your scale."
+   },
+   "factors": {
+    "problem": 100,
+    "icp": 65,
+    "pain": 70,
+    "intent": 20,
+    "recency": 80,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1vnwlm6",
+   "title": "I can build the SaaS. Finding the first customer is the hard part.",
+   "body": "As a solo developer, I’m realizing something: Coding isn’t my biggest problem anymore. Distribution is. I can build the MVP. I can fix bugs. I can improve the UI. But then comes the question: Where are the first people who will actually pay? I’ve tried thinking about cold email, Reddit, X, LinkedIn, communities… but every channel feels different. I’m curious about other solo founders: What was the hardest part of getting your first customer? Was it: Finding the right people? Getting replies? Getting them to try the product? Getting them to trust you? Or actually asking for the payment? And most importantly: What finally worked for you? I’d rather learn from real founder experiences than spend months guessing. submitted by /u/mrjaspergames [link] [comments]",
+   "author": "mrjaspergames",
+   "subreddit": "SaaS",
+   "created_utc": 1786679788.0,
+   "score": 62,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vnwlm6/i_can_build_the_saas_finding_the_first_customer/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 24.3,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Solo developer who says building is no longer the bottleneck; cannot figure out where the first paying customers are or which channel to work, and is asking other founders what actually worked.",
+    "stage": "building",
+    "sells_to": "Unstated — he never names a product, a category, or a buyer anywhere in the post.",
+    "audience_reachable_online": false,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Coding isn’t my biggest problem anymore. Distribution is."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "And most importantly: What finally worked for you?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "He states our buyer's pain in almost our exact words: can ship, cannot find the first people who will pay, and is guessing across channels rather than working one. He is a solo developer, not an agency or a growth account, and he is asking a genuine question rather than publishing a lesson. That is the persona and the moment we sell into.",
+    "risk": "Post is 24 days old and is an open discussion prompt, so a reply now lands under dozens of others, several likely tool pitches. He names no product, no buyer and no spend — 'I can build the MVP' is a statement of ability, not evidence anything is shipped. Because sells_to is unknown, we cannot verify his customers are reachable in public forums; coded false rather than assumed.",
+    "draft_reply": "The split in your list is a bit misleading — \"finding the right people\" and \"getting replies\" are the same problem. Outreach to a plausible-looking list runs 1-2% replies. Replying to someone who described the problem in public last week runs far higher, because the timing does most of the persuasion for you.\n\nConcretely: write down 3-5 phrasings someone with your problem would actually type — their symptom, not your product category. Search those on Reddit sorted by new, and only contact people whose post is under a week old. Answer the question in full, in public, without pitching. A decent share will look at your profile on their own. Then log every one in a sheet: username, date, what they said, what you sent. Most people lose that thread by week three, and follow-up is where the conversions actually happen.\n\nOne thing your post leaves out that changes the whole answer: what did you build, and who is it for? If your buyers are developers or other founders, the above works. If they are ops managers at 200-person companies, they are not posting about this anywhere public and cold email really is the only door — no amount of Reddit will fix that.\n\nI'm building a tool that automates the search-and-log half of this (finds the posts, drafts the reply, keeps the history), so read the advice with that bias in mind."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 45,
+    "intent": 65,
+    "recency": 45,
+    "engagement": 55
+   },
+   "tier": "cool",
+   "gate": "we cannot reach their customers from public forums"
+  },
+  {
+   "id": "1vb7exx",
+   "title": "Any other engineers who can build products but completely freeze when it's time to sell?",
+   "body": "Hey everyone, I'm a software engineer and building products has always been the easy part for me. I enjoy solving technical problems, designing infrastructure, optimizing performance... I can spend weeks building something I'm genuinely proud of. But once it's time to find customers, talk to people, or ask someone to pay for it, I completely stall. I don't have an audience, I'm not naturally good at marketing, and sales honestly feels uncomfortable. If you've been in the same position: How did you get your first paying customers? What changed your mindset around selling? What practical things helped you stop hiding behind building and start talking to customers? I'm not promoting a product I genuinely want to learn from people who have gone through this. submitted by /u/Appropriate-Doubt801 [link] [comments]",
+   "author": "Appropriate-Doubt801",
+   "subreddit": "SaaS",
+   "created_utc": 1785448172.0,
+   "score": 61,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1vb7exx/any_other_engineers_who_can_build_products_but/",
+   "found_via": "search:SaaS:\"find customers\"",
+   "age_days": 38.5,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Software engineer who finds building easy but stalls completely at finding customers, talking to them, or asking anyone to pay. No audience, no marketing instinct, asking how others got their first paying customers.",
+    "stage": "building",
+    "sells_to": "Not stated. He calls himself a software engineer who builds products but never names a customer segment, market, or the product itself.",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "But once it's time to find customers, talk to people, or ask someone to pay for it, I completely stall."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "What practical things helped you stop hiding behind building and start talking to customers?"
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": false,
+      "quote": ""
+     }
+    },
+    "why": "He names our buyer's exact bottleneck in his own words: can build, freezes at distribution, no audience, no first paying customers. He is technical and already ships, so he is not an idea-stage tourist, and he is asking for practical tactics rather than venting. If he takes any advice about systematically finding people who describe the problem, the manual version of that is the workflow our product automates. Best played as a slow contact: give the manual method now, let him feel the tracking pain himself.",
+    "risk": "He states he is not promoting anything and wants peer stories, so a pitch reads as exactly the thing he asked not to get. Post is 38 days old and likely has answers already; he may have stalled out or moved on. He never says what he sells or to whom, so reachability of his customers is inferred from him being a software engineer, not stated. No product named, no users, no revenue, no budget signal at all.",
+    "draft_reply": "The freeze usually isn't a personality trait. \"Selling\" as it gets described means cold-pitching strangers who have no context on you, and that version is uncomfortable for almost everyone. The version that works for engineers is a search problem: find people who already wrote the problem down in their own words, and answer them.\n\nConcretely, for two weeks: pick 3-4 forums where your users complain, search the phrases they would use for the pain rather than your product category, and reply with the actual fix in plain text. No link, no pitch. Roughly one in ten asks what you're working on, and that question is the sale, so you never have to make it yourself.\n\nTwo things that keep it from collapsing. Keep a sheet with the post URL, the exact sentence that made you reply, the date, and what came back, because you will lose track of people by week two and that's what kills the habit. And change the ask from \"would you use this\" to \"how are you handling this today\" — the first one gets politeness, the second gets a real answer.\n\nTarget 10 conversations, not 10 sales. Money tends to show up after you've heard the same sentence from five different people.\n\nFor disclosure: I build a tool that does the finding and tracking part of this, so discount me accordingly. The manual version above works and costs nothing."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 45,
+    "intent": 65,
+    "recency": 28,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  },
+  {
+   "id": "1uwid8b",
+   "title": "Traction Channels and Distribution Strategies",
+   "body": "​ Hey everyone, big fan of the sub. Long-time lurker. I'm in the process of launching my own company, and I was interested in how everyone here handles their traction channels and distribution strategies. About me, I'm launching GiState, an AI Harness platform focusing on session continuity between cross-platform models. Think saved state in a video game, but for your AI session to pick up in any other model exactly where you left off. I'm currently testing and getting ready to launch soon. However, I would like some inspiration on traction channels and distribution strategies that have worked out for you. Obviously your company doesn't have to be in the same space. I’m only interested in the general discussion of what traction channels and distribution strategies have helped you get your initial customers or even that one milestone for a certain number of customers acquired. Maybe this post can help anyone stuck in analysis paralysis or give them ideas (myself included). Feel free to post about your company and what you guys do, as well as how you acquired your first customers and grew via traction channels and distribution strategies. Maybe all of our stories can help inspire others like me. Cheers! submitted by /u/who-is_this-guy [link] [comments]",
+   "author": "who-is_this-guy",
+   "subreddit": "SaaS",
+   "created_utc": 1784056566.0,
+   "score": 61,
+   "num_comments": null,
+   "url": "https://www.reddit.com/r/SaaS/comments/1uwid8b/traction_channels_and_distribution_strategies/",
+   "found_via": "search:SaaS:\"first customers\"",
+   "age_days": 54.6,
+   "judgement": {
+    "is_lead": true,
+    "disqualifier": null,
+    "problem_statement": "Pre-launch founder of an AI session-continuity tool who has no distribution plan and is asking the sub for traction channels that produced their first customers.",
+    "stage": "building",
+    "sells_to": "Developers and heavy AI users who work across multiple LLM platforms and lose session context when switching models",
+    "audience_reachable_online": true,
+    "icp_fit": "partial",
+    "evidence": {
+     "states_problem": {
+      "present": true,
+      "quote": "Maybe this post can help anyone stuck in analysis paralysis or give them ideas (myself included)."
+     },
+     "seeking_solution": {
+      "present": true,
+      "quote": "However, I would like some inspiration on traction channels and distribution strategies that have worked out for you."
+     },
+     "tried_tools": {
+      "present": false,
+      "quote": ""
+     },
+     "budget_signal": {
+      "present": false,
+      "quote": ""
+     },
+     "urgency": {
+      "present": true,
+      "quote": "I'm currently testing and getting ready to launch soon."
+     }
+    },
+    "why": "He has a built product in testing, an imminent launch, and no distribution plan — the exact moment before manual customer discovery starts. His end users (people switching between Claude, ChatGPT, Cursor and losing context) complain about that pain publicly, so the product can actually deliver on surfacing them. Weakness: he is asking for general inspiration, not for a way to track people he has already talked to, so the specific pain we sell against is not yet stated.",
+    "risk": "Pre-launch with zero users and no revenue or budget signal — likely no willingness to pay yet, and the ask may be answered by one free Reddit comment. The post reads partly as discussion-farming (it invites everyone to pitch their own company), so a reply may get engagement but no reply back. He is also technical enough to build a crude version himself.",
+    "draft_reply": "One thing worth knowing before you collect answers here: \"what channel worked for you\" is survivorship-biased and mostly tells you what worked for that person's audience, not yours. The channel is a function of where your users already voice the pain.\n\nFor session continuity specifically, the pain is loud and public in a few places right now — people posting about losing context when they move a task from Claude to ChatGPT, from a chat UI into Cursor, or when a long session gets truncated. r/LocalLLaMA, r/ChatGPTCoding, r/ClaudeAI and the Cursor forum have those threads weekly, and HN comment sections on model-release posts have them too. Those threads are your first 10 users. Not a launch announcement — a reply in the thread where someone just described the exact problem, offering to hand them the tool.\n\nPractical version before launch: search those subs for phrases your users would use (\"lost my context\", \"start over in a new chat\", \"switching models\"), read 30 of those posts, and write down the words they use. That gives you both your first conversations and your landing page copy. Expect a low hit rate by hand — most posts you open will be irrelevant.\n\nWe built LeadAI to do that watching-and-drafting part automatically, if you want it once you launch."
+   },
+   "factors": {
+    "problem": 80,
+    "icp": 65,
+    "pain": 55,
+    "intent": 65,
+    "recency": 16,
+    "engagement": 55
+   },
+   "tier": "warm",
+   "gate": null
+  }
+ ]
+}

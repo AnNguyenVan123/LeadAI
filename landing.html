@@ -1,0 +1,869 @@
+<title>Signal — Reddit Lead Discovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --bg:#0A0C10; --bg-2:#0F1318; --bg-3:#151A21; --bg-4:#1A2029;
+  --line:#1E242C; --line-2:#2E3742;
+  --ink:#EDF0F3; --ink-2:#9BA5B0; --ink-3:#78828F;
+  --gold:#FFD27A; --gold-2:#D9A441; --gold-3:#8A6B2A;
+  --glow:rgba(255,210,122,.14);
+  --mark:rgba(255,200,90,.20); --mark-b:rgba(255,200,90,.55);
+  --steel:#7E8B9C; --mint:#5EC8B0;
+  --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --pad:clamp(64px,9vw,120px);
+  --r:10px;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{margin:0;text-wrap:balance;font-weight:600;letter-spacing:-.03em;line-height:1.06}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+::selection{background:var(--gold);color:#0A0C10}
+
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:clamp(20px,5vw,44px)}
+.sec{padding-block:var(--pad);border-top:1px solid var(--line);position:relative}
+.col{max-width:58ch}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-2);display:flex;align-items:center;
+  gap:11px;margin-bottom:24px;
+}
+.eyebrow::before{content:"";width:16px;height:1px;background:var(--gold-3);flex:none}
+h2{font-size:clamp(1.8rem,3.9vw,2.75rem)}
+.sub{margin-top:20px;color:var(--ink-2);font-size:1.06rem;line-height:1.62}
+
+/* ---------- header ---------- */
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.035em}
+.brand i{
+  width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;
+  box-shadow:0 0 0 4px var(--glow),0 0 14px var(--gold);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.brand em{font-family:var(--mono);font-style:normal;font-size:10px;font-weight:500;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;padding-left:2px}
+
+/* ---------- buttons ---------- */
+.btn{
+  font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.01em;
+  padding:14px 24px;border-radius:7px;cursor:pointer;display:inline-block;border:1px solid transparent;
+  background:linear-gradient(180deg,#FFDD97,var(--gold-2));color:#140F02;
+  box-shadow:0 1px 0 rgba(255,255,255,.28) inset,0 8px 26px -12px rgba(255,200,90,.7);
+  transition:transform .13s ease,box-shadow .13s ease,filter .13s ease;
+}
+.btn:hover{transform:translateY(-1.5px);filter:brightness(1.06);box-shadow:0 1px 0 rgba(255,255,255,.3) inset,0 12px 32px -12px rgba(255,200,90,.85)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:var(--bg-3);color:var(--ink);border-color:var(--line-2);box-shadow:none}
+.btn.ghost:hover{border-color:var(--ink-3);filter:none;box-shadow:none}
+.btn.sm{font-size:13.5px;padding:10px 17px}
+.btn.link{background:none;border:none;box-shadow:none;color:var(--ink-3);font-weight:400;font-size:14px;text-decoration:underline;text-underline-offset:3px;padding:8px 2px}
+.btn.link:hover{color:var(--ink);transform:none;filter:none}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none;filter:none}
+.cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:36px}
+.micro{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.01em}
+.micro b{color:var(--gold);font-weight:700}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(30px,5vw,56px) clamp(52px,7vw,86px)}
+.hero::before{
+  content:"";position:absolute;inset:-160px -20% auto -20%;height:640px;z-index:-1;pointer-events:none;
+  background:radial-gradient(60% 52% at 62% 24%,rgba(255,200,90,.11),transparent 72%);
+}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:26px}
+h1{font-size:clamp(2.6rem,7.2vw,4.9rem);letter-spacing:-.045em;max-width:14ch;font-weight:700}
+h1 span{color:var(--gold)}
+.lede{font-size:clamp(1.06rem,2vw,1.32rem);color:var(--ink-2);max-width:54ch;margin-top:28px;line-height:1.52}
+.lede b{color:var(--ink);font-weight:500}
+
+/* ---------- exhibit ---------- */
+.exhibit{
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:0;
+  margin-top:clamp(44px,6vw,68px);border:1px solid var(--line-2);border-radius:14px;
+  background:var(--bg-2);overflow:hidden;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,210,122,.05);
+}
+@media (max-width:860px){.exhibit{grid-template-columns:1fr}}
+.scan{padding:clamp(18px,2.6vw,26px);position:relative;min-width:0;overflow:hidden}
+.scan-hd{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);
+  display:flex;align-items:center;gap:9px;margin-bottom:16px;text-transform:uppercase;
+}
+.scan-hd b{color:var(--gold-2);font-weight:500}
+.scan-hd i{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;animation:pulse 1.6s ease-in-out infinite}
+.feed{display:grid;gap:7px;position:relative}
+.scanline{
+  position:absolute;left:-24px;right:-24px;height:70px;pointer-events:none;top:0;
+  background:linear-gradient(180deg,transparent,rgba(255,210,122,.10) 60%,rgba(255,210,122,.4));
+  border-bottom:1px solid rgba(255,210,122,.5);
+  animation:scan 2.3s cubic-bezier(.4,0,.5,1) .2s 1 forwards;opacity:0;
+}
+@keyframes scan{0%{transform:translateY(-70px);opacity:1}88%{opacity:1}100%{transform:translateY(430px);opacity:0}}
+.fp{border-radius:8px;padding:11px 13px;border:1px solid transparent;background:var(--bg-3)}
+.fp .m{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.06em;margin-bottom:5px}
+.fp .t{font-size:13.5px;color:var(--ink-2);line-height:1.45;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fp.dim{opacity:.4}
+.fp.dim .t{color:var(--ink-3)}
+.fp.hit{
+  background:linear-gradient(180deg,var(--bg-4),var(--bg-3));border-color:rgba(255,210,122,.34);
+  padding:16px 17px;box-shadow:0 0 0 1px rgba(255,210,122,.08),0 18px 40px -20px rgba(255,180,60,.35);
+  position:relative;
+}
+.fp.hit::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:2px;border-radius:2px;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.fp.hit .m{color:var(--ink-2)}
+.fp.hit .m b{color:var(--gold-2)}
+.fp.hit .t{white-space:normal;overflow:visible;font-family:var(--serif);font-size:1.02rem;line-height:1.5;color:var(--ink)}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;margin-top:13px;padding:5px 10px;border-radius:5px;
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  background:rgba(255,210,122,.11);color:var(--gold);border:1px solid rgba(255,210,122,.28);
+}
+.chip b{font-size:12px}
+mark{
+  color:inherit;background-color:transparent;
+  background-image:linear-gradient(var(--mark),var(--mark));
+  background-repeat:no-repeat;background-size:0% 100%;
+  padding:.06em .1em;margin:0 -.1em;border-radius:2px;
+  box-shadow:inset 0 -1px 0 0 transparent;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  animation:sweep .4s cubic-bezier(.5,0,.2,1) forwards;
+}
+@keyframes sweep{to{background-size:100% 100%}}
+mark sup{font-family:var(--mono);font-size:.55em;font-weight:700;color:var(--gold);top:-.75em;margin-left:.15em}
+.notes{margin-top:15px;padding-top:13px;border-top:1px dashed var(--line-2);display:grid;gap:6px}
+.note{display:grid;grid-template-columns:14px 1fr;gap:8px;align-items:baseline}
+.note b{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--gold)}
+.note span{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.02em}
+@media (prefers-reduced-motion:reduce){
+  mark{animation:none;background-size:100% 100%}
+  .scanline{display:none}
+  .brand i{animation:none}
+  .scan-hd i{animation:none}
+}
+
+.readout{padding:clamp(20px,2.8vw,28px);background:linear-gradient(180deg,rgba(255,210,122,.045),transparent 40%),var(--bg-2);border-left:1px solid var(--line);display:flex;flex-direction:column}
+@media (max-width:860px){.readout{border-left:none;border-top:1px solid var(--line)}}
+.readout h4{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:20px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:5px 12px;align-items:center;padding:6px 0}
+.bar dt{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.04em}
+.bar dd{font-family:var(--mono);font-size:12px;font-weight:700;margin:0;color:var(--ink)}
+.bar .track{grid-column:1/-1;height:3px;background:var(--line-2);border-radius:3px;overflow:hidden}
+.bar .track i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold-3),var(--gold-2))}
+.total{margin-top:auto;padding-top:20px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-top:1px solid var(--line-2)}
+.total dt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);padding-bottom:9px}
+.total dd{margin:0;font-size:3.4rem;font-weight:700;letter-spacing:-.055em;line-height:.85;color:var(--gold);font-variant-numeric:tabular-nums;text-shadow:0 0 34px rgba(255,210,122,.4)}
+.verdict{margin-top:16px;font-family:var(--mono);font-size:10.5px;line-height:1.7;color:var(--ink-3);letter-spacing:.02em}
+.verdict b{color:var(--gold);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+
+/* ---------- generic two col ---------- */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:clamp(34px,6vw,80px);align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+
+/* ---------- chain ---------- */
+.chain{list-style:none;margin:0;padding:0 0 0 24px;border-left:1px solid var(--line-2)}
+.chain li{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);padding:10px 0;position:relative;letter-spacing:.01em}
+.chain li::before{content:"";position:absolute;left:-28px;top:calc(50% - 2.5px);width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+.chain li.fail{color:var(--gold)}
+.chain li.fail::before{background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.chain li.fail em{font-style:normal;color:var(--ink-3)}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,32px);margin-top:56px}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+.step{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px 28px}
+.step .n{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.16em;color:var(--gold-2);display:block;margin-bottom:14px}
+.step h3{font-size:1.22rem;margin-bottom:11px}
+.step p{color:var(--ink-2);font-size:.955rem;line-height:1.62}
+
+/* ---------- pipeline bars ---------- */
+.pipe{margin-top:56px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);padding:clamp(24px,3.4vw,34px)}
+.pipe h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.pipe .cap{color:var(--ink-2);font-size:.95rem;max-width:52ch;margin-bottom:26px}
+.prow{display:grid;grid-template-columns:158px minmax(0,1fr) 78px;gap:18px;align-items:center;padding:9px 0}
+@media (max-width:640px){.prow{grid-template-columns:1fr auto;gap:5px 12px}.prow .pb{grid-column:1/-1;order:3}}
+.prow .pl{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);letter-spacing:.03em}
+.pb{height:12px;background:var(--bg-4);border-radius:3px;overflow:hidden}
+.pb i{display:block;height:100%;border-radius:3px;background:var(--gold-3);transition:filter .15s}
+.prow:hover .pb i{filter:brightness(1.3)}
+.prow.out .pb i{background:linear-gradient(90deg,var(--gold-2),var(--gold));box-shadow:0 0 18px -2px rgba(255,210,122,.7)}
+.prow .pv{font-family:var(--mono);font-size:14px;font-weight:700;text-align:right;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.prow.out .pv{color:var(--gold)}
+
+/* ---------- tiers ---------- */
+.tiers{margin-top:52px;display:grid;gap:12px}
+.tier{
+  display:grid;grid-template-columns:150px minmax(0,1fr) 190px;gap:clamp(16px,3vw,34px);
+  align-items:start;padding:24px 26px;border-radius:var(--r);
+  background:var(--bg-2);border:1px solid var(--line);
+}
+@media (max-width:820px){.tier{grid-template-columns:1fr;gap:13px;padding:20px}}
+.tier .lvl{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:9px}
+.tier .lvl::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+.tier q{font-family:var(--serif);font-size:1.1rem;line-height:1.5;color:var(--ink);display:block;quotes:"“" "”"}
+.tier .why{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.85;letter-spacing:.02em}
+.tier.now{background:linear-gradient(180deg,rgba(255,210,122,.07),var(--bg-2));border-color:rgba(255,210,122,.3);box-shadow:0 0 0 1px rgba(255,210,122,.06),0 16px 40px -26px rgba(255,180,60,.5)}
+.tier.now .lvl{color:var(--gold)}
+.tier.now .lvl::before{box-shadow:0 0 12px var(--gold)}
+.tier.mon .lvl{color:var(--steel)}
+.tier.ign{opacity:.6}
+.tier.ign .lvl{color:var(--ink-3)}
+
+/* ---------- timeline ---------- */
+.tl{border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);padding:clamp(22px,3vw,30px)}
+.tl ol{list-style:none;margin:0;padding:0 0 0 26px;border-left:1px solid var(--line-2)}
+.tl li{position:relative;padding:11px 0;display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:baseline}
+.tl li::before{content:"";position:absolute;left:-29.5px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--line-2)}
+.tl li.ai::before{background:var(--gold-3)}
+.tl li.win::before{background:var(--mint);box-shadow:0 0 12px var(--mint)}
+.tl .d{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em}
+.tl .e{font-size:.94rem;color:var(--ink-2);line-height:1.5}
+.tl .e b{color:var(--ink);font-weight:500}
+.tl li.win .e b{color:var(--mint)}
+.tl .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-right:9px}
+.stages{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.stages span{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;padding:5px 9px;border-radius:4px;background:var(--bg-3);color:var(--ink-3);border:1px solid var(--line)}
+.stages span.on{background:rgba(94,200,176,.1);color:var(--mint);border-color:rgba(94,200,176,.3)}
+
+/* ---------- draft ---------- */
+.draft{border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);overflow:hidden}
+.draft .hd{padding:14px 20px;border-bottom:1px solid var(--line);background:var(--bg-3);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.draft .hd b{color:var(--gold-2);font-weight:500}
+.draft .bd{padding:24px 22px;font-family:var(--serif);font-size:1.08rem;line-height:1.6;color:var(--ink)}
+.draft .ft{padding:14px 20px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.draft .ft .n{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-left:auto}
+.analysis{display:grid;gap:14px;margin-top:30px}
+.analysis div{display:grid;grid-template-columns:104px 1fr;gap:16px;align-items:baseline}
+.analysis dt{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+.analysis dd{margin:0;font-size:.96rem;color:var(--ink-2);line-height:1.5}
+
+/* ---------- fit ---------- */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,28px);margin-top:52px}
+@media (max-width:760px){.fit{grid-template-columns:1fr}}
+.fitcard{border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;background:var(--bg-2)}
+.fitcard.no{background:transparent}
+.fitcard h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px;color:var(--gold-2)}
+.fitcard.no h4{color:var(--ink-3)}
+.fitcard ul{list-style:none;margin:0;padding:0;display:grid;gap:13px}
+.fitcard li{display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:.96rem;color:var(--ink-2);line-height:1.5}
+.fitcard li::before{content:"+";font-family:var(--mono);font-size:13px;color:var(--gold);font-weight:700}
+.fitcard.no li::before{content:"—";color:var(--ink-3);font-weight:400}
+
+/* ---------- faq ---------- */
+.faq{margin-top:48px;display:grid;gap:0;border-top:1px solid var(--line)}
+.faq div{padding:26px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:clamp(20px,5vw,56px)}
+@media (max-width:760px){.faq div{grid-template-columns:1fr;gap:10px}}
+.faq h4{font-size:1.05rem;color:var(--ink);letter-spacing:-.02em;line-height:1.4}
+.faq p{color:var(--ink-2);font-size:.97rem;line-height:1.62}
+
+/* ---------- final ---------- */
+.final{border-top:1px solid var(--line);padding-block:clamp(72px,10vw,140px);position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:520px;z-index:-1;background:radial-gradient(50% 60% at 50% 100%,rgba(255,200,90,.13),transparent 70%)}
+.final h2{font-size:clamp(2rem,5.2vw,3.5rem);max-width:15ch;letter-spacing:-.042em}
+.pledge{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.95;max-width:62ch}
+.pledge b{color:var(--gold-2);font-weight:500}
+footer{border-top:1px solid var(--line);padding-block:26px 40px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+
+/* ---------- dialog ---------- */
+dialog{
+  border:1px solid var(--line-2);border-radius:14px;background:var(--bg-2);color:var(--ink);
+  padding:0;width:min(540px,calc(100vw - 28px));max-height:calc(100dvh - 44px);
+  box-shadow:0 40px 100px -30px #000,0 0 0 1px rgba(255,210,122,.07);
+}
+dialog::backdrop{background:rgba(4,6,9,.76);backdrop-filter:blur(5px)}
+.dlg-hd{padding:22px 26px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.prog{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.segs{display:flex;gap:4px;margin-top:10px}
+.segs i{width:28px;height:2.5px;border-radius:2px;background:var(--line-2);display:block;transition:background .25s}
+.segs i.on{background:var(--gold)}
+.x{background:none;border:none;color:var(--ink-3);font-size:22px;line-height:1;cursor:pointer;padding:0 5px;border-radius:4px}
+.x:hover{color:var(--ink)}
+.dlg-bd{padding:22px 26px 26px;overflow-y:auto}
+.dlg-bd h3{font-size:1.4rem;margin-bottom:9px}
+.dlg-bd .s{color:var(--ink-2);font-size:.94rem;line-height:1.55;margin-bottom:22px}
+label.f{display:block;margin-bottom:18px}
+label.f > span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+input[type=email],textarea{
+  width:100%;font-family:var(--sans);font-size:15.5px;color:var(--ink);
+  background:var(--bg);border:1px solid var(--line-2);border-radius:7px;padding:12px 14px;line-height:1.5;resize:vertical;
+}
+textarea{min-height:92px}
+input::placeholder,textarea::placeholder{color:var(--ink-3);opacity:.75}
+input:focus,textarea:focus{outline:none;border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(255,210,122,.1)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.ch{font-family:var(--mono);font-size:11.5px;padding:8px 12px;border-radius:999px;border:1px solid var(--line-2);background:var(--bg);color:var(--ink-2);cursor:pointer;letter-spacing:.02em;transition:all .13s}
+.ch:hover{border-color:var(--ink-3)}
+.ch[aria-pressed=true]{background:rgba(255,210,122,.13);border-color:var(--gold-2);color:var(--gold)}
+.opts{display:grid;gap:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:14px 15px;cursor:pointer;border:1px solid var(--line-2);border-radius:8px;background:var(--bg);transition:all .13s}
+.opt:hover{border-color:var(--ink-3)}
+.opt:has(input:checked){border-color:var(--gold-2);background:rgba(255,210,122,.06)}
+.opt input{margin:3px 0 0;accent-color:var(--gold-2);flex:none}
+.opt b{display:block;font-size:.95rem;font-weight:500}
+.opt em{display:block;font-style:normal;font-size:.83rem;color:var(--ink-3);margin-top:3px;line-height:1.45}
+.dlg-ft{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+.err{color:#FF9E7A;font-family:var(--mono);font-size:11.5px;margin-top:12px;min-height:1em}
+.done .big{font-size:3.4rem;font-weight:700;letter-spacing:-.055em;line-height:1;color:var(--gold);margin-bottom:8px;text-shadow:0 0 34px rgba(255,210,122,.35)}
+.done ul{margin:20px 0 0;padding-left:18px;color:var(--ink-2);font-size:.93rem;line-height:1.8}
+
+/* ---------- metrics ---------- */
+.mx{padding-block:36px 90px}
+.funnel{margin-top:34px}
+.fr{display:grid;grid-template-columns:186px minmax(0,1fr) 78px 96px;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+@media (max-width:740px){.fr{grid-template-columns:1fr auto;gap:6px 12px}.fr .fbar{grid-column:1/-1;order:3}}
+.fr .fl{font-family:var(--mono);font-size:12px;color:var(--ink-2);letter-spacing:.03em}
+.fbar{height:10px;background:var(--bg-3);border-radius:3px;overflow:hidden}
+.fbar i{display:block;height:100%;border-radius:3px;background:var(--gold-3)}
+.fr.key .fbar i{background:linear-gradient(90deg,var(--gold-2),var(--gold))}
+.fr .fn{font-family:var(--mono);font-size:16px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.fr.key .fn{color:var(--gold)}
+.fr .fp{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-align:right;font-variant-numeric:tabular-nums}
+.leads{margin-top:20px}
+.lead{padding:20px 0;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.lead .lh{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.lead .lh b{color:var(--ink);font-weight:500;font-size:12.5px}
+.lead .tg{padding:2px 8px;border-radius:4px;border:1px solid var(--line-2);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase}
+.lead .tg.hot{color:var(--gold);border-color:rgba(255,210,122,.4);background:rgba(255,210,122,.09)}
+.lead p{font-size:.94rem;color:var(--ink-2);line-height:1.5}
+.lead p b{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-right:9px}
+.empty{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);padding:40px 0;line-height:1.9}
+.hidden{display:none !important}
+</style>
+
+<div id="site">
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><i></i>Signal<em>beta</em></div>
+    <button class="btn sm ghost" data-cta="nav">Get my first lead report</button>
+  </header>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="wrap hero">
+  <p class="kicker">AI customer discovery · Reddit</p>
+  <h1>Find people who already need <span>what you&rsquo;re building.</span></h1>
+  <p class="lede">Right now, in a thread you will never open, someone is describing your product and asking whether it exists. <b>Signal reads those conversations, tells you which person is worth an hour of your day, and drafts what to say.</b></p>
+  <div class="cta-row">
+    <button class="btn" data-cta="hero">Find My First Customers</button>
+    <span class="micro" id="social">Free during beta &middot; No credit card required</span>
+  </div>
+
+  <div class="exhibit">
+    <div class="scan">
+      <p class="scan-hd"><i></i>Scanning <b>r/webdev &middot; r/SaaS &middot; r/devtools &middot; r/cscareerquestions</b></p>
+      <div class="feed">
+        <div class="scanline"></div>
+        <article class="fp dim"><p class="m">r/programming · 4h</p><p class="t">AI coding agents are making developers lazy, change my mind</p></article>
+        <article class="fp dim"><p class="m">r/webdev · 3h</p><p class="t">What does your 2026 dev setup look like?</p></article>
+        <article class="fp hit">
+          <p class="m"><b>r/webdev</b> · u/mkzero · 2h · 14 comments</p>
+          <p class="t"><mark style="animation-delay:1.9s">Does anyone know an app that</mark><sup>1</sup> automatically blocks Reddit while I&rsquo;m coding? <mark style="animation-delay:2.15s">I&rsquo;ve tried Forest and Freedom</mark><sup>2</sup> but I <mark style="animation-delay:2.4s">still end up doomscrolling</mark><sup>3</sup> every time my agent generates code. <mark style="animation-delay:2.65s">Losing 30 min a pop.</mark><sup>4</sup></p>
+          <div class="notes">
+            <div class="note"><b>1</b><span>solution-seeking — asked outright</span></div>
+            <div class="note"><b>2</b><span>alternatives tried, both rejected</span></div>
+            <div class="note"><b>3</b><span>pain — ongoing, unresolved</span></div>
+            <div class="note"><b>4</b><span>cost — quantified by them, not you</span></div>
+          </div>
+          <span class="chip"><b>96</b> Contact now</span>
+        </article>
+        <article class="fp dim"><p class="m">r/cscareerquestions · 5h</p><p class="t">Anyone else context-switch way too much during the day?</p></article>
+        <article class="fp dim"><p class="m">r/SaaS · 6h</p><p class="t">Weekly show-off thread — what did you ship?</p></article>
+      </div>
+    </div>
+
+    <dl class="readout">
+      <h4>Why this one</h4>
+      <div class="bar"><dt>ICP fit</dt><dd>95</dd><div class="track"><i style="width:95%"></i></div></div>
+      <div class="bar"><dt>Problem match</dt><dd>96</dd><div class="track"><i style="width:96%"></i></div></div>
+      <div class="bar"><dt>Pain</dt><dd>94</dd><div class="track"><i style="width:94%"></i></div></div>
+      <div class="bar"><dt>Buying intent</dt><dd>94</dd><div class="track"><i style="width:94%"></i></div></div>
+      <div class="bar"><dt>Freshness</dt><dd>99</dd><div class="track"><i style="width:99%"></i></div></div>
+      <div class="total"><dt>Lead score</dt><dd>96</dd></div>
+      <p class="verdict"><b>Contact now</b>Comment in the thread first. Be useful, don&rsquo;t link. They asked a direct question — answer it.</p>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="sec">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">The problem</p>
+      <h2>You&rsquo;re not short on conversations. You&rsquo;re short on the right one.</h2>
+      <p class="sub">Every day people publicly describe unmet needs, tools that failed them, and problems they&rsquo;d pay to make go away — in their own words, using none of the keywords you&rsquo;d think to search.</p>
+      <p class="sub">So you read. Two hundred posts to find three that matter, and by the time you find them the thread is cold and someone else answered first.</p>
+      <p class="sub" style="color:var(--ink)">The hard part was never finding conversations. It&rsquo;s knowing which person, at which moment, is worth your next hour.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Today, by hand</p>
+      <ol class="chain">
+        <li>Ship the product</li>
+        <li>Launch it somewhere</li>
+        <li>Search Reddit for your keywords</li>
+        <li>Open 200 posts</li>
+        <li>Guess who might actually care</li>
+        <li>Write every message from scratch</li>
+        <li class="fail">Lose the thread <em>— every time</em></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">How it works</p>
+      <h2>Three stages. Each one throws work away.</h2>
+      <p class="sub">This isn&rsquo;t a keyword alert with a language model bolted on. Every stage narrows the field so the expensive reasoning only runs on candidates that earned it.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">01 — DISCOVER</span>
+        <h3>Describe what you&rsquo;re building</h3>
+        <p>One paragraph in. Out comes a structured target: who the customer is, what the problem is, and the exact phrases those people use when they&rsquo;re frustrated or shopping — including the ones you&rsquo;d never think of.</p>
+      </div>
+      <div class="step">
+        <span class="n">02 — QUALIFY</span>
+        <h3>Narrow a hundred to ten</h3>
+        <p>Keyword search catches exact phrasing. Embeddings catch everything paraphrased. A reranker cuts the pool down, then AI reads what survives in full — and throws out the ones that only look relevant.</p>
+      </div>
+      <div class="step">
+        <span class="n">03 — ENGAGE</span>
+        <h3>Know what to say</h3>
+        <p>Each lead arrives with a reason and a draft — helpful first, no pitch, no link. You read it, change it, and post it from your own account. Nothing is ever sent for you.</p>
+      </div>
+    </div>
+
+    <div class="pipe">
+      <h4>The pipeline</h4>
+      <p class="cap">Roughly two thousand new posts a day move through your subreddits. Sending all of them to a language model would be slow, expensive, and no more accurate. So it works in stages.</p>
+      <div class="prow"><span class="pl">Hybrid retrieval</span><div class="pb"><i style="width:100%"></i></div><span class="pv">100</span></div>
+      <div class="prow"><span class="pl">After reranking</span><div class="pb"><i style="width:20%"></i></div><span class="pv">20</span></div>
+      <div class="prow out"><span class="pl">Delivered to you</span><div class="pb"><i style="width:10%"></i></div><span class="pv">10</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIERS ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">Lead intelligence</p>
+      <h2>&ldquo;Related to your topic&rdquo; is not the same as &ldquo;ready to talk.&rdquo;</h2>
+      <p class="sub">All three of these sentences match a focus-tool startup on keywords. A search tool hands you all three. Only one is worth interrupting your day for — and knowing which is the entire product.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier now">
+        <p class="lvl">Contact now</p>
+        <q>I&rsquo;ve tried Forest and Freedom but I still end up checking Reddit while waiting for Cursor. Is there anything that blocks distractions automatically?</q>
+        <p class="why">exact problem<br>alternatives tried and rejected<br>asked for a solution outright<br>posted two hours ago</p>
+      </div>
+      <div class="tier mon">
+        <p class="lvl">Monitor</p>
+        <q>I keep getting distracted when I&rsquo;m coding.</q>
+        <p class="why">real pain, no urgency<br>not looking for anything<br>worth watching, not messaging</p>
+      </div>
+      <div class="tier ign">
+        <p class="lvl">Ignore</p>
+        <q>AI coding agents are making developers lazy.</q>
+        <p class="why">topic match only<br>no pain, no intent<br>costs you an hour to learn that</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRM ============ -->
+<section class="sec">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">Lead CRM</p>
+      <h2>Finding them was the easy half.</h2>
+      <p class="sub">Most leads die in the gap between &ldquo;good conversation&rdquo; and &ldquo;followed up on Tuesday.&rdquo; Every lead keeps its own history, so you never re-read a thread to remember where you left off.</p>
+      <p class="sub">Stage and intent are tracked separately, because someone you contacted last week can go hot today — and that&rsquo;s exactly the moment worth catching.</p>
+      <div class="stages">
+        <span>New</span><span>Qualified</span><span>Contacted</span><span>Replied</span><span>Interested</span><span class="on">Trial</span><span>Customer</span>
+      </div>
+    </div>
+    <div class="tl">
+      <ol>
+        <li><span class="d">Sep 2</span><span class="e"><span class="who">reddit</span>Posted about losing focus waiting on their agent</span></li>
+        <li class="ai"><span class="d">Sep 3</span><span class="e"><span class="who">ai</span>Flagged <b>high intent</b> — asked for a tool by name</span></li>
+        <li><span class="d">Sep 3</span><span class="e"><span class="who">you</span>Replied in the thread. No pitch, no link.</span></li>
+        <li class="win"><span class="d">Sep 4</span><span class="e"><span class="who">lead</span><b>Replied</b> — asked what you were working on</span></li>
+        <li class="ai"><span class="d">Sep 5</span><span class="e"><span class="who">ai</span>&ldquo;Now is the moment to mention the beta&rdquo;</span></li>
+        <li><span class="d">Sep 5</span><span class="e"><span class="who">you</span>Sent the beta link</span></li>
+        <li class="win"><span class="d">Sep 6</span><span class="e"><span class="who">lead</span><b>Started a trial</b></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOLLOW-UP ============ -->
+<section class="sec">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">AI follow-up</p>
+      <h2>It reads the whole conversation, not the last message.</h2>
+      <p class="sub">Once someone replies, the useful question stops being &ldquo;is this a lead&rdquo; and becomes &ldquo;what do I say now, without sounding like a pitch.&rdquo;</p>
+      <dl class="analysis">
+        <div><dt>Objection</dt><dd>Dislikes having to start focus sessions manually</dd></div>
+        <div><dt>Using today</dt><dd>Forest, reluctantly</dd></div>
+        <div><dt>Opening</dt><dd>Automatic focus mode — the one thing Forest can&rsquo;t do</dd></div>
+        <div><dt>Next move</dt><dd>Ask what specifically broke down with Forest</dd></div>
+      </dl>
+    </div>
+    <div class="draft">
+      <div class="hd"><span>Draft reply</span><span><b>helpful</b> · no pitch · no link</span></div>
+      <p class="bd">That Forest thing is exactly why I dropped it — remembering to start a session is the part that never survives a real workday. Was it the manual start that broke it for you, or did it just not block the right things?</p>
+      <div class="ft">
+        <span class="btn sm" aria-hidden="true">Send</span>
+        <span class="btn sm ghost" aria-hidden="true">Edit</span>
+        <span class="n">you send it, not us</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIT ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">Fit</p>
+      <h2>This is deliberately not for everyone.</h2>
+      <p class="sub">If the second column describes you, please don&rsquo;t sign up — you&rsquo;ll hate it and we&rsquo;d rather know now.</p>
+    </div>
+    <div class="fit">
+      <div class="fitcard">
+        <h4>Built for you if</h4>
+        <ul>
+          <li>You&rsquo;ve shipped something and need your first twenty users</li>
+          <li>Your customers describe their problem in public, in their own words</li>
+          <li>You&rsquo;d take ten real conversations over a thousand email addresses</li>
+          <li>You&rsquo;re willing to show up in a thread as yourself</li>
+        </ul>
+      </div>
+      <div class="fitcard no">
+        <h4>Not for you if</h4>
+        <ul>
+          <li>You need volume — this gives you fewer leads on purpose</li>
+          <li>You want messages sent automatically; we won&rsquo;t build that</li>
+          <li>Your buyer is a procurement committee that isn&rsquo;t online</li>
+          <li>You&rsquo;re looking for a scraped list to import into a sequencer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">Straight answers</p>
+      <h2>The three things people ask first.</h2>
+    </div>
+    <div class="faq">
+      <div>
+        <h4>Isn&rsquo;t this just scraping?</h4>
+        <p>No. Public posts and comments, through official APIs, inside each platform&rsquo;s terms. No private messages, no DMs, no logging in as you, no posting as you.</p>
+      </div>
+      <div>
+        <h4>Will I get banned for doing this?</h4>
+        <p>You&rsquo;d get banned for spamming — which is why the default draft is a genuinely helpful comment with no link in it. You post it yourself, from your own account, in communities you actually participate in. If you use this as a broadcast tool it will fail, and that&rsquo;s by design.</p>
+      </div>
+      <div>
+        <h4>What if my people aren&rsquo;t on Reddit?</h4>
+        <p>Then hold off — and tell us where they are instead. Hacker News, GitHub Discussions, Discord and X are next in line, and the ones founders name most often get built first. That answer is worth more to us right now than your signup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2>Who&rsquo;s asking for your product this week?</h2>
+    <p class="sub" style="max-width:46ch">Tell us what you&rsquo;re building. We hand-build the first lead report ourselves and send you ten real people, each with the reason they made the list.</p>
+    <div class="cta-row">
+      <button class="btn" data-cta="final">Find My First Customers</button>
+      <span class="micro" id="social2">Free during beta &middot; No credit card required</span>
+    </div>
+    <p class="pledge">
+      <b>What this is not.</b> Not a mass-DM tool. Not an auto-poster. Not a scraper that sells you ten thousand email addresses.<br>
+      Nothing is ever sent on your behalf. Every message is written for one person, reviewed by you, posted by you.<br>
+      We&rsquo;d rather find you ten conversations that go somewhere than ten thousand that go nowhere.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>Signal — AI customer discovery for early-stage founders</span>
+    <span>Validating demand · 2026</span>
+  </div>
+</footer>
+</div>
+
+<!-- ============ METRICS ============ -->
+<div id="metrics" class="hidden">
+  <div class="wrap mx">
+    <header class="top" style="border-bottom:1px solid var(--line);margin-bottom:46px">
+      <div class="brand"><i></i>Signal<em>funnel</em></div>
+      <a class="btn sm ghost" href="?">View landing page</a>
+    </header>
+    <p class="eyebrow">Live — from the artifact store</p>
+    <h2>Demand validation funnel</h2>
+    <p class="sub">Each percentage is of the stage above it. The two highlighted rows are the ones that decide build / pivot / stop.</p>
+    <div class="funnel" id="funnel"></div>
+    <p class="eyebrow" style="margin-top:70px">Concierge queue</p>
+    <h2 style="font-size:1.6rem">Founders who told us what they&rsquo;re building</h2>
+    <p class="sub">Everything needed to hand-run the first lead reports.</p>
+    <div class="leads" id="leads"></div>
+  </div>
+</div>
+
+<!-- ============ DIALOG ============ -->
+<dialog id="dlg">
+  <div class="dlg-hd">
+    <div><p class="prog" id="prog">Step 1 of 4</p><div class="segs" id="segs"><i class="on"></i><i></i><i></i><i></i></div></div>
+    <button class="x" id="close" aria-label="Close">&times;</button>
+  </div>
+  <div class="dlg-bd">
+    <form id="form">
+      <div class="pane" data-step="1">
+        <h3>Get your first lead report</h3>
+        <p class="s">During beta we build the first batch by hand — ten real people, each with the reason they made the list. Takes us about a day.</p>
+        <label class="f"><span>Work email</span><input type="email" id="email" placeholder="you@yourstartup.com" autocomplete="email" required></label>
+        <div class="dlg-ft"><button class="btn" type="submit">Continue</button><span class="micro">Free during beta &middot; no card</span></div>
+      </div>
+
+      <div class="pane hidden" data-step="2">
+        <h3>What are you building?</h3>
+        <p class="s">A couple of sentences is plenty. This is what we turn into the problem statement and the phrases we search for.</p>
+        <label class="f"><span>Your product</span><textarea id="building" placeholder="A focus tool for developers who lose 30 minutes every time an AI agent is generating code."></textarea></label>
+        <div class="dlg-ft"><button class="btn" type="submit">Continue</button><button class="btn link" type="button" data-skip>I&rsquo;ll send this later</button></div>
+      </div>
+
+      <div class="pane hidden" data-step="3">
+        <h3>Who has this problem?</h3>
+        <p class="s">The narrower the better. &ldquo;Developers&rdquo; is too broad. &ldquo;Solo devs shipping SaaS with Cursor&rdquo; gets you real leads.</p>
+        <label class="f"><span>Your ideal customer</span><textarea id="icp" placeholder="Solo founders and 1–5 person teams shipping SaaS, who code with AI agents every day."></textarea></label>
+        <label class="f"><span>Where do you look for them today?</span>
+          <div class="chips" id="chips">
+            <button type="button" class="ch" aria-pressed="false">Reddit</button>
+            <button type="button" class="ch" aria-pressed="false">X / Twitter</button>
+            <button type="button" class="ch" aria-pressed="false">Hacker News</button>
+            <button type="button" class="ch" aria-pressed="false">Discord / Slack</button>
+            <button type="button" class="ch" aria-pressed="false">LinkedIn</button>
+            <button type="button" class="ch" aria-pressed="false">GitHub</button>
+            <button type="button" class="ch" aria-pressed="false">Cold email</button>
+            <button type="button" class="ch" aria-pressed="false">Nowhere yet</button>
+          </div>
+        </label>
+        <div class="dlg-ft"><button class="btn" type="submit">Continue</button><button class="btn link" type="button" data-skip>I&rsquo;ll send this later</button></div>
+      </div>
+
+      <div class="pane hidden" data-step="4">
+        <h3>Want the first batch this week?</h3>
+        <p class="s">We can only hand-build a few at a time, so this decides the order.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="beta" value="now"><span><b>Yes — send me 10 leads this week</b><em>We&rsquo;ll email to confirm your ICP before we start.</em></span></label>
+          <label class="opt"><input type="radio" name="beta" value="later"><span><b>Interested, but not this week</b><em>We&rsquo;ll come back when you&rsquo;re ready for users.</em></span></label>
+          <label class="opt"><input type="radio" name="beta" value="watching"><span><b>Just watching for now</b><em>Occasional updates, nothing else.</em></span></label>
+        </div>
+        <div class="dlg-ft"><button class="btn" type="submit">Finish</button></div>
+      </div>
+
+      <div class="pane hidden done" data-step="5">
+        <p class="big" id="queueno">—</p>
+        <h3 style="margin-bottom:9px">You&rsquo;re on the list.</h3>
+        <p class="s" id="donesub">We&rsquo;ll be in touch at the address you gave us.</p>
+        <ul>
+          <li>We read what you&rsquo;re building and turn it into a search target</li>
+          <li>We hand-check around a hundred Reddit conversations against it</li>
+          <li>You get the ten best, each with the reason it made the list</li>
+          <li>You tell us which ones you&rsquo;d actually contact — that&rsquo;s the whole test</li>
+        </ul>
+        <div class="dlg-ft"><button class="btn ghost" type="button" id="done-close">Close</button></div>
+      </div>
+      <p class="err" id="err"></p>
+    </form>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+  var SKEY="signal.sid.v1", LKEY="signal.lead.v1";
+  function uid(){ try{return crypto.randomUUID().replace(/-/g,"").slice(0,20);}catch(e){return "x"+Date.now().toString(36)+Math.random().toString(36).slice(2,10);} }
+  function ls(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){return null;} }
+  function now(){ return new Date().toISOString(); }
+
+  var params=new URLSearchParams(location.search), utm={};
+  ["utm_source","utm_medium","utm_campaign","utm_content","ref"].forEach(function(k){var v=params.get(k); if(v) utm[k]=v.slice(0,120);});
+
+  var sid=ls(SKEY)||(function(){var s=uid(); ls(SKEY,s); return s;})();
+  var leadId=ls(LKEY)||null;
+
+  var session={created_at:now(),last_seen:now(),cta_clicks:0,opened_form:false,reached_step:0,
+    converted:false,lead_id:leadId,referrer:(document.referrer||"").slice(0,200),utm:utm};
+  var lead={created_at:now(),updated_at:now(),email:"",building:"",icp:"",channels:[],
+    beta_interest:"",furthest_step:0,completed:false,session_id:sid,referrer:session.referrer,utm:utm};
+
+  var DB=null,dbReady=false,pending=[];
+  function withDb(fn){ if(dbReady) fn(DB); else pending.push(fn); }
+  function saveSession(){ withDb(function(db){ if(!db) return;
+    session.last_seen=now(); session.lead_id=leadId;
+    db.doc("sessions/"+sid).set(session).catch(function(){}); }); }
+  function saveLead(){ return new Promise(function(res){
+    withDb(function(db){ if(!db) return res(false);
+      if(!leadId){ leadId=uid(); ls(LKEY,leadId); }
+      lead.updated_at=now();
+      db.doc("signups/"+leadId).set(lead).then(function(){res(true);},function(){res(false);}); });
+    setTimeout(function(){res(false);},9000); }); }
+
+  function paintCount(n){ if(n<10) return;
+    ["social","social2"].forEach(function(id){ var el=document.getElementById(id);
+      if(el) el.innerHTML="<b>"+n.toLocaleString()+" founders</b> on the beta list &middot; free while it lasts"; }); }
+  function countSignups(){ return new Promise(function(res){
+    withDb(function(db){ if(!db) return res(null);
+      db.collection("signups").limit(1000).get().then(function(s){res(s.size);},function(){res(null);}); });
+    setTimeout(function(){res(null);},9000); }); }
+
+  var dlg=document.getElementById("dlg"),form=document.getElementById("form"),
+      err=document.getElementById("err"),prog=document.getElementById("prog"),
+      segs=document.getElementById("segs"),step=1;
+
+  function show(n){ step=n;
+    Array.prototype.forEach.call(form.querySelectorAll(".pane"),function(p){p.classList.toggle("hidden",+p.dataset.step!==n);});
+    for(var i=0;i<4;i++) segs.children[i].classList.toggle("on",i<n);
+    prog.textContent=n>4?"Done":"Step "+n+" of 4";
+    segs.parentElement.style.opacity=n>4?".3":"1";
+    err.textContent="";
+    var f=form.querySelector('.pane:not(.hidden) input[type=email],.pane:not(.hidden) textarea');
+    if(f) setTimeout(function(){f.focus();},70); }
+
+  function openForm(where){
+    session.cta_clicks++; session.opened_form=true; session.cta_from=where;
+    session.reached_step=Math.max(session.reached_step,1); saveSession();
+    show(leadId&&lead.furthest_step>=1?Math.min(lead.furthest_step+1,4):1);
+    if(typeof dlg.showModal==="function") dlg.showModal(); else dlg.setAttribute("open",""); }
+
+  document.addEventListener("click",function(e){ var b=e.target.closest("[data-cta]"); if(b) openForm(b.dataset.cta); });
+  document.getElementById("close").onclick=function(){dlg.close();};
+  document.getElementById("done-close").onclick=function(){dlg.close();};
+
+  document.getElementById("chips").addEventListener("click",function(e){
+    var c=e.target.closest(".ch"); if(!c) return;
+    c.setAttribute("aria-pressed",c.getAttribute("aria-pressed")==="true"?"false":"true");
+    lead.channels=Array.prototype.filter.call(this.children,function(x){return x.getAttribute("aria-pressed")==="true";})
+      .map(function(x){return x.textContent.trim();}); });
+
+  Array.prototype.forEach.call(form.querySelectorAll("[data-skip]"),function(b){
+    b.onclick=function(){ saveLead(); dlg.close(); }; });
+
+  function advance(n){ lead.furthest_step=Math.max(lead.furthest_step,n);
+    session.reached_step=Math.max(session.reached_step,n); saveSession(); }
+
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var btn=e.submitter||form.querySelector(".pane:not(.hidden) [type=submit]");
+    err.textContent="";
+    if(step===1){
+      var em=document.getElementById("email").value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){ err.textContent="That email address doesn't look right."; return; }
+      lead.email=em; advance(1);
+    } else if(step===2){
+      var b2=document.getElementById("building").value.trim();
+      if(b2.length<12){ err.textContent="A sentence or two, so we know what to search for."; return; }
+      lead.building=b2.slice(0,2000); advance(2);
+    } else if(step===3){
+      var i3=document.getElementById("icp").value.trim();
+      if(i3.length<6){ err.textContent="Tell us who has the problem, even roughly."; return; }
+      lead.icp=i3.slice(0,2000); advance(3);
+    } else if(step===4){
+      var r=form.querySelector('input[name=beta]:checked');
+      if(!r){ err.textContent="Pick one so we know how to prioritise you."; return; }
+      lead.beta_interest=r.value; lead.completed=true; advance(4);
+      session.converted=true; saveSession();
+    }
+    if(btn){ btn.disabled=true; btn.dataset.t=btn.textContent; btn.textContent="Saving…"; }
+    saveLead().then(function(ok){
+      if(btn){ btn.disabled=false; btn.textContent=btn.dataset.t; }
+      if(!ok){ err.textContent="Couldn't save that just now — check your connection and try again."; return; }
+      if(step===4){
+        show(5);
+        countSignups().then(function(n){
+          var q=document.getElementById("queueno");
+          if(n){ q.textContent="#"+n; paintCount(n); } else { q.textContent="✓"; } });
+      } else show(step+1); }); });
+
+  function pct(a,b){ return b?Math.round(a/b*100):0; }
+  function esc(s){ return String(s==null?"":s).replace(/[<>&]/g,function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;"}[c];}); }
+
+  function renderMetrics(){
+    document.getElementById("site").classList.add("hidden");
+    document.getElementById("metrics").classList.remove("hidden");
+    var fEl=document.getElementById("funnel"),lEl=document.getElementById("leads");
+    fEl.innerHTML='<p class="empty">Loading…</p>';
+    withDb(function(db){
+      if(!db){ fEl.innerHTML='<p class="empty">The data store isn’t available in this view.<br>Open the artifact while signed in to the workspace that owns it.</p>'; lEl.innerHTML=""; return; }
+      Promise.all([db.collection("sessions").limit(1000).get(),db.collection("signups").limit(1000).get()])
+      .then(function(r){
+        var ss=r[0].docs.map(function(d){return d.data()||{};});
+        var gs=r[1].docs.map(function(d){return d.data()||{};});
+        var rows=[
+          ["Visitors",ss.length,0],
+          ["CTA clicks",ss.filter(function(s){return (s.cta_clicks||0)>0;}).length,0],
+          ["Email submitted",gs.filter(function(g){return (g.furthest_step||0)>=1;}).length,0],
+          ["Startup idea",gs.filter(function(g){return (g.furthest_step||0)>=2;}).length,0],
+          ["ICP submitted",gs.filter(function(g){return (g.furthest_step||0)>=3;}).length,1],
+          ["Beta interest",gs.filter(function(g){return g.completed;}).length,0],
+          ["Wants leads NOW",gs.filter(function(g){return g.beta_interest==="now";}).length,1]
+        ];
+        var top=rows[0][1]||1;
+        fEl.innerHTML=rows.map(function(row,i){
+          var prev=i?rows[i-1][1]:row[1];
+          return '<div class="fr'+(row[2]?' key':'')+'"><span class="fl">'+row[0]+'</span>'+
+            '<div class="fbar"><i style="width:'+Math.max(pct(row[1],top),row[1]?1.5:0)+'%"></i></div>'+
+            '<span class="fn">'+row[1]+'</span>'+
+            '<span class="fp">'+(i?pct(row[1],prev)+"% of prev":"—")+'</span></div>';
+        }).join("");
+        var withIdea=gs.filter(function(g){return g.building;})
+          .sort(function(a,b){return (b.updated_at||"").localeCompare(a.updated_at||"");});
+        lEl.innerHTML=withIdea.length?withIdea.slice(0,40).map(function(g){
+          var hot=g.beta_interest==="now";
+          return '<div class="lead"><div class="lh"><b>'+esc(g.email)+'</b>'+
+            (g.beta_interest?'<span class="tg'+(hot?' hot':'')+'">'+esc(g.beta_interest)+'</span>':'')+
+            '<span>'+esc((g.updated_at||"").slice(0,10))+'</span>'+
+            (g.channels&&g.channels.length?'<span>'+esc(g.channels.join(" · "))+'</span>':'')+
+            '</div><p><b>Building</b>'+esc(g.building)+'</p>'+
+            (g.icp?'<p><b>ICP</b>'+esc(g.icp)+'</p>':'')+'</div>';
+        }).join(""):'<p class="empty">No startup ideas submitted yet.<br>Email-only signups still show in the funnel above.</p>';
+      },function(){ fEl.innerHTML='<p class="empty">Couldn’t read the store.</p>'; });
+    });
+  }
+
+  var isMetrics=params.get("metrics")==="1";
+  if(isMetrics) document.getElementById("site").classList.add("hidden");
+
+  function settle(db){ DB=db; dbReady=true; pending.splice(0).forEach(function(fn){fn(DB);}); }
+  try{ if(window.claude&&typeof claude.use==="function") claude.use("db").then(settle,function(){settle(null);}); else settle(null); }
+  catch(e){ settle(null); }
+
+  if(isMetrics) renderMetrics();
+  else { saveSession(); countSignups().then(function(n){ if(n) paintCount(n); }); }
+})();
+</script>

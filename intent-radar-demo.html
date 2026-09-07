@@ -1,0 +1,257 @@
+<title>Intent Radar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EEF0EC; --surface:#FFFFFF; --surface-2:#F7F8F6; --ink:#14181A; --muted:#5B6663;
+  --line:#D7DBD5; --line-soft:#E5E8E2; --accent:#0F6B5A; --accent-soft:#DCEDE7;
+  --hot:#B03A14; --hot-soft:#F6E3DA; --warm:#8A6100; --warm-soft:#F4EBD6; --cool:#3B6B8B; --cool-soft:#DFE9F0;
+  --shadow:0 1px 2px rgba(20,24,26,.05),0 8px 24px -16px rgba(20,24,26,.25);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1413; --surface:#161C1B; --surface-2:#1B2221; --ink:#E7EDEA; --muted:#94A19D;
+  --line:#28302E; --line-soft:#212827; --accent:#43BBA1; --accent-soft:#12302A;
+  --hot:#EC7B4C; --hot-soft:#33190F; --warm:#DCA945; --warm-soft:#2E2410; --cool:#78ADD0; --cool-soft:#14242E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+}}
+:root[data-theme="dark"]{
+  --bg:#0F1413; --surface:#161C1B; --surface-2:#1B2221; --ink:#E7EDEA; --muted:#94A19D;
+  --line:#28302E; --line-soft:#212827; --accent:#43BBA1; --accent-soft:#12302A;
+  --hot:#EC7B4C; --hot-soft:#33190F; --warm:#DCA945; --warm-soft:#2E2410; --cool:#78ADD0; --cool-soft:#14242E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;text-wrap:balance;margin:0}
+.eyebrow{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ---- masthead ---- */
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top-in{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-end;justify-content:space-between;padding:26px 0 22px}
+h1{font-size:30px;font-weight:700;letter-spacing:-.01em;line-height:1.1}
+.sub{color:var(--muted);font-size:14px;margin-top:4px;max-width:56ch}
+.runmeta{display:flex;gap:24px;flex-wrap:wrap}
+.runmeta div{display:flex;flex-direction:column;gap:2px}
+.runmeta .v{font-size:13px}
+
+/* ---- watch bar ---- */
+.watch{background:var(--surface-2);border-bottom:1px solid var(--line)}
+.watch-in{display:flex;flex-wrap:wrap;gap:8px 28px;padding:12px 0;align-items:baseline}
+.watch-in b{font-weight:500}
+.q{font-size:13px;color:var(--muted)}
+.q strong{color:var(--ink);font-weight:500}
+
+/* ---- summary tiles ---- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:28px 0 8px}
+.tile{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font-size:34px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.tile .lbl{font-size:13px;color:var(--muted)}
+.tile.hot .n{color:var(--hot)} .tile.warm .n{color:var(--warm)} .tile.cool .n{color:var(--cool)}
+@media(max-width:640px){.tiles{grid-template-columns:1fr}}
+
+/* ---- filters ---- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 14px}
+.chip{font:500 12px/1 "IBM Plex Mono",monospace;padding:7px 11px;border:1px solid var(--line);
+  background:var(--surface);color:var(--muted);border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---- lead rows ---- */
+.feed{display:flex;flex-direction:column;gap:10px;padding-bottom:8px}
+.lead{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);
+  border-radius:3px;box-shadow:var(--shadow)}
+.lead.t-hot{border-left-color:var(--hot)} .lead.t-warm{border-left-color:var(--warm)} .lead.t-cool{border-left-color:var(--cool)}
+.lead-head{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:16px 18px;
+  cursor:pointer;align-items:start;width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit}
+.lead-head:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.lead-title{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:18px;font-weight:600;line-height:1.25}
+.lead-meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:12px;color:var(--muted);margin-top:6px}
+.tag{font:500 11px/1 "IBM Plex Mono",monospace;padding:4px 7px;border-radius:2px;background:var(--surface-2);
+  border:1px solid var(--line-soft);color:var(--muted)}
+.verdict{font:600 11px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.09em;text-transform:uppercase;
+  padding:5px 8px;border-radius:2px;white-space:nowrap}
+.t-hot .verdict{background:var(--hot-soft);color:var(--hot)}
+.t-warm .verdict{background:var(--warm-soft);color:var(--warm)}
+.t-cool .verdict{background:var(--cool-soft);color:var(--cool)}
+.score{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.score .num{font:500 22px/1 "IBM Plex Mono",monospace}
+.t-hot .score .num{color:var(--hot)} .t-warm .score .num{color:var(--warm)} .t-cool .score .num{color:var(--cool)}
+
+.body{display:none;border-top:1px solid var(--line-soft);padding:18px;gap:22px;flex-direction:column}
+.lead.open .body{display:flex}
+.quote{border-left:2px solid var(--line);padding:2px 0 2px 14px;color:var(--muted);font-size:14px;
+  max-height:200px;overflow:auto}
+.quote em{color:var(--ink);font-style:normal;background:var(--accent-soft);padding:0 2px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.bars{display:flex;flex-direction:column;gap:9px}
+.bar{display:grid;grid-template-columns:110px 1fr 34px;gap:10px;align-items:center;font-size:12px}
+.bar .track{height:5px;background:var(--line-soft);border-radius:99px;overflow:hidden}
+.bar .fill{height:100%;background:var(--accent);border-radius:99px}
+.bar .val{font:500 12px/1 "IBM Plex Mono",monospace;text-align:right;color:var(--muted)}
+.why{font-size:14px}
+.why p{margin:6px 0 0}
+.draft{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:3px;padding:14px 16px;font-size:14px}
+.draft .txt{white-space:pre-wrap;margin-top:8px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+a.open-link{font:500 12px/1 "IBM Plex Mono",monospace;color:var(--accent);text-decoration:none;
+  border:1px solid var(--accent);padding:8px 11px;border-radius:2px}
+a.open-link:hover{background:var(--accent-soft)}
+.hint{font-size:12px;color:var(--muted)}
+
+/* ---- method ---- */
+.method{margin:34px 0 60px;border-top:1px solid var(--line);padding-top:22px;
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px}
+@media(max-width:760px){.method{grid-template-columns:1fr}}
+.method h2{font-size:15px;font-weight:600;margin-bottom:8px}
+.method p{font-size:13px;color:var(--muted);margin:0 0 10px;max-width:62ch}
+.method code{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--surface-2);
+  padding:1px 5px;border:1px solid var(--line-soft);border-radius:2px}
+.srclist{display:flex;flex-direction:column;gap:5px;font:400 12px/1.5 "IBM Plex Mono",monospace;color:var(--muted)}
+.srclist span{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top"><div class="wrap top-in">
+  <div>
+    <div class="eyebrow">Reddit · live pull</div>
+    <h1>Intent Radar</h1>
+    <p class="sub">Bài đăng thật trên Reddit, chấm điểm theo mô hình lead score §12 và xếp hành động theo §14. Mọi link đều mở ra post gốc.</p>
+  </div>
+  <div class="runmeta">
+    <div><span class="eyebrow">Quét lúc</span><span class="v mono" id="m-run">—</span></div>
+    <div><span class="eyebrow">Post đọc</span><span class="v mono" id="m-total">—</span></div>
+    <div><span class="eyebrow">Lead giữ lại</span><span class="v mono" id="m-kept">—</span></div>
+  </div>
+</div></header>
+
+<div class="watch"><div class="wrap watch-in">
+  <span class="eyebrow">Đang canh cho</span>
+  <span class="q"><strong id="m-icp">—</strong></span>
+</div></div>
+
+<main class="wrap">
+  <section class="tiles" id="tiles"></section>
+  <div class="filters" id="filters"></div>
+  <section class="feed" id="feed"></section>
+
+  <section class="method">
+    <div>
+      <h2>Dữ liệu này từ đâu</h2>
+      <p id="method-1">—</p>
+      <p>Điểm số do một lượt LLM đọc từng post sinh ra, theo đúng 6 yếu tố ở §12. Đây là bản concierge — chưa có pipeline embedding/reranker của §9–10, nhưng đầu ra đúng định dạng mà sản phẩm thật phải trả về.</p>
+      <p>Draft comment ở mỗi lead là bản nháp để founder duyệt (§23), không phải tin nhắn tự động gửi.</p>
+    </div>
+    <div>
+      <h2>Feed đã quét</h2>
+      <div class="srclist" id="srclist"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+const DATA = {"run_at": "07/09/2026 17:02", "posts_scanned": 348, "icp": "Founder / dev solo đã build xong sản phẩm nhưng chưa có khách trả tiền — người sẽ mua một tool tìm và chấm điểm lead.", "method": "348 post được kéo về từ feed RSS công khai của Reddit trong phiên này, không dùng dataset dựng sẵn. Tiêu đề, nội dung, tác giả, thời gian và link đều là dữ liệu gốc — bấm vào là ra đúng post trên Reddit.", "feeds": [{"sub": "SaaS", "query": "\"first customers\"", "n": 100}, {"sub": "SaaS", "query": "\"find customers\"", "n": 100}, {"sub": "Entrepreneur", "query": "\"first clients\"", "n": 78}, {"sub": "startups", "query": "\"early users\"", "n": 47}, {"sub": "startups", "query": "\"customer discovery\"", "n": 23}], "leads": [{"title": "What are the best ways to get your first customers?", "subreddit": "SaaS", "author": "Neat-Temporary-6929", "url": "https://www.reddit.com/r/SaaS/comments/1w4cmoc/what_are_the_best_ways_to_get_your_first_customers/", "age": "5 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "hot", "score": 96, "factors": {"problem": 98, "icp": 92, "pain": 88, "intent": 96, "recency": 97, "engagement": 72}, "one_line": "tự mô tả đúng sản phẩm của bạn như một kế hoạch cần làm", "quote": "… d for other SaaS founders. Some things I'm considering: Using AI to find and qualify potential customers, then doing personalized cold email outreach Finding people on Reddit/Facebook groups who are actively discussing problems my product solves and helping them without being overly promotional Looking for people who are actively asking for recommendations for tools and responding with a relevant solution Content/SEO Partnerships or referrals I'm especially interested in strategies tha …", "highlights": ["Using AI to find and qualify potential customers", "actively asking for recommendations"], "why": "Người này không chỉ có vấn đề — họ đã tự viết ra chính spec sản phẩm của bạn: dùng AI tìm và qualify khách, tìm người đang bàn đúng vấn đề trên Reddit, và trả lời người đang hỏi xin gợi ý tool. Đây là trường hợp hiếm khi cầu và cung khớp từng chữ. ICP rõ (host Airbnb 1–3 căn), đã build xong, đang kẹt đúng khâu acquisition.", "risk": "Họ nhấn mạnh muốn kênh MIỄN PHÍ. Đừng chào giá ở comment đầu — cho họ dùng thử một lead report làm tay trước.", "draft": "Của mình 3 cách đó thì cách 2 và 3 hiệu quả nhất khi chưa có brand — nhưng phải làm ngược lại thứ tự bạn nghĩ.\n\nĐừng đi tìm \"Airbnb host\" chung chung. Tìm câu hỏi cụ thể: r/airbnb_hosts, r/ShortTermRentals, search đúng cụm như \"double booking\", \"cleaning schedule\", \"pricing tool worth it\". Người viết những câu đó đang có pain, chứ không phải người thỉnh thoảng nhắc tới Airbnb.\n\nNgày đầu mình làm tay: đọc 30 post kiểu đó, trả lời 5 post giúp thật (không nhắc sản phẩm), DM 2 người đã reply lại mình. Tỉ lệ reply cao hơn cold email nhiều lần vì họ vừa mới viết về vấn đề đó xong.\n\nMình đang build một tool tự động hoá đúng bước \"tìm 30 post\" này. Nếu muốn, mình chạy thử cho ICP host 1–3 căn của bạn và gửi bạn danh sách — free, không cần đăng ký gì."}, {"title": "I built my saas but I don't know how to reach my first client", "subreddit": "SaaS", "author": "Mithil2311", "url": "https://www.reddit.com/r/SaaS/comments/1w9hhwt/i_built_my_saas_but_i_dont_know_how_to_reach_my/", "age": "hôm nay", "found_via": "search r/SaaS:\"first customers\"", "tier": "hot", "score": 94, "factors": {"problem": 96, "icp": 95, "pain": 90, "intent": 93, "recency": 99, "engagement": 70}, "one_line": "mới đăng hôm nay, đã build xong, hỏi phải làm gì ngay trong tuần này", "quote": "… you think the product/value proposition isn't clear enough. I'm not looking for generic \"post more on social media\" advice. I'm trying to figure out what I should actually do this week to get my first customer. Thanks in advance. I'm still figuring this whole founder/sales side out, so any honest feedback is welcome. submitted by /u/Mithil2311 [link] [comments]", "highlights": ["I'm not looking for generic", "actually do this week to get my first customer"], "why": "Post mới nhất trong cả đợt quét. Đã có sản phẩm chạy được, đã tự loại bỏ hướng \"thêm feature\", và chủ động từ chối lời khuyên chung chung — tức là họ đã đọc đủ nhiều và đang cần một quy trình cụ thể. Đúng khoảnh khắc mà một lead report thật có sức thuyết phục nhất.", "risk": "Chưa nói rõ Yukti bán cho ai. Phải hỏi ICP trước khi chạy bất cứ thứ gì, nếu không lead sẽ lệch.", "draft": "\"Tuần này\" thì mình sẽ bỏ hẳn ads, content, LinkedIn — mấy cái đó cần vài tháng mới ra kết quả.\n\nViệc duy nhất đáng làm: viết ra 1 câu ai là người sẽ dùng Yukti, rồi đi tìm 20 người vừa mới than phiền đúng vấn đề đó trong 30 ngày qua. Reddit search + tên đối thủ + cụm \"is there a tool for\" là đủ để có 20 cái tên.\n\nTrả lời công khai dưới post của họ trước, đừng DM. Ai reply lại thì mới nhắn riêng. 20 người kiểu này đáng giá hơn 500 cold email.\n\nYukti làm cho nhóm khách nào vậy? Nói mình biết, mình chạy thử vòng tìm kiếm đó và gửi bạn danh sách cụ thể để bạn đỡ mất buổi đầu."}, {"title": "How many of you actually pay if there is a tool that can help you find customers for your product?", "subreddit": "SaaS", "author": "ironman2606", "url": "https://www.reddit.com/r/SaaS/comments/1vazxf9/how_many_of_you_actually_pay_if_there_is_a_tool/", "age": "38 ngày trước", "found_via": "search r/SaaS:\"find customers\"", "tier": "hot", "score": 91, "factors": {"problem": 94, "icp": 86, "pain": 74, "intent": 98, "recency": 64, "engagement": 62}, "one_line": "đang chuẩn bị trả tiền cho Syften, hỏi có bản rẻ hơn không", "quote": "… that can help them to get initial customers. I'm talking about products similar to https://syften.com/ but at much cheaper rate with BOYK. I my self planning to purchase the plan of syften but though just ask about others opinions about similar kind of tools. submitted by /u/ironman2606 [link] [comments]", "highlights": ["products similar to https://syften.com/ but at much cheaper rate", "planning to purchase"], "why": "Tín hiệu mua cao nhất trong toàn bộ đợt quét: họ đã chọn xong hạng mục sản phẩm, đã có ngân sách, đang so sánh giá và công khai nói sẽ mua. Không cần thuyết phục về vấn đề — chỉ cần cho họ thấy điểm khác biệt.", "risk": "Neo giá theo Syften và muốn rẻ hơn. Nếu bạn định bán cao hơn, phải khác biệt bằng chấm điểm + gợi ý hành động, không phải bằng số lượng keyword alert.", "draft": "Mình có trả tiền cho loại tool này và điểm mình học được: alert theo keyword thì rẻ nhưng bạn sẽ tự tay lọc 90% nhiễu — đó mới là phần tốn thời gian thật.\n\nCái đáng trả tiền không phải \"có bao nhiêu nguồn\", mà là nó có nói được vì sao người này đáng liên hệ trước người kia hay không, và có gợi ý mở lời không.\n\nMình đang làm đúng phần đó (chấm điểm + giải thích, thay vì bắn alert). Nếu bạn cho mình biết bạn đang bán gì, mình gửi bạn 10 lead có thật kèm lý do — so trực tiếp với alert của Syften rồi tự đánh giá."}, {"title": "How do I get my first customer??", "subreddit": "SaaS", "author": "LengthinessHour3697", "url": "https://www.reddit.com/r/SaaS/comments/1w1xc9b/how_do_i_get_my_first_customer/", "age": "8 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "hot", "score": 88, "factors": {"problem": 92, "icp": 90, "pain": 86, "intent": 88, "recency": 95, "engagement": 64}, "one_line": "đã cold outreach 20 người bằng tay, đang định làm tiếp 100", "quote": "… no 1 agreed for a demo and I already demoed the product 3 said to reach out again after a few days because they are busy at the time Rest 14 ignored. My current plan is to pursue 100 cold reach out. Then decide on the next steps based on the result of this 100 outreach. submitted by /u/LengthinessHour3697 [link] [comments]", "highlights": ["I found about 20 contact numbers", "pursue 100 cold reach out"], "why": "Đã tự chạy đúng quy trình mà sản phẩm bạn tự động hoá — và có sẵn số liệu: 20 người, 6 phản hồi, 1 demo. Họ đang định nhân số lượng lên 5 lần bằng tay. Đây là người hiểu ngay giá trị của việc lọc trước theo tín hiệu thay vì bắn đại.", "risk": "Là B2B qua WhatsApp/điện thoại — nếu khách của họ không hoạt động trên Reddit thì nguồn dữ liệu của bạn không phủ được. Hỏi ngành trước.", "draft": "30% phản hồi trên 20 lần liên hệ lạnh thực ra là con số tốt. Vấn đề nằm ở chỗ khác: bạn đang chọn 20 người đó dựa trên cái gì?\n\nTrước khi lên 100, mình sẽ chia đôi: 50 người chọn ngẫu nhiên như cũ, 50 người chỉ chọn nếu trong 60 ngày qua họ có dấu hiệu công khai về đúng vấn đề bạn giải (đăng tuyển vị trí liên quan, than phiền về tool đang dùng, hỏi giải pháp trong group ngành).\n\nNhóm 2 gần như luôn cho tỉ lệ demo cao hơn, và quan trọng hơn: bạn biết mở lời bằng gì.\n\nBạn đang bán cho ngành nào? Nếu khách của bạn có mặt trên các forum công khai, mình chạy thử vòng lọc này giúp bạn."}, {"title": "Help needed with marketing my new saas", "subreddit": "SaaS", "author": "Middle-Living9420", "url": "https://www.reddit.com/r/SaaS/comments/1w37yxt/help_needed_with_marketing_my_new_saas/", "age": "7 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "hot", "score": 85, "factors": {"problem": 90, "icp": 88, "pain": 88, "intent": 82, "recency": 96, "engagement": 58}, "one_line": "\"zero idea\" làm sao đưa sản phẩm tới khách, thị trường Hà Lan", "quote": "… selling it as a subscription, starting in the Netherlands, since that's my home market and where I know the pain points best. But here's my problem: I have zero idea how to actually get this in front of customers. Has anyone here launched a SaaS product to small business owners before? Where would you even start? first customers, marketing channels? Any advice is welcome. submitted by /u/Middle-Living9420 [link] [comments]", "highlights": ["zero idea how to actually get this in front of customers"], "why": "Đã dùng chính sản phẩm của mình 2 tháng (bằng chứng vấn đề có thật), đã chọn xong thị trường đầu tiên, và chỉ thiếu duy nhất kênh tiếp cận. Pain rõ, không phòng thủ, hỏi thẳng.", "risk": "SMB Hà Lan phần lớn không ở trên Reddit tiếng Anh. Với lead này, giá trị của bạn nằm ở quy trình chứ chưa chắc ở dữ liệu.", "draft": "Bạn đang có một lợi thế mà đa số ở đây không có: bạn là khách hàng đầu tiên của chính mình, và bạn biết pain point của thị trường nhà.\n\nMình sẽ bắt đầu bằng 10 chủ doanh nghiệp bạn quen ở NL — không phải để bán, mà hỏi họ đang theo dõi chi phí bằng gì. Ai than phiền trong lúc trả lời chính là 10 khách đầu tiên.\n\nSong song, tìm nơi họ đã than phiền sẵn: group Facebook ZZP/ondernemers, r/DutchFIRE, forum kế toán. Trả lời câu hỏi thật trước, đừng đăng bài giới thiệu.\n\nKênh nào cũng được, miễn là bạn đi tới chỗ người ta đã nói về vấn đề — thay vì chờ họ tìm ra bạn."}, {"title": "I spent months building my SaaS. Now I have no idea how to get anyone to use it", "subreddit": "SaaS", "author": "Ok-Organization4300", "url": "https://www.reddit.com/r/SaaS/comments/1vm750i/i_spent_months_building_my_saas_now_i_have_no/", "age": "26 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "warm", "score": 84, "factors": {"problem": 92, "icp": 92, "pain": 90, "intent": 76, "recency": 80, "engagement": 76}, "one_line": "sản phẩm đã live, gần như không có user, chán lời khuyên chung chung", "quote": "… auth, the whole thing. It works, and I'm at the point where I can confidently say I don't really have much left to build. Except there's one problem. I have basically no users. I don't have an audience. I don't have an email list. I don't have a marketing background. And every time I search for how to get the first customers, I get the same advice: \"Do cold outreach.\" \"Post content.\" \"Build in public.\" \"Run ads.\" \"Go on Product Hunt.\" \"Post on Reddit.\" But I'm having tro …", "highlights": ["I have basically no users", "what actually works when you're starting from basically zero"], "why": "Đúng chân dung ICP trong doc: dev đã hoàn thiện sản phẩm, không audience, không email list. Pain rất cao và diễn đạt rành mạch. Điểm intent thấp hơn nhóm hot vì họ hỏi \"quy trình\", chưa hề nhắc tới việc tìm tool — cần thuyết phục thêm một bước.", "risk": "Post đã 26 ngày, comment nhiều — trả lời muộn dễ chìm. Nên DM kèm tham chiếu tới post.", "draft": "Cái đổi kết quả cho mình không phải kênh, mà là bỏ hẳn khái niệm \"marketing\" trong 30 ngày đầu.\n\nQuy trình cụ thể: mỗi ngày tìm 10 người vừa viết công khai về đúng vấn đề sản phẩm bạn giải (Reddit, forum ngành, GitHub issues, group). Trả lời giúp họ 5 người. Không link, không pitch. Tuần thứ hai bắt đầu có người tự hỏi bạn đang làm gì.\n\nKhác biệt so với \"post on Reddit\": bạn không đăng bài về mình, bạn đi tới chỗ vấn đề đã được người ta viết ra.\n\nSản phẩm bạn giải vấn đề gì? Nếu nói cụ thể, mình chỉ luôn nên tìm ở đâu."}, {"title": "We built a salon booking SaaS, but getting the first customers is much harder than building it. What would you do?", "subreddit": "SaaS", "author": "Commercial-Salad-958", "url": "https://www.reddit.com/r/SaaS/comments/1vjrb88/we_built_a_salon_booking_saas_but_getting_the/", "age": "28 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "warm", "score": 79, "factors": {"problem": 78, "icp": 86, "pain": 84, "intent": 74, "recency": 78, "engagement": 74}, "one_line": "đã có 1.600 prospect — kẹt ở khâu qualify chứ không phải tìm", "quote": "… ns and beauty businesses. We've built the product, but finding a repeatable way to acquire customers has been much harder than building it. We have a prospect database of around 1,600 local businesses and have tested calls, WhatsApp follow-ups and demo videos. A few things surprised us: Some businesses already use Fresha, Odoo or another system. Some are mostly walk-ins. Many still manage appointments through WhatsApp + a notebook. But even some manual businesses tell us: \"It works fine for us.\" …", "highlights": ["1,600 local businesses", "why a salon actually decides to change"], "why": "Trường hợp thú vị: họ KHÔNG thiếu danh sách, họ thiếu cách biết ai đáng gọi trước. Đó đúng là phần lead scoring (§12) chứ không phải phần discovery. Nếu sản phẩm bạn tách được hai giá trị này, đây là lead cho thấy vì sao \"scoring\" mới là thứ bán được.", "risk": "Salon ở Bahrain không sinh tín hiệu công khai trên Reddit. Bạn giúp được về phương pháp, chưa giúp được về dữ liệu — nói thẳng điều đó.", "draft": "1.600 cái tên mà không có thứ tự ưu tiên thì thực chất vẫn là số 0 — đó là chỗ đang giết thời gian của các bạn.\n\nNếu có 30 ngày, mình sẽ không gọi thêm. Mình sẽ chấm 1.600 chỗ đó theo tín hiệu quan sát được từ bên ngoài: có đang chạy quảng cáo tuyển thợ không, Instagram có nhận đặt lịch qua DM không, review Google gần đây có ai than \"gọi mãi không được\" không.\n\nChỗ nào có tín hiệu \"đang quá tải vì đặt lịch thủ công\" thì gọi trước. Nhóm còn lại để yên.\n\nCâu \"nó vẫn ổn mà\" gần như luôn có nghĩa là chưa đủ đau — đừng cố thuyết phục, hãy đi tìm chỗ đang đau."}, {"title": "How do you find your first customers for a B2C SaaS ?", "subreddit": "SaaS", "author": "Naekoz-_-", "url": "https://www.reddit.com/r/SaaS/comments/1vofr50/how_do_you_find_your_first_customers_for_a_b2c/", "age": "23 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "warm", "score": 76, "factors": {"problem": 82, "icp": 84, "pain": 78, "intent": 72, "recency": 82, "engagement": 60}, "one_line": "B2C, chưa tìm được kênh acquisition ổn định", "quote": "Hey everyone, I'm working on a B2C SaaS and the main thing I'm struggling with right now is acquisition. I can make progress on the product, but I can't seem to find a reliable channel that consistently brings in new users. For those of you who have successfully grown a B2C SaaS: Which acquisition channels work best for you? Do you mainly use SEO, TikTok/Instagram, paid ads, influencers, affiliates, Reddit, partnerships, etc.? How did you get your first users? What helped you go …", "highlights": ["can't seem to find a reliable channel"], "why": "Đúng ICP (founder đang kẹt acquisition) và hỏi rất trực tiếp, nhưng là B2C — nơi tín hiệu intent cá nhân rải rác hơn nhiều so với B2B. Vẫn đáng trả lời để tạo quan hệ, chưa đáng ưu tiên số một.", "risk": "B2C + \"kênh ổn định\" thường dẫn tới kỳ vọng về volume, không phải về chất lượng lead. Dễ mismatch với sản phẩm của bạn.", "draft": "Với B2C giai đoạn đầu, \"kênh ổn định\" thường là bẫy — cái ổn định chỉ xuất hiện sau khi bạn biết chính xác câu nào khiến người ta click.\n\nCách rẻ nhất để tìm câu đó: vào đúng các subreddit/group nơi người dùng của bạn đang than phiền về vấn đề bạn giải, và đọc xem họ dùng TỪ NGỮ gì. Copy nguyên văn từ đó vào tiêu đề, landing page, caption.\n\nMình thấy nhiều B2C giải quyết xong bài toán conversion chỉ bằng cách đổi chữ, trước khi động tới ads.\n\nSản phẩm bạn giải vấn đề gì cho ai? Mình gợi ý được vài chỗ nên đọc."}, {"title": "Developer trying to market apps, need advise", "subreddit": "SaaS", "author": "FeelingBit4370", "url": "https://www.reddit.com/r/SaaS/comments/1ve21f6/developer_trying_to_market_apps_need_advise/", "age": "35 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "warm", "score": 74, "factors": {"problem": 84, "icp": 80, "pain": 96, "intent": 70, "recency": 76, "engagement": 56}, "one_line": "thất nghiệp, 1 tháng marketing chưa có khách nào", "quote": "… works the way I intended, the extra revenue it brings should easily cover the subscription cost. The problem is I can't even get that first customer. It's been almost a month since I started marketing, and I still don't have a single paying customer. Things I've tried: Posting consistently on Facebook Posting on LinkedIn Running a very small Facebook ad campaign (can't really afford to keep doing this) Printing pamphlets and handing them out to local businesses I even went to register an actual …", "highlights": ["I still don't have a single paying customer", "Bills don't stop"], "why": "Mức đau cao nhất trong danh sách và rất chân thành. Nhưng khả năng chi trả thấp (đang thất nghiệp) và khách của họ là cửa hàng địa phương — không sinh tín hiệu online. Đây là lead để giúp thật, không phải để bán.", "risk": "Bán cho người đang cạn tiền là sai cả về đạo đức lẫn hiệu quả. Chỉ trả lời để giúp; nếu có, mời dùng miễn phí.", "draft": "Bạn đang thiếu đúng một thứ: bằng chứng bằng tiền của người khác, chứ không phải thêm kênh marketing.\n\nVới khách là cửa hàng địa phương, mình sẽ chọn 1 con phố, vào 10 chỗ vào giờ vắng, và không bán gì cả — chỉ hỏi: \"Mỗi ngày có bao nhiêu khách bỏ đi vì đông quá?\". Chỗ nào trả lời được bằng con số là chỗ có pain thật.\n\nSau đó đề nghị 1 chỗ dùng miễn phí 2 tuần, đổi lại bạn được đo kết quả. Có một con số thật rồi thì 9 chỗ còn lại dễ hơn hẳn.\n\nPamphlet và Facebook ads không sai, nhưng chúng cần brand — thứ bạn chưa có. Gõ cửa thì không cần."}, {"title": "Struggling to get my first customers for my SaaS. What actually worked for you?", "subreddit": "SaaS", "author": "Full_Ad_3357", "url": "https://www.reddit.com/r/SaaS/comments/1vufods/struggling_to_get_my_first_customers_for_my_saas/", "age": "16 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "warm", "score": 73, "factors": {"problem": 80, "icp": 88, "pain": 82, "intent": 76, "recency": 86, "engagement": 64}, "one_line": "dev bán cho barbershop, đã thử DM Instagram và tới tận nơi", "quote": "… ent. The difficult part is actually getting owners to care enough to try something new, especially when many already use Square, Booksy, Fresha, etc. I'm a developer, so building the product feels much more natural to me than selling it. For people here who got their first 5-10 paying customers, what actually worked? Cold outreach? Walking into businesses? Content? Ads? Partnerships? Something else? Also curious if you think I'm making the mistake of trying too many channels at once. Would appreciate advice f …", "highlights": ["I'm a developer", "trying too many channels at once"], "why": "Đúng ICP về con người (dev, ngại bán, đã thử nhiều kênh) và đang hỏi trực tiếp. Điểm trừ nằm ở khách hàng của họ: chủ tiệm cắt tóc gần như không thảo luận công khai trên Reddit, nên phần discovery của bạn khó phủ.", "risk": "Nếu chào sản phẩm ở đây, bạn sẽ hứa thứ dữ liệu không có. Trả lời bằng phương pháp, giữ quan hệ.", "draft": "Có, bạn đang thử quá nhiều kênh — nhưng vấn đề thật nằm ở chỗ khác: barber đã dùng Square/Booksy thì họ không có nhu cầu đổi, họ chỉ đổi khi có cái đang làm họ mất tiền.\n\nMình sẽ ngừng pitch \"phần mềm quản lý tiệm\" và đi tìm một pain hẹp: khách no-show, khách gọi lúc đang cắt tóc, hay không biết thợ nào kín lịch.\n\nChọn 1 pain, tới 10 tiệm gần nhà, hỏi đúng câu đó. Ai gật thì mình cài miễn phí ngay hôm đó.\n\n10 tiệm đi bộ tới được sẽ cho bạn nhiều thứ hơn 3 tháng đăng nội dung."}, {"title": "Any other engineers who can build products but completely freeze when it's time to sell?", "subreddit": "SaaS", "author": "Appropriate-Doubt801", "url": "https://www.reddit.com/r/SaaS/comments/1vb7exx/any_other_engineers_who_can_build_products_but/", "age": "38 ngày trước", "found_via": "search r/SaaS:\"find customers\"", "tier": "warm", "score": 72, "factors": {"problem": 76, "icp": 94, "pain": 86, "intent": 62, "recency": 76, "engagement": 70}, "one_line": "kỹ sư build được nhưng đóng băng khi phải bán", "quote": "… njoy solving technical problems, designing infrastructure, optimizing performance... I can spend weeks building something I'm genuinely proud of. But once it's time to find customers, talk to people, or ask someone to pay for it, I completely stall. I don't have an audience, I'm not naturally good at marketing, and sales honestly feels uncomfortable. If you've been in the same position: How did you get your first paying customers? What changed your mindset around selling? What …", "highlights": ["I completely stall", "sales honestly feels uncomfortable"], "why": "Không mô tả nhu cầu tool, nhưng mô tả chính xác lý do tâm lý khiến ICP của bạn tồn tại: dev sợ bán. Sản phẩm của bạn về bản chất là bỏ bước \"tự nghĩ ra nên nhắn ai và nói gì\" — chính nỗi sợ này. Lead để nuôi, không để chốt.", "risk": "Intent mua gần như bằng 0 ở thời điểm này. Bán sớm sẽ bị coi là spam trong đúng thread về việc ghét bị bán hàng.", "draft": "Thứ gỡ được cái đóng băng đó cho mình là bỏ hẳn việc \"bán\", đổi thành việc \"trả lời\".\n\nCụ thể: mỗi ngày tìm 5 người vừa đăng công khai về đúng vấn đề mình giải, và viết một câu trả lời hữu ích, không kèm link. Không phải bán, chỉ là giúp — cái này kỹ sư làm được.\n\nSau 2 tuần sẽ có người hỏi ngược \"bạn đang làm gì vậy\". Câu chuyện bán hàng bắt đầu từ đó, và lúc đó nó không còn giống bán hàng nữa.\n\nĐiểm khó duy nhất là bước tìm 5 người mỗi ngày — nó chán và tốn thời gian. Nhưng nó là bước duy nhất bắt buộc."}, {"title": "How do you actually acquire customers for a B2B SaaS?", "subreddit": "SaaS", "author": "Mr_Gyan491", "url": "https://www.reddit.com/r/SaaS/comments/1utsue3/how_do_you_actually_acquire_customers_for_a_b2b/", "age": "57 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "warm", "score": 70, "factors": {"problem": 86, "icp": 88, "pain": 80, "intent": 72, "recency": 52, "engagement": 58}, "one_line": "9 startup thất bại, thừa nhận vấn đề duy nhất là distribution", "quote": "… I for the past few months, but my biggest challenge isn't building the product. It's distribution. This isn't my first product either. I already have nine failed startups sitting in my SaaS graveyard. I can build, but I clearly haven't figured out how to consistently acquire customers. So I genuinely want to know: if you were building a B2B SaaS like AskMySite, how would you get your first customers? Would you focus on cold outreach, content, communities, partnerships, SEO, paid ads, or somethi …", "highlights": ["nine failed startups", "my biggest challenge isn't building the product. It's distribution"], "why": "Tự chẩn đoán đúng bệnh mà sản phẩm bạn chữa, và có lịch sử đủ dài để hiểu vấn đề là hệ thống chứ không phải may rủi. Chỉ bị trừ điểm vì đã 58 ngày — cần kiểm tra xem họ còn làm sản phẩm đó không trước khi liên hệ.", "risk": "Cũ. Kiểm tra profile trước; nếu đã bỏ AskMySite thì mở lời bằng sản phẩm hiện tại của họ.", "draft": "9 sản phẩm mà cùng chết ở một chỗ thì không còn là xui — đó là quy trình đang thiếu một bước.\n\nBước thiếu thường là: chọn người để liên hệ dựa trên \"có vẻ hợp\" thay vì \"vừa nói ra vấn đề này trong 30 ngày qua\".\n\nVới AskMySite, mình sẽ tìm những ai đang công khai than về việc khách không tìm thấy thông tin trên website, hoặc đang hỏi về chatbot/search cho site. Liên hệ 20 người dạng đó có sức nặng hơn 500 email lạnh.\n\nBạn còn đang làm AskMySite chứ? Nếu có mình gợi ý vài truy vấn cụ thể."}, {"title": "When do you decide to scrap a SaaS and move on to the next one?", "subreddit": "SaaS", "author": "publicly_listed", "url": "https://www.reddit.com/r/SaaS/comments/1vqtvtv/when_do_you_decide_to_scrap_a_saas_and_move_on_to/", "age": "20 ngày trước", "found_via": "search r/SaaS:\"find customers\"", "tier": "cool", "score": 58, "factors": {"problem": 70, "icp": 76, "pain": 62, "intent": 34, "recency": 80, "engagement": 66}, "one_line": "đang bàn khi nào nên bỏ một SaaS — chưa tìm giải pháp", "quote": "I've been thinking about a portfolio-style approach to SaaS. With AI, building an MVP is easier than ever. What still seems hard is distribution, finding customers, and getting people to pay. So I'm curious how experienced founders think about this: Let's say you build a SaaS, launch it, do some promotion, talk to users, and try a few iterations. At what point do you decide it's not worth pursuing anymore? Some questions I'm struggling with: Do you set a fixe …", "highlights": ["distribution, finding customers, and getting people to pay"], "why": "Nêu đúng vấn đề nhưng ở dạng suy nghĩ chiến lược, không hề tìm công cụ. Đây là loại post để theo dõi: nếu vài tuần nữa họ đăng \"đã launch, không ai dùng\" thì mới là thời điểm liên hệ.", "risk": "Trả lời kiểu bán hàng ở đây sẽ phản tác dụng — chủ đề của họ là bỏ cuộc, không phải mua thêm tool.", "draft": "Tiêu chí mình dùng không phải thời gian hay số user, mà là: đã có 20 cuộc nói chuyện với đúng người chưa?\n\nRất nhiều sản phẩm bị khai tử ở tháng thứ 6 trong khi founder mới nói chuyện với 3 người — cái chết đó là do thiếu dữ liệu, không phải do thị trường.\n\nNếu đã nói chuyện với 20 người đúng ICP mà không ai đủ đau để trả tiền, lúc đó bỏ là quyết định có căn cứ."}, {"title": "How do I search for good Ideas to build ?", "subreddit": "SaaS", "author": "CoupleEven3580", "url": "https://www.reddit.com/r/SaaS/comments/1w1m4v6/how_do_i_search_for_good_ideas_to_build/", "age": "8 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "cool", "score": 54, "factors": {"problem": 58, "icp": 64, "pain": 70, "intent": 44, "recency": 94, "engagement": 52}, "one_line": "chưa có sản phẩm, đang tìm ý tưởng — và bị Reddit ban khi đăng quảng cáo", "quote": "… am really keen to build my own SaaS in B2B or B2C space. I tried my hands with building productivity tools but I suck at marketing them and honestly, platforms like reddit ban me when I try to push even a single ad-like post for my SaaS. My question to you folks is two fold: * How do I find a genuine problem in the non-tech (ex: Monday/CRM/Marketing) fields considering the fact that I have 0 experience in such domains. I see a lot of SaaS targeting this niche and customers in this domain pay real $$'s too. * In-general …", "highlights": ["reddit ban me when I try to push even a single ad-like post"], "why": "Chưa phải người mua (chưa có sản phẩm để tìm khách). Nhưng câu về việc bị ban là dữ liệu thị trường quý: nó xác nhận đúng luận điểm §33 — kênh spam đang đóng lại, chỉ còn cách tham gia thật. Giữ để theo dõi khi họ có sản phẩm.", "risk": "Không nên đưa vào pipeline bán hàng. Đây là tín hiệu để tinh chỉnh thông điệp, không phải lead.", "draft": "Cách tìm vấn đề trong ngành mình không biết gì: đừng đọc bài viết, đọc chỗ người ta than.\n\nCụ thể là các subreddit nghề (r/msp, r/accounting, r/logistics...), tìm các câu \"is there a tool that\", \"how do you guys handle\". Đọc 100 câu như vậy trong một tuần, sẽ có 2-3 vấn đề lặp đi lặp lại — đó là thứ đáng build.\n\nCòn chuyện bị ban: đó là dấu hiệu bạn đang đi đúng chỗ nhưng sai cách. Trả lời 20 câu hỏi thật trước khi nhắc tới sản phẩm của mình một lần, gần như sẽ không bị ban."}, {"title": "What's been harder for you: building your SaaS or finding the first customer?", "subreddit": "SaaS", "author": "Bills_08", "url": "https://www.reddit.com/r/SaaS/comments/1useail/whats_been_harder_for_you_building_your_saas_or/", "age": "59 ngày trước", "found_via": "search r/SaaS:\"first customers\"", "tier": "cool", "score": 46, "factors": {"problem": 64, "icp": 70, "pain": 58, "intent": 22, "recency": 50, "engagement": 72}, "one_line": "post thảo luận, không có yêu cầu cụ thể", "quote": "… n wasn't. I've learned that every piece of advice sounds obvious until you're the one sending cold messages, posting content, trying communities, and wondering if anyone actually has the problem you built for. I'm curious where everyone else struggled more. Product? Marketing? Sales? Or simply getting the first person to trust you? submitted by /u/Bills_08 [link] [comments]", "highlights": ["wondering if anyone actually has the problem you built for"], "why": "Chủ đề khớp hoàn toàn nhưng đây là câu hỏi cộng đồng, không phải người đang cần giúp. Giá trị của nó nằm ở phần bình luận — nơi hàng chục founder sẽ tự khai chính xác họ đang kẹt ở đâu.", "risk": "Bản thân người đăng không phải lead. Nguồn lead thật là những người vào comment.", "draft": "Tìm khách khó hơn, nhưng không phải vì marketing khó — mà vì lúc build thì mình kiểm soát mọi thứ, còn lúc bán thì không.\n\nThứ rút ngắn được khoảng cách đó là chỉ nói chuyện với người vừa mới nói ra vấn đề đó, thay vì người mình đoán là sẽ cần."}]};
+const TIER = {hot:{label:"Contact now",cls:"t-hot"},warm:{label:"Reply soon",cls:"t-warm"},cool:{label:"Monitor",cls:"t-cool"}};
+const FACTORS = [["problem","Problem fit"],["icp","ICP fit"],["pain","Pain"],["intent","Buying intent"],["recency","Recency"],["engagement","Engagement"]];
+
+document.getElementById("m-run").textContent = DATA.run_at;
+document.getElementById("m-total").textContent = DATA.posts_scanned;
+document.getElementById("m-kept").textContent = DATA.leads.length;
+document.getElementById("m-icp").textContent = DATA.icp;
+document.getElementById("method-1").textContent = DATA.method;
+document.getElementById("srclist").innerHTML = DATA.feeds.map(f =>
+  `<div><span>r/${f.sub}</span> · ${f.query} · ${f.n} post</div>`).join("");
+
+const counts = {hot:0,warm:0,cool:0};
+DATA.leads.forEach(l => counts[l.tier]++);
+document.getElementById("tiles").innerHTML = [
+  ["hot","Cần liên hệ ngay","đang tìm giải pháp, mô tả đúng vấn đề"],
+  ["warm","Nên trả lời trong tuần","có đau rõ, chưa chủ động tìm tool"],
+  ["cool","Theo dõi","đúng ICP nhưng tín hiệu còn yếu"],
+].map(([k,t,d]) =>
+  `<div class="tile ${k}"><span class="n mono">${counts[k]}</span><span class="lbl"><b>${t}</b><br>${d}</span></div>`).join("");
+
+const subs = [...new Set(DATA.leads.map(l => l.subreddit))].sort();
+let fTier = "all", fSub = "all";
+document.getElementById("filters").innerHTML =
+  [["tier","all","Tất cả"],["tier","hot","🔥 Ngay"],["tier","warm","Sớm"],["tier","cool","Theo dõi"]]
+    .map(([g,v,l]) => `<button class="chip" data-g="${g}" data-v="${v}" aria-pressed="${v==='all'}">${l}</button>`).join("")
+  + `<span style="width:12px"></span>`
+  + [["sub","all","mọi sub"]].concat(subs.map(s=>["sub",s,"r/"+s]))
+    .map(([g,v,l]) => `<button class="chip" data-g="${g}" data-v="${v}" aria-pressed="${v==='all'}">${l}</button>`).join("");
+
+function esc(s){return String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+function quoteHTML(l){
+  let q = esc(l.quote);
+  (l.highlights||[]).forEach(h => { q = q.split(esc(h)).join("<em>"+esc(h)+"</em>"); });
+  return q;
+}
+function render(){
+  const list = DATA.leads.filter(l => (fTier==="all"||l.tier===fTier) && (fSub==="all"||l.subreddit===fSub));
+  document.getElementById("feed").innerHTML = list.map((l,i) => `
+    <article class="lead ${TIER[l.tier].cls}" id="lead-${i}">
+      <button class="lead-head" aria-expanded="false" data-i="${i}">
+        <div>
+          <div class="lead-title">${esc(l.title)}</div>
+          <div class="lead-meta">
+            <span class="tag">r/${esc(l.subreddit)}</span>
+            <span class="tag">u/${esc(l.author)}</span>
+            <span class="mono">${esc(l.age)}</span>
+            <span>${esc(l.one_line)}</span>
+          </div>
+        </div>
+        <div class="score">
+          <span class="verdict">${TIER[l.tier].label}</span>
+          <span class="num">${l.score}</span>
+        </div>
+      </button>
+      <div class="body">
+        <div class="quote">${quoteHTML(l)}</div>
+        <div class="grid2">
+          <div class="bars">
+            <div class="eyebrow">Lead score §12</div>
+            ${FACTORS.map(([k,lab]) => `
+              <div class="bar"><span>${lab}</span>
+                <span class="track"><span class="fill" style="width:${l.factors[k]}%"></span></span>
+                <span class="val">${l.factors[k]}</span></div>`).join("")}
+          </div>
+          <div class="why">
+            <div class="eyebrow">Vì sao là lead</div>
+            <p>${esc(l.why)}</p>
+            ${l.risk ? `<div class="eyebrow" style="margin-top:14px">Rủi ro</div><p>${esc(l.risk)}</p>` : ""}
+          </div>
+        </div>
+        <div class="draft">
+          <div class="eyebrow">Nháp comment — founder duyệt trước khi gửi</div>
+          <div class="txt">${esc(l.draft)}</div>
+        </div>
+        <div class="actions">
+          <a class="open-link" href="${esc(l.url)}" target="_blank" rel="noopener">Mở post gốc trên Reddit ↗</a>
+          <span class="hint">Đăng ${esc(l.age)} · tìm thấy qua ${esc(l.found_via)}</span>
+        </div>
+      </div>
+    </article>`).join("") || `<p class="hint">Không có lead nào khớp bộ lọc.</p>`;
+}
+document.addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if (chip){
+    const g = chip.dataset.g;
+    if (g === "tier") fTier = chip.dataset.v; else fSub = chip.dataset.v;
+    document.querySelectorAll(`.chip[data-g="${g}"]`).forEach(c =>
+      c.setAttribute("aria-pressed", c.dataset.v === (g==="tier"?fTier:fSub)));
+    render(); return;
+  }
+  const head = e.target.closest(".lead-head");
+  if (head){
+    const art = head.parentElement;
+    const open = art.classList.toggle("open");
+    head.setAttribute("aria-expanded", open);
+  }
+});
+render();
+</script>
