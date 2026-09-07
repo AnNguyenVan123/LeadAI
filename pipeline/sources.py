@@ -105,6 +105,37 @@ def search(subreddit: str, query: str, *, limit: int = 100, window: str = "year"
     return out
 
 
+def fetch_comments(post_url: str, max_comments: int = 10) -> str:
+    """Fetch top comments for a post URL via the .json endpoint."""
+    url = f"{post_url.rstrip('/')}.json?limit={max_comments}&sort=confidence"
+    headers = {"User-Agent": UA}
+    tok = _token()
+    if tok:
+        headers["Authorization"] = f"bearer {tok}"
+    
+    body = _get(url, headers, tries=3)
+    if not body:
+        return ""
+    
+    try:
+        data = json.loads(body)
+        if len(data) < 2:
+            return ""
+        comments = []
+        for c in data[1]["data"]["children"]:
+            if c["kind"] == "t1":
+                text = _clean(c["data"].get("body", ""))
+                if text and text not in ("[deleted]", "[removed]"):
+                    author = c["data"].get("author", "unknown")
+                    comments.append(f"Comment by {author}: {text}")
+        if comments:
+            return "\n\n--- COMMENTS ---\n" + "\n\n".join(comments)
+        return ""
+    except Exception as e:
+        print(f"  ! Error fetching comments: {e}")
+        return ""
+
+
 def _iso_to_epoch(s: str) -> float:
     import datetime as dt
     try:

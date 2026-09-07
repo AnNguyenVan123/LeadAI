@@ -105,7 +105,7 @@ QUALIFY_SYS = """You qualify one Reddit post as a sales lead. You are careful an
 never flatter the post.
 
 Rules:
-- Every `quote` must be copied VERBATIM from the post body. Never paraphrase, never
+- Every `quote` must be copied VERBATIM from the post body or its comments. Never paraphrase, never
   invent, never quote the title. If there is no supporting sentence, set present=false
   and leave quote empty.
 - `audience_reachable_online` asks whether THIS PERSON'S OWN customers discuss their
@@ -121,10 +121,18 @@ Rules:
 
 
 def qualify(posts: list[dict], icp: ICP, *, workers: int = 6) -> list[dict]:
-    jobs = [(QUALIFY_SYS,
+    from .sources import fetch_comments
+    
+    jobs = []
+    for p in posts:
+        comments_text = fetch_comments(p["url"])
+        if comments_text:
+            p["body"] += comments_text
+            
+        jobs.append((QUALIFY_SYS,
              f"{_icp_block(icp)}\n\n---\nPOST\nr/{p['subreddit']} · posted {p['age_days']:.0f} "
              f"days ago · u/{p['author']}\nTITLE: {p['title']}\n\n{p['body']}",
-             EVIDENCE_SCHEMA) for p in posts]
+             EVIDENCE_SCHEMA))
 
     out = []
     for p, res in zip(posts, llm.map_json(jobs, model=llm.OPUS, max_tokens=4000, workers=workers)):
