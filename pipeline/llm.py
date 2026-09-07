@@ -66,11 +66,28 @@ def _gemini():
     return _gemini_client
 
 
+def _strip_additional_properties(schema: dict) -> dict:
+    if not isinstance(schema, dict):
+        return schema
+    out = {}
+    for k, v in schema.items():
+        if k == "additionalProperties":
+            continue
+        if isinstance(v, dict):
+            out[k] = _strip_additional_properties(v)
+        elif isinstance(v, list):
+            out[k] = [_strip_additional_properties(i) for i in v]
+        else:
+            out[k] = v
+    return out
+
+
 def _gemini_call(system: str, user: str, schema: dict, *, model: str,
                  max_tokens: int, **_kw) -> dict:
     from google.genai import types
 
     model_id = _GEMINI_MODELS.get(model, model)
+    gemini_schema = _strip_additional_properties(schema)
 
     response = _gemini().models.generate_content(
         model=model_id,
@@ -80,7 +97,7 @@ def _gemini_call(system: str, user: str, schema: dict, *, model: str,
             max_output_tokens=max_tokens,
             temperature=0.3,
             response_mime_type="application/json",
-            response_schema=schema,
+            response_schema=gemini_schema,
         ),
     )
     return json.loads(response.text)
