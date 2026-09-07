@@ -4,6 +4,7 @@ import InputCard from "@/components/InputCard";
 import Stages from "@/components/Stages";
 import Results from "@/components/Results";
 import ComingSoon from "@/components/ComingSoon";
+import StatCard from "@/components/StatCard";
 import { getHealth, getRun, startRun, streamRun, type Health, type RunResult, type StageEvent } from "@/lib/api";
 
 export default function Home() {
@@ -38,7 +39,23 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-5 py-10 sm:py-16">
+    <div className="p-6">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-bold text-ink">Overview</h2>
+        <div className="flex items-center gap-2 text-sm text-muted">
+          <span className="flex h-2 w-2 rounded-full bg-cool"></span>
+          Last updated now
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <StatCard title="Leads Analyzed" value="12,492" trend="up" trendValue="12%" subtitle="vs last week" />
+        <StatCard title="CLV" value="14d" trend="down" trendValue="4%" subtitle="vs last week" />
+        <StatCard title="Conversion Rate" value="24%" trend="up" trendValue="2%" subtitle="vs last week" />
+        <StatCard title="Saved Leads" value="1,402" trend="up" trendValue="8%" subtitle="vs last week" />
+      </div>
+
+      <main className="mx-auto max-w-4xl bg-surface border border-line rounded-lg p-6 sm:p-10 shadow-sm">
       <header className="mb-8">
         <div className="font-cond text-[11px] uppercase tracking-[.16em] text-muted">Reddit · demo</div>
         <h1 className="font-cond font-bold text-[34px] leading-[1.1] tracking-tight mt-1">Intent Radar</h1>
@@ -69,6 +86,7 @@ export default function Home() {
         extracting evidence and code calculating the score — every quote is cross-checked 
         against the original post, and invalid quotes are discarded before scoring.
       </footer>
-    </main>
+      </main>
+    </div>
   );
 }

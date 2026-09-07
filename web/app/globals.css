@@ -5,21 +5,21 @@
   --font-cond: var(--font-plex-cond), var(--font-plex), sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
-  --color-ground: #f1f3ef;
+  --color-ground: #f3f4f6;
   --color-surface: #ffffff;
-  --color-surface-2: #f7f8f5;
-  --color-line: #dde1da;
-  --color-line-soft: #e9ece5;
-  --color-ink: #14181a;
-  --color-muted: #5c6663;
-  --color-accent: #0f6b5a;
-  --color-accent-soft: #dcede7;
-  --color-hot: #b03a14;
-  --color-hot-soft: #f7e4da;
-  --color-warm: #8a6100;
-  --color-warm-soft: #f4ecd8;
-  --color-cool: #3b6b8b;
-  --color-cool-soft: #e0e9f0;
+  --color-surface-2: #f9fafb;
+  --color-line: #e5e7eb;
+  --color-line-soft: #f3f4f6;
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+  --color-accent: #6366f1;
+  --color-accent-soft: #e0e7ff;
+  --color-hot: #ef4444;
+  --color-hot-soft: #fee2e2;
+  --color-warm: #f59e0b;
+  --color-warm-soft: #fef3c7;
+  --color-cool: #10b981;
+  --color-cool-soft: #d1fae5;
 }
 
 html { background: var(--color-ground); }

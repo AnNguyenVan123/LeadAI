@@ -12,14 +12,18 @@ export const metadata: Metadata = {
 };
 
 import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi" className={`${plex.variable} ${cond.variable} ${mono.variable}`}>
-      <body className="min-h-dvh bg-ground flex">
+      <body className="h-screen flex bg-ground text-ink overflow-hidden">
         <Sidebar />
-        <div className="flex-1 overflow-auto bg-ground">
-          {children}
+        <div className="flex-1 flex flex-col min-w-0">
+          <Header />
+          <main className="flex-1 overflow-auto bg-ground">
+            {children}
+          </main>
         </div>
       </body>
     </html>
