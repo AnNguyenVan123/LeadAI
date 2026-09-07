@@ -167,9 +167,22 @@ _BACKENDS = {"gemini": _gemini_call, "anthropic": _anthropic_call, "cli": _cli_c
 
 def json_call(system: str, user: str, schema: dict, *, model: str = OPUS,
               max_tokens: int = 8000, **kw) -> dict:
-    """One request, one JSON object back."""
+    """One request, one JSON object back, with retry."""
+    import time
     backend = _BACKENDS[_get_provider()]
-    return backend(system, user, schema, model=model, max_tokens=max_tokens, **kw)
+    
+    wait = 5.0
+    for attempt in range(3):
+        try:
+            return backend(system, user, schema, model=model, max_tokens=max_tokens, **kw)
+        except Exception as e:
+            err_msg = str(e).lower()
+            if attempt < 2 and ("503" in err_msg or "429" in err_msg or "unavailable" in err_msg or "too many" in err_msg):
+                print(f"  ! LLM retry {attempt+1}/3 due to: {e}")
+                time.sleep(wait)
+                wait *= 2
+            else:
+                raise
 
 
 def map_json(jobs: list[tuple[str, str, dict]], *, model: str = OPUS,
