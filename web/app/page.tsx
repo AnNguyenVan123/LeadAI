@@ -50,9 +50,9 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard title="Leads Analyzed" value="12,492" trend="up" trendValue="12%" subtitle="vs last week" />
-        <StatCard title="CLV" value="14d" trend="down" trendValue="4%" subtitle="vs last week" />
-        <StatCard title="Conversion Rate" value="24%" trend="up" trendValue="2%" subtitle="vs last week" />
-        <StatCard title="Saved Leads" value="1,402" trend="up" trendValue="8%" subtitle="vs last week" />
+        <StatCard title="Hot Leads Found" value="840" trend="up" trendValue="4%" subtitle="vs last week" />
+        <StatCard title="Avg. Intent Score" value="76%" trend="up" trendValue="2%" subtitle="vs last week" />
+        <StatCard title="Saved in CRM" value="1,402" trend="up" trendValue="8%" subtitle="vs last week" />
       </div>
 
       <main className="mx-auto max-w-4xl bg-surface border border-line rounded-lg p-6 sm:p-10 shadow-sm">

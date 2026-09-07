@@ -9,8 +9,6 @@ export default function Sidebar() {
   const links = [
     { name: "Radar", href: "/", icon: Radar },
     { name: "Leads", href: "/leads", icon: Users },
-    { name: "Deals", href: "#", icon: Folder },
-    { name: "Reports", href: "#", icon: Activity },
   ];
 
   return (
@@ -19,7 +17,7 @@ export default function Sidebar() {
         <div className="h-8 w-8 rounded bg-accent flex items-center justify-center">
           <Database className="h-4 w-4 text-white" />
         </div>
-        <h1 className="font-semibold text-[16px] tracking-tight text-ink">Pivora</h1>
+        <h1 className="font-semibold text-[16px] tracking-tight text-ink">LeadAI CRM</h1>
         <button className="ml-auto p-1 text-muted hover:text-ink"><Menu className="h-4 w-4" /></button>
       </div>
       
@@ -29,7 +27,7 @@ export default function Sidebar() {
             W
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-[13px] font-medium text-ink truncate">williams@mesh.com</p>
+            <p className="text-[13px] font-medium text-ink truncate">an@leadai.com</p>
           </div>
           <ChevronRight className="h-4 w-4 text-muted" />
         </div>
@@ -60,13 +58,13 @@ export default function Sidebar() {
       <div className="p-4 border-t border-line space-y-4">
         <div className="px-2">
           <div className="flex items-center justify-between text-[12px] mb-2">
-            <span className="font-medium text-ink">Cloud Storage</span>
-            <span className="text-muted">90%</span>
+            <span className="font-medium text-ink">API Limits</span>
+            <span className="text-muted">42%</span>
           </div>
           <div className="h-1.5 w-full bg-line-soft rounded-full overflow-hidden">
-            <div className="h-full bg-accent w-[90%] rounded-full"></div>
+            <div className="h-full bg-accent w-[42%] rounded-full"></div>
           </div>
-          <p className="text-[11px] text-muted mt-2">14 GB of 15 GB used</p>
+          <p className="text-[11px] text-muted mt-2">42 of 100 queries today</p>
         </div>
         
         <div className="space-y-1">
