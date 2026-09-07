@@ -2,11 +2,11 @@
 import type { StageEvent } from "@/lib/api";
 
 const ORDER = [
-  ["icp", "Đọc sản phẩm của bạn"],
-  ["prefilter", "Lọc tĩnh (không tốn token)"],
-  ["triage", "Haiku 4.5 loại post không liên quan"],
-  ["qualify", "Opus 5 bóc bằng chứng từ post"],
-  ["score", "Chấm điểm bằng code"],
+  ["icp", "Reading your product"],
+  ["prefilter", "Static filter (token-free)"],
+  ["triage", "Haiku 4.5 relevance check"],
+  ["qualify", "Opus 5 evidence extraction"],
+  ["score", "Algorithmic scoring"],
 ] as const;
 
 const REACHED: Record<string, number> = {

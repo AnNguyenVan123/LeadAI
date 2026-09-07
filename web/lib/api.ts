@@ -24,7 +24,7 @@ export async function startRun(kind: "url" | "text", value: string, live: boolea
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ kind, value, live }),
   });
-  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail ?? "Không gửi được yêu cầu");
+  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail ?? "Failed to send request");
   return (await r.json()) as { run_id: string };
 }
 
@@ -38,14 +38,14 @@ export function streamRun(runId: string, onEvent: (e: StageEvent) => void) {
       if (e.stage === "result") { es.close(); resolve(); }
       if (e.stage === "error") { es.close(); reject(new Error(e.message)); }
     };
-    es.onerror = () => { es.close(); reject(new Error("Mất kết nối tới máy chủ")); };
+    es.onerror = () => { es.close(); reject(new Error("Connection to server lost")); };
   });
   return { done, cancel: () => es.close() };
 }
 
 export async function getRun(runId: string) {
   const r = await fetch(`${API}/api/runs/${runId}`);
-  if (!r.ok) throw new Error("Không lấy được kết quả");
+  if (!r.ok) throw new Error("Failed to fetch result");
   return (await r.json()) as RunResult;
 }
 
@@ -55,7 +55,7 @@ export async function unlock(runId: string, email: string) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ run_id: runId, email }),
   });
-  if (!r.ok) throw new Error("Email không hợp lệ hoặc kết quả đã hết hạn");
+  if (!r.ok) throw new Error("Invalid email or result has expired");
   return (await r.json()) as RunResult;
 }
 
@@ -66,7 +66,7 @@ export type Health = {
 
 export async function getHealth() {
   const r = await fetch(`${API}/api/health`);
-  if (!r.ok) throw new Error("Máy chủ không phản hồi");
+  if (!r.ok) throw new Error("Server is not responding");
   return (await r.json()) as Health;
 }
 
@@ -81,13 +81,13 @@ export async function saveLead(lead: Partial<SavedLead>) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(lead),
   });
-  if (!r.ok) throw new Error("Không lưu được lead");
+  if (!r.ok) throw new Error("Failed to save lead");
   return await r.json();
 }
 
 export async function getSavedLeads() {
   const r = await fetch(`${API}/api/leads`);
-  if (!r.ok) throw new Error("Không tải được danh sách lead");
+  if (!r.ok) throw new Error("Failed to load leads list");
   return (await r.json()) as SavedLead[];
 }
 
@@ -97,7 +97,7 @@ export async function updateLead(id: string, updates: Partial<SavedLead>) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(updates),
   });
-  if (!r.ok) throw new Error("Không cập nhật được lead");
+  if (!r.ok) throw new Error("Failed to update lead");
   return await r.json();
 }
 
@@ -105,6 +105,6 @@ export async function deleteLead(id: string) {
   const r = await fetch(`${API}/api/leads/${id}`, {
     method: "DELETE",
   });
-  if (!r.ok) throw new Error("Không xóa được lead");
+  if (!r.ok) throw new Error("Failed to delete lead");
   return await r.json();
 }

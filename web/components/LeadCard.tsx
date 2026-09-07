@@ -4,14 +4,14 @@ import type { Lead } from "@/lib/api";
 import { saveLead } from "@/lib/api";
 
 const TIER = {
-  hot: { label: "Liên hệ ngay", stripe: "border-l-hot", text: "text-hot", chip: "bg-hot-soft text-hot" },
-  warm: { label: "Trả lời trong tuần", stripe: "border-l-warm", text: "text-warm", chip: "bg-warm-soft text-warm" },
-  cool: { label: "Theo dõi", stripe: "border-l-cool", text: "text-cool", chip: "bg-cool-soft text-cool" },
+  hot: { label: "Contact Now", stripe: "border-l-hot", text: "text-hot", chip: "bg-hot-soft text-hot" },
+  warm: { label: "Reply this week", stripe: "border-l-warm", text: "text-warm", chip: "bg-warm-soft text-warm" },
+  cool: { label: "Monitor", stripe: "border-l-cool", text: "text-cool", chip: "bg-cool-soft text-cool" },
 } as const;
 
 const FACTORS: [string, string][] = [
-  ["problem", "Khớp vấn đề"], ["icp", "Khớp chân dung"], ["pain", "Mức đau"],
-  ["intent", "Ý định mua"], ["recency", "Độ mới"], ["engagement", "Tương tác"],
+  ["problem", "Problem Match"], ["icp", "Persona Match"], ["pain", "Pain Level"],
+  ["intent", "Purchase Intent"], ["recency", "Recency"], ["engagement", "Engagement"],
 ];
 
 export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?: string; blurred?: boolean }) {
@@ -36,7 +36,7 @@ export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?:
       });
       setSaved(true);
     } catch (err) {
-      alert("Lỗi khi lưu lead");
+      alert("Error saving lead");
     } finally {
       setSaving(false);
     }
@@ -72,7 +72,7 @@ export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?:
                   "border-line hover:border-accent hover:text-accent text-muted"
                 }`}
               >
-                {saved ? "✓ Đã lưu" : saving ? "Đang lưu..." : "Lưu CRM"}
+                {saved ? "✓ Saved" : saving ? "Saving..." : "Save to CRM"}
               </button>
             )}
             <span className={`font-cond text-[11px] font-semibold uppercase tracking-[.09em] px-2 py-1 rounded-sm ${t.chip}`}>{t.label}</span>
@@ -87,7 +87,7 @@ export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?:
 
           <div className="grid md:grid-cols-2 gap-5">
             <div className="flex flex-col gap-2">
-              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Điểm thành phần</div>
+              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Score Factors</div>
               {FACTORS.map(([k, label]) => (
                 <div key={k} className="grid grid-cols-[104px_1fr_30px] gap-2.5 items-center text-[12px]">
                   <span>{label}</span>
@@ -100,7 +100,7 @@ export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?:
             </div>
 
             <div>
-              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Bằng chứng đã đối chiếu với post gốc</div>
+              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Evidence from original post</div>
               <div className="mt-2 flex flex-col gap-2">
                 {lead.evidence.map((e) => (
                   <div key={e.label} className={`grid grid-cols-[16px_1fr] gap-2 text-[13px] ${e.present ? "" : "text-muted/70"}`}>
@@ -116,27 +116,27 @@ export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?:
           </div>
 
           <div className="text-[14px]">
-            <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Vì sao là lead</div>
+            <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Why it's a lead</div>
             <p className="mt-1">{lead.why}</p>
             {lead.risk && (<>
-              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted mt-3">Rủi ro</div>
+              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted mt-3">Risk</div>
               <p className="mt-1">{lead.risk}</p>
             </>)}
           </div>
 
           {lead.gate && (
             <div className="flex gap-2 items-baseline text-[13px] text-muted bg-warm-soft border border-line-soft rounded-sm px-3 py-2.5">
-              <b className="font-cond text-[11px] uppercase tracking-[.08em] text-warm whitespace-nowrap">Trần điểm</b>
+              <b className="font-cond text-[11px] uppercase tracking-[.08em] text-warm whitespace-nowrap">Hard Gate</b>
               <span>{lead.gate}</span>
             </div>
           )}
 
           <div className="bg-surface-2 border border-line-soft rounded-sm p-4">
             <div className="flex items-center justify-between gap-3">
-              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Nháp trả lời — bạn duyệt trước khi gửi</div>
+              <div className="font-cond text-[11px] uppercase tracking-[.14em] text-muted">Draft reply — review before sending</div>
               <button onClick={() => { navigator.clipboard.writeText(lead.draft); setCopied(true); setTimeout(() => setCopied(false), 1600); }}
                 className="font-mono text-[11px] px-2 py-1 rounded-sm border border-line text-muted hover:border-accent hover:text-accent">
-                {copied ? "đã chép" : "chép"}
+                {copied ? "copied" : "copy"}
               </button>
             </div>
             <p className="mt-2 whitespace-pre-wrap text-[14px] leading-relaxed">{lead.draft}</p>
@@ -145,7 +145,7 @@ export default function LeadCard({ lead, runId, blurred }: { lead: Lead; runId?:
           <div className="flex flex-wrap gap-2">
             <a href={lead.url} target="_blank" rel="noopener"
               className="font-mono text-[12px] px-3 py-2 rounded-sm border border-accent text-accent hover:bg-accent-soft">
-              Mở post gốc ↗
+              Open original post ↗
             </a>
             {lead.author_url && (
               <a href={lead.author_url} target="_blank" rel="noopener"

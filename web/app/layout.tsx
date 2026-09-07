@@ -8,7 +8,7 @@ const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variabl
 
 export const metadata: Metadata = {
   title: "Intent Radar",
-  description: "Dán landing page hoặc mô tả sản phẩm — nhận về những người đang cần nó, kèm lý do và câu trả lời gợi ý.",
+  description: "Paste your landing page or product description — get people who are looking for it, along with reasons and suggested replies.",
 };
 
 import Sidebar from "@/components/Sidebar";

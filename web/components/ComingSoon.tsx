@@ -1,16 +1,16 @@
 const ITEMS = [
-  { title: "Theo dõi & nhắc follow-up", body: "Ai đã trả lời, ai im lặng, ai cần nhắc lại sau 3 ngày. Trạng thái chạy theo từng lead thay vì nằm trong đầu bạn." },
-  { title: "Cảnh báo Intent Radar", body: "Có người vừa đăng đúng vấn đề bạn giải — báo ngay, không cần mở dashboard." },
-  { title: "Bộ nhớ hội thoại", body: "Mọi thứ đã biết về một người: post cũ, lần bạn nhắn, họ trả lời gì, họ đã dùng tool nào." },
-  { title: "Thêm nguồn ngoài Reddit", body: "X, Hacker News, IndieHackers, group Facebook — cùng một cách chấm điểm." },
+  { title: "Tracking & Follow-ups", body: "Who replied, who ghosted, who needs a bump in 3 days. States follow the lead instead of living in your head." },
+  { title: "Intent Radar Alerts", body: "Someone just posted your exact problem — get notified immediately without opening the dashboard." },
+  { title: "Conversation Memory", body: "Everything known about a person: past posts, your messages, their replies, tools they use." },
+  { title: "More Sources", body: "X, Hacker News, IndieHackers, Facebook groups — using the same scoring engine." },
 ];
 
 export default function ComingSoon() {
   return (
     <section className="mt-14">
       <div className="flex items-baseline gap-3">
-        <h2 className="font-cond font-semibold text-[15px]">Đang làm tiếp</h2>
-        <span className="font-mono text-[11px] text-muted">chưa bật trong bản demo này</span>
+        <h2 className="font-cond font-semibold text-[15px]">Coming up</h2>
+        <span className="font-mono text-[11px] text-muted">not enabled in this demo</span>
       </div>
       <div className="mt-3 grid sm:grid-cols-2 gap-3">
         {ITEMS.map((it) => (

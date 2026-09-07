@@ -25,7 +25,7 @@ export default function LeadsPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Xóa lead này khỏi danh sách?")) return;
+    if (!confirm("Remove this lead from your CRM?")) return;
     setLeads((prev) => prev.filter((l) => l.id !== id));
     await deleteLead(id);
   };
@@ -38,12 +38,12 @@ export default function LeadsPage() {
     <div className="p-10 max-w-[1200px] mx-auto">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-cond font-bold tracking-tight text-main">Danh sách Leads</h1>
-          <p className="text-[14px] text-muted mt-1">Quản lý những khách hàng tiềm năng bạn đã lưu từ Radar.</p>
+          <h1 className="text-2xl font-cond font-bold tracking-tight text-main">Leads</h1>
+          <p className="text-[14px] text-muted mt-1">Manage leads you've saved from the Radar.</p>
         </div>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
-          <input type="text" placeholder="Tìm kiếm leads..." className="pl-9 pr-4 py-2 bg-surface border border-line rounded-md text-[14px] focus:outline-none focus:border-hot" />
+          <input type="text" placeholder="Search leads..." className="pl-9 pr-4 py-2 bg-surface border border-line rounded-md text-[14px] focus:outline-none focus:border-hot" />
         </div>
       </div>
 
@@ -51,18 +51,18 @@ export default function LeadsPage() {
         <table className="w-full text-left text-[14px]">
           <thead className="bg-surface text-muted text-[13px] uppercase tracking-wider">
             <tr>
-              <th className="px-6 py-4 font-medium">Khách hàng</th>
-              <th className="px-6 py-4 font-medium w-[40%]">Vấn đề & Nhu cầu</th>
-              <th className="px-6 py-4 font-medium">Trạng thái</th>
-              <th className="px-6 py-4 font-medium">Ghi chú</th>
-              <th className="px-6 py-4 font-medium text-right">Thao tác</th>
+              <th className="px-6 py-4 font-medium">Lead</th>
+              <th className="px-6 py-4 font-medium w-[40%]">Problem & Context</th>
+              <th className="px-6 py-4 font-medium">Status</th>
+              <th className="px-6 py-4 font-medium">Notes</th>
+              <th className="px-6 py-4 font-medium text-right">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-line">
             {leads.length === 0 ? (
               <tr>
                 <td colSpan={5} className="px-6 py-12 text-center text-muted">
-                  Chưa có lead nào. Hãy sang tab Radar để tìm và lưu lead.
+                  No leads saved yet. Go to Radar to find and save leads.
                 </td>
               </tr>
             ) : (
@@ -75,7 +75,7 @@ export default function LeadsPage() {
                     </div>
                     <div className="flex items-center gap-1.5 mt-1.5 text-[12.5px] text-muted">
                       <Calendar className="h-3.5 w-3.5" />
-                      {new Date(lead.saved_at * 1000).toLocaleDateString("vi-VN")}
+                      {new Date(lead.saved_at * 1000).toLocaleDateString("en-US")}
                     </div>
                   </td>
                   <td className="px-6 py-4 align-top">
@@ -94,9 +94,9 @@ export default function LeadsPage() {
                         "bg-green-500/10 border-green-500/20 text-green-600"
                       }`}
                     >
-                      <option value="New">Mới lưu</option>
-                      <option value="Contacted">Đã nhắn tin</option>
-                      <option value="Replied">Đã trả lời</option>
+                      <option value="New">New</option>
+                      <option value="Contacted">Contacted</option>
+                      <option value="Replied">Replied</option>
                     </select>
                   </td>
                   <td className="px-6 py-4 align-top">
@@ -104,19 +104,19 @@ export default function LeadsPage() {
                       type="text"
                       value={lead.notes}
                       onChange={(e) => handleNotesChange(lead.id, e.target.value)}
-                      placeholder="Email, sđt..."
+                      placeholder="Email, phone..."
                       className="bg-transparent border-b border-transparent hover:border-line focus:border-hot focus:outline-none w-full text-[13.5px] py-1 transition-colors"
                     />
                   </td>
                   <td className="px-6 py-4 align-top text-right">
                     <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <a href={`https://www.reddit.com/message/compose/?to=${lead.author}`} target="_blank" rel="noopener noreferrer" className="p-1.5 text-muted hover:text-main hover:bg-surface rounded" title="Gửi tin nhắn">
+                      <a href={`https://www.reddit.com/message/compose/?to=${lead.author}`} target="_blank" rel="noopener noreferrer" className="p-1.5 text-muted hover:text-main hover:bg-surface rounded" title="Send message">
                         <MessageSquare className="h-4 w-4" />
                       </a>
-                      <a href={lead.url} target="_blank" rel="noopener noreferrer" className="p-1.5 text-muted hover:text-main hover:bg-surface rounded" title="Xem bài đăng">
+                      <a href={lead.url} target="_blank" rel="noopener noreferrer" className="p-1.5 text-muted hover:text-main hover:bg-surface rounded" title="View post">
                         <ExternalLink className="h-4 w-4" />
                       </a>
-                      <button onClick={() => handleDelete(lead.id)} className="p-1.5 text-muted hover:text-red-500 hover:bg-red-500/10 rounded" title="Xóa">
+                      <button onClick={() => handleDelete(lead.id)} className="p-1.5 text-muted hover:text-red-500 hover:bg-red-500/10 rounded" title="Delete">
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </div>

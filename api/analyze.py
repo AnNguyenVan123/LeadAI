@@ -18,18 +18,18 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CORPUS = os.path.join(ROOT, "out", "posts.json")
 QUALIFY_TOP = int(os.environ.get("LEADAI_QUALIFY_TOP", "8"))
 
-STAGE = {"idea": "mới có ý tưởng", "building": "đang build",
-         "launched_no_users": "đã launch, chưa có user", "has_users": "đã có user",
-         "has_revenue": "đã có doanh thu"}
-EV_LABELS = [("states_problem", "Nói rõ đang gặp đúng vấn đề"),
-             ("seeking_solution", "Đang chủ động đi tìm cách giải quyết"),
-             ("tried_tools", "Đã thử công cụ hoặc cách khác"),
-             ("budget_signal", "Có tín hiệu sẵn sàng chi tiền"),
-             ("urgency", "Có yếu tố gấp")]
+STAGE = {"idea": "just an idea", "building": "building",
+         "launched_no_users": "launched, no users", "has_users": "has users",
+         "has_revenue": "has revenue"}
+EV_LABELS = [("states_problem", "Explicitly states the problem"),
+             ("seeking_solution", "Actively seeking a solution"),
+             ("tried_tools", "Has tried other tools/methods"),
+             ("budget_signal", "Shows willingness to pay"),
+             ("urgency", "Has an urgency factor")]
 GATE_VI = {"we cannot reach their customers from public forums":
-           "Khách của họ không xuất hiện trên forum công khai — mình chưa tìm hộ được",
+           "Their customers are not on public forums — we cannot find them",
            "no verbatim evidence they have the problem":
-           "Không trích được câu nào chứng minh họ đang gặp vấn đề"}
+           "No verbatim quote proving they have the problem"}
 
 ICP_SCHEMA = {
     "type": "object", "additionalProperties": False,
@@ -73,7 +73,7 @@ def fetch_url(url: str) -> str:
 def extract_icp(kind: str, value: str) -> dict:
     source = fetch_url(value) if kind == "url" else value.strip()[:8000]
     if len(source) < 40:
-        raise ValueError("Nội dung quá ngắn để hiểu sản phẩm")
+        raise ValueError("Content is too short to understand the product")
     return llm.json_call(ICP_SYS, f"INPUT ({kind})\n\n{source}", ICP_SCHEMA,
                          model=llm.OPUS, max_tokens=2000)
 
@@ -96,10 +96,10 @@ def to_wire(lead: dict) -> dict:
         "title": lead["title"], "subreddit": lead["subreddit"], "author": author,
         "url": lead["url"],
         "author_url": f"https://www.reddit.com/user/{author}" if author and author != "[deleted]" else "",
-        "age": f"{round(lead['age_days'])} ngày trước" if lead["age_days"] >= 1 else "hôm nay",
+        "age": f"{round(lead['age_days'])} days ago" if lead["age_days"] >= 1 else "today",
         "tier": lead["tier"], "score": lead["score"], "factors": lead["factors"],
         "problem": j["problem_statement"],
-        "one_line": f"{STAGE.get(j['stage'], j['stage'])} · bán cho {j['sells_to']}",
+        "one_line": f"{STAGE.get(j['stage'], j['stage'])} · sells to {j['sells_to']}",
         "evidence": [{"label": lab, "present": j["evidence"].get(k, {}).get("present", False),
                       "quote": j["evidence"].get(k, {}).get("quote", "")} for k, lab in EV_LABELS],
         "why": j["why"], "risk": j.get("risk", ""),
@@ -109,20 +109,20 @@ def to_wire(lead: dict) -> dict:
 
 
 def run(kind: str, value: str, live: bool, emit: Callable[[str, str, dict], None]) -> dict:
-    emit("icp", "Đang đọc sản phẩm của bạn", {})
+    emit("icp", "Reading your product...", {})
     icp_raw = extract_icp(kind, value)
     icp = ICP(product=icp_raw["product"], problem=icp_raw["problem"], buyer=icp_raw["buyer"],
-              not_buyer=icp_raw["not_buyer"] or ["Người bán dịch vụ cho chính nhóm khách này"],
+              not_buyer=icp_raw["not_buyer"] or ["People selling services to this exact same audience"],
               subreddits=icp_raw["subreddits"],
-              disqualifiers=["Khách của họ không thảo luận công khai trên forum"])
-    emit("icp_done", f"Đang tìm: {icp_raw['buyer']}", {"icp": icp_raw})
+              disqualifiers=["Their customers don't discuss publicly on forums"])
+    emit("icp_done", f"Looking for: {icp_raw['buyer']}", {"icp": icp_raw})
 
     if live:
-        emit("plan", "Đang khoanh vùng Subreddit tiềm năng", {})
+        emit("plan", "Finding relevant Subreddits...", {})
         plan = expand.plan(icp)
-        emit("plan_done", f"Tìm thấy {len(plan['subreddits'])} subreddit",
+        emit("plan_done", f"Found {len(plan['subreddits'])} subreddits",
              {"queries": plan["subreddits"][:8]})
-        emit("fetch", "Đang thu thập các bài đăng mới trong 24h qua", {})
+        emit("fetch", "Collecting new posts from the last 24h...", {})
         posts = sources.collect(plan, per_query=100, pause=2.0)
         scanned = len(posts)
         pool, dropped = prefilter.apply(posts)
@@ -130,26 +130,26 @@ def run(kind: str, value: str, live: bool, emit: Callable[[str, str, dict], None
         pool = cached_corpus()
         scanned = len(json.load(open(CORPUS)))
         dropped = {"pre-filter": scanned - len(pool)}
-    emit("prefilter", f"{scanned} post → {len(pool)} sau bộ lọc tĩnh",
+    emit("prefilter", f"{scanned} posts → {len(pool)} after static filter",
          {"scanned": scanned, "kept": len(pool), "dropped": dropped})
 
-    emit("triage", "Haiku 4.5 đang loại post không liên quan", {})
+    emit("triage", "Haiku 4.5 is filtering irrelevant posts...", {})
     kept = qualify.triage(pool, icp)
-    emit("triage_done", f"còn {len(kept)} post đáng đọc kỹ", {"kept": len(kept)})
+    emit("triage_done", f"remaining {len(kept)} posts for deep analysis", {"kept": len(kept)})
 
     kept.sort(key=lambda p: p["age_days"])
     kept = kept[:QUALIFY_TOP]
-    emit("qualify", f"Opus 5 đang bóc bằng chứng từ {len(kept)} post", {})
+    emit("qualify", f"Opus 5 is extracting evidence from {len(kept)} posts...", {})
     judged = qualify.qualify(kept, icp, workers=6)
 
     leads = scoring.rank(judged)
-    emit("score", f"{len(leads)} lead sau khi chấm điểm và chặn hard gate", {})
+    emit("score", f"{len(leads)} leads after scoring and hard gates", {})
 
     funnel = [
-        {"label": "post Reddit", "n": scanned, "drop": scanned - len(pool)},
-        {"label": "qua lọc tĩnh", "n": len(pool), "drop": len(pool) - len(kept)},
-        {"label": "qua triage Haiku", "n": len(kept), "drop": len(kept) - len(judged)},
-        {"label": "Opus bóc bằng chứng", "n": len(judged), "drop": len(judged) - len(leads)},
-        {"label": "lead thật", "n": len(leads), "drop": 0},
+        {"label": "Reddit posts", "n": scanned, "drop": scanned - len(pool)},
+        {"label": "static filter", "n": len(pool), "drop": len(pool) - len(kept)},
+        {"label": "Haiku triage", "n": len(kept), "drop": len(kept) - len(judged)},
+        {"label": "Opus evidence", "n": len(judged), "drop": len(judged) - len(leads)},
+        {"label": "real leads", "n": len(leads), "drop": 0},
     ]
     return {"icp": icp_raw, "leads": [to_wire(l) for l in leads], "scanned": scanned, "funnel": funnel}
