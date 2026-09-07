@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const EXAMPLES = [
   { label: "Gym booking tool", text: "I'm building a web app to help small gyms manage personal training schedules and remind clients via WhatsApp. My customers are gym owners with 1-2 locations currently using Excel and WhatsApp." },
-  { label: "SaaS phân tích review", text: "I built a tool that reads all your app store reviews and tells you which feature complaints are growing week over week. For indie iOS developers with a live app who don't have time to read reviews." },
+  { label: "Review analysis SaaS", text: "I built a tool that reads all your app store reviews and tells you which feature complaints are growing week over week. For indie iOS developers with a live app who don't have time to read reviews." },
 ];
 
 export default function InputCard({ onRun, busy, liveEnabled, perIp }: {
@@ -31,7 +31,7 @@ export default function InputCard({ onRun, busy, liveEnabled, perIp }: {
 
       {kind === "url" ? (
         <input value={value} onChange={(e) => setValue(e.target.value)} disabled={busy}
-          placeholder="vd. yourproduct.com"
+          placeholder="e.g. yourproduct.com"
           className="w-full rounded-sm border border-line bg-surface-2 px-3 py-3 text-[15px] outline-none focus:border-accent focus:bg-surface" />
       ) : (
         <textarea value={value} onChange={(e) => setValue(e.target.value)} disabled={busy} rows={5}
